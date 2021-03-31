@@ -1,0 +1,144 @@
+@charset "utf-8";
+idhtml, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {margin: 0;padding: 0;}
+*{box-sizing: border-box;}
+html, body {min-height: 100%;}
+body {font: 12px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+ul,ol {list-style: none;}
+s,i,em{font-style:normal;text-decoration:none;}
+img {border: none;vertical-align: middle;}
+a {text-decoration: none;color: #3498db;}
+table {border-collapse: collapse;table-layout: fixed;}
+input, textarea {outline: none; background-color:transparent;}
+textarea {resize: none;overflow: auto;}
+
+/* start */
+
+body{
+	width: 100%;
+	height: calc(100vh);
+	background: url(./../img/bgc.png) no-repeat center;
+	position: absolute;
+}
+.box{
+	width: 400px;
+	height: 500px;
+	background:#fff;
+	position: relative;
+	top: 50%;
+	left: 30%;
+	margin-top: -225px;
+	margin-left: -250px;
+	
+}
+.box .boxTop{
+	width: 100%;
+	height: 100px;
+	padding-top: 40px;
+	margin-bottom: 30px;
+}
+.box .boxTop a{
+	color: #3498db;
+	display: block;
+	width: 200px;
+	height: 60px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 40px;
+	
+}
+.boxBot{
+	width: 100%;
+	height: 370px;
+	
+}
+
+.boxBot input[type="text"],input[type="password"]{
+	width: 250px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	border-radius:50px ;
+	padding-left: 20px;
+	border: 1px solid #3498db;
+	color: #000;
+}
+
+/* 文本框获得焦点时的样式 */
+.boxBot input[type="text"]:focus,input[type="password"]:focus{
+	/* width: 300px; */
+	border-color:  #2ecc71;
+}
+.boxBot input[id="verification"]{
+	width: 150px;
+	margin:0 20px 0 75px;
+	float: left;
+}
+.boxBot form a,img{
+	display: block;
+	float: left;
+	width: 100px;
+	height: 40px;
+}
+.boxBot input[type="submit"]{
+	width:80px;
+	height: 50px;
+	display: block;
+	border-radius: 25px;
+	margin: 0 auto;
+	margin-top: 30px;
+	color: #000;
+	cursor: pointer;
+	border: 2px solid #3498db;
+}
+
+.boxBot input[type="submit"]:hover{
+	background: #2ecc71;
+	border-color:#2ecc71; 
+}
+.insert_alter{
+	width: 200px;
+	height: 30px;
+	margin: 20px auto;
+}
+.insert_alter a:nth-of-type(1){
+	float: left;
+	display: block;
+	width:90px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	padding-left: 20px;
+	/* background-color: #191D3A; */
+
+}
+.insert_alter a:nth-of-type(1):hover{
+	color: #2ECC71;
+}
+
+.insert_alter a:nth-of-type(2){
+	float: right;
+	display: block;
+	width:80px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	
+}
+.insert_alter a:nth-of-type(2):hover{
+	color: #2ECC71;
+}
+
+.insert_alter .center{
+	float: left;
+	display: block;
+	width: 20px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+	/* margin-left: 10px; */
+	color: #3498db;
+}
