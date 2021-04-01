@@ -26,33 +26,66 @@ body{
 	background:#fff;
 	position: relative;
 	top: 50%;
-	left: 30%;
+	left: 50%;
 	margin-top: -225px;
 	margin-left: -250px;
-	
+	background: rgba(245, 247, 243, 0.8);
+   /* background-color: transparent; */
+
+}
+.box #myLogo img{
+	margin-top: 20px;
+	width: 120px;
+	height: 100px;
 }
 .box .boxTop{
 	width: 100%;
 	height: 100px;
-	padding-top: 40px;
+	padding-top: 30px;
 	margin-bottom: 30px;
+	font-size: 15px;
 }
 .box .boxTop a{
 	color: #3498db;
 	display: block;
 	width: 200px;
 	height: 60px;
+	padding-top: 40px;
 	margin: 0 auto;
 	text-align: center;
-	font-size: 40px;
 	
 }
 .boxBot{
 	width: 100%;
 	height: 370px;
+	opacity: 0.8;
 	
 }
-
+ #myForm span{
+	 padding-left: 90px;
+	 font-size: 12px;
+	 letter-spacing: 1px;
+	 line-height: 30px;
+	 color: red;
+	display: block;
+	width:100% ;
+	height: 30px;
+	float: left;
+}
+/* 验证码 */
+#myForm #codeNum{
+	width: 100px;
+	height: 40px;
+	border: 1px solid #3498db;
+	font-weight: bolder;
+	font-size: 20px;
+	letter-spacing: 2px;
+	color: greenyellow;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+	line-height: 40px;
+	text-align: center;
+}
 .boxBot input[type="text"],input[type="password"]{
 	width: 250px;
 	height: 40px;
@@ -71,28 +104,29 @@ body{
 }
 .boxBot input[id="verification"]{
 	width: 150px;
-	margin:0 20px 0 75px;
+	margin:0 0 0 75px;
 	float: left;
 }
 .boxBot form a,img{
 	display: block;
 	float: left;
+	margin-left: 10px;
 	width: 100px;
 	height: 40px;
 }
-.boxBot input[type="submit"]{
+.boxBot input[type="button"]{
 	width:80px;
 	height: 50px;
 	display: block;
 	border-radius: 25px;
 	margin: 0 auto;
-	margin-top: 30px;
+	/* margin-top: 30px; */
 	color: #000;
 	cursor: pointer;
 	border: 2px solid #3498db;
 }
 
-.boxBot input[type="submit"]:hover{
+.boxBot input[type="button"]:hover{
 	background: #2ecc71;
 	border-color:#2ecc71; 
 }
