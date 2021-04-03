@@ -17,9 +17,9 @@ textarea {resize: none;overflow: auto;}
 body{
 	width: 100%;
 	height: calc(100vh);
-	background: url(./../img/bgc.png) no-repeat center;
 	position: absolute;
 }
+
 .box{
 	width: 400px;
 	height: 500px;
@@ -30,8 +30,15 @@ body{
 	margin-top: -225px;
 	margin-left: -250px;
 	background: rgba(245, 247, 243, 0.8);
+	z-index: 100000;
    /* background-color: transparent; */
 
+}
+video{
+	z-index: -1;
+	position: fixed;
+	right: 0;
+	top: 0;
 }
 .box #myLogo img{
 	margin-top: 20px;
@@ -80,7 +87,8 @@ body{
 	font-weight: bolder;
 	font-size: 20px;
 	letter-spacing: 2px;
-	color: greenyellow;
+	border-radius: 50px;
+	color:black;
 	font-family: Arial, Helvetica, sans-serif;
 	font-style: italic;
 	line-height: 40px;
