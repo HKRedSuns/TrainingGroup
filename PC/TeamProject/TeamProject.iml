@@ -21,10 +21,11 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.64" level="application_server_libraries" />
     <orderEntry type="library" exported="" name="com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://A:/Java外接工具包/mysql-connector-java-8.0.21/mysql-connector-java-8.0.21.jar!/" />
+          <root url="jar://$MODULE_DIR$/../数据库/JDBC/mysql-connector-java-8.0.21.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

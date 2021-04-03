@@ -8,8 +8,8 @@
           <element id="module-output" name="TeamProject" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="A:/Java外接工具包/mysql-connector-java-8.0.21/mysql-connector-java-8.0.21.jar" />
           <element id="library" level="project" name="com.google.code.gson:gson:2.8.6" />
+          <element id="file-copy" path="$PROJECT_DIR$/../数据库/JDBC/mysql-connector-java-8.0.21.jar" />
         </element>
       </element>
     </root>

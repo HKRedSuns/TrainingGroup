@@ -2,3 +2,4 @@
 2.创建好用户之后,新建一个数据库并且命名为teamproject;
 3.创建好数据库之后,将SQL文件(teamproject.sql)导入到数据库中
 注意:要使用本地连接(localhost)且端口号为3306
+在项目文件中一定要导入JDBC的jar包

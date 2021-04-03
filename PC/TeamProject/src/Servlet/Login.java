@@ -20,7 +20,7 @@ public class Login extends HttpServlet {
         //定义输出前端页面的流对象
         PrintWriter pw = null;
 
-        //设置字符集
+        //设置字符集asss
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html,charset=utf-8");
