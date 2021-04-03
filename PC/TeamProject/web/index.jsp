@@ -14,7 +14,7 @@
     <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
-  <a href="./view/leading end/login.html" id="login">登录</a>
+  <a href="./view/leadingendview/view/leading%20end/login.html" id="login">登录</a>
 
   </body>
 </html>

@@ -9,8 +9,12 @@
 <html>
   <head>
     <title>$Title$</title>
+    <meta name="viewport" content="width=device-width,linitial-scale=1,maximum-scale=1,user-scalabe=no">
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
-  测试
+  <a href="./view/leadingendview/view/leading%20end/login.html" id="login">登录</a>
+
   </body>
 </html>
