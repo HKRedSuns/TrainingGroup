@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="com.google.code.gson:gson:2.8.6" />
           <element id="file-copy" path="$PROJECT_DIR$/../数据库/JDBC/mysql-connector-java-8.0.21.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../第三方库文件/mail.jar" />
         </element>
       </element>
     </root>
