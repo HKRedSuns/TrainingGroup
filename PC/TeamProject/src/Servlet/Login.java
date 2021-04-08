@@ -40,11 +40,11 @@ public class Login extends HttpServlet {
         result = userDao.userLogin(userName,userPass);
         if(result==0){
             //返回数据
-            pw.print("用户不存在!");
+            pw.print("0");
         }else if(result == -1){
-            pw.print("密码错误!");
+            pw.print("-1");
         }else{
-            pw.print("登录成功!");
+            pw.print("1");
         }
 
     }
