@@ -17,28 +17,29 @@ $(function () {
             var name = /^[\u4e00-\u9fa5]{3,10}$|^[\dA-Za-z_]{4,14}$/;
             if (!name.test(myName.value)) {
                 $('i').addClass('name_false');
-
                 $(".err")[0].innerHTML = "用户名请以汉字或者以数字、字母和下划线组合";
                 sendTo = 0;
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "",
+                    url: "/UserName_Verification",
                     data: $('#myName').serialize(),// 序列化表单值  
-                    async: false,
+                    async: true,
                     error(request) {
                         return false;
                     },
                     success(data) {  //成功
                         var data = parseInt(data);
                         if (data == 1) {
-                            $('i').addClass('name_true');
-                            $(".err")[0].innerHTML = "";
-                            sendTo = 1;
-                        } else if (data == -1) {
+                            $('i').removeClass('name_true');
                             $('i').addClass('name_false');
                             $(".err")[0].innerHTML = "用户名已被注册";
                             sendTo = 0;
+                        } else if (data == -1) {
+                            $('i').removeClass('name_false');
+                            $('i').addClass('name_true');
+                            $(".err")[0].innerHTML = "";
+                            sendTo = 1;
                         }
 
 
@@ -129,7 +130,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "",
+            url: "/Verification",
             data: $('#myEmail').serialize(),
             async: true,
             error(request) {
@@ -183,7 +184,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "",
+            url: "/Register",
             data: $('#myForm').serialize(),// 序列化表单值  
             async: true,
             error(request) {

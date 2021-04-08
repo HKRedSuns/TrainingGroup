@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 /**
- * 邮箱验证码
+ * 邮箱验证码请求
  */
 @WebServlet("/Verification")
 public class Verification extends HttpServlet {
@@ -26,7 +26,7 @@ public class Verification extends HttpServlet {
         PrintWriter pw = response.getWriter();
 
         //获取用户的邮箱号码
-        String userEmail = request.getParameter("email");
+        String userEmail = request.getParameter("Email");
         //System.out.println(userEmail);
 
         //获取随机数
