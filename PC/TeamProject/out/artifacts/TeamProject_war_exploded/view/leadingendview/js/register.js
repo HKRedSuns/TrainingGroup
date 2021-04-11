@@ -130,7 +130,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/Verification",
+            url: "/RegVerification",
             data: $('#myEmail').serialize(),
             async: true,
             error(request) {

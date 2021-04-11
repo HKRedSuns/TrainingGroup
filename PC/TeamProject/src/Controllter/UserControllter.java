@@ -156,4 +156,80 @@ public class UserControllter {
         }
         return isRegister;
     }
+
+    //编写一个方法,判断用户表中是否存在相同邮箱
+    public int retrieveVerification(String emil){
+        //定义一个返回给调用者的结果
+        int result = 0;
+        //定义一个数据库连接对象
+        Connection conn = null;
+        //定义一个SQL操作对象
+        PreparedStatement ment = null;
+        //用户对象
+        User user = null;
+        //sql语句结果对象
+        ResultSet rs = null;
+        //初始化SQl语句
+        String sql = "select * from user where email=?";
+        try {
+            //获取数据库连接对象
+            conn = ConnectionUtils.getConn();
+            //获取ment对象
+            ment = conn.prepareStatement(sql);
+            ment.setString(1, emil);
+            //获取sql语句返回值
+            rs = ment.executeQuery();
+            if (rs.next()) {
+                //创建一个用户
+                user = new User();
+                //获取数据库数据并且赋值给javaBean对象
+                user.setEmail(rs.getString("email"));
+                //验证
+                System.out.println(user.getEmail());
+            }
+            //关闭数据库
+            ConnectionUtils.CloseConn();
+            //判断邮箱是否为空 空就返回0
+            if (user == null) return 0;
+            //正确返回1
+            else return 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //默认返回0 标识用户名错误
+        return result;
+    }
+
+    //编写一个方法,修改用户密码
+    public boolean UpdatePassword(String email,String newPassword){
+        //连接数据库
+        Connection conn = null;
+        //定义一个SQL操作对象
+        PreparedStatement ment = null;
+        //数据库查询结果
+        boolean isRegister = false;
+        //SQL语句结果对象
+        ResultSet rs = null;
+        //更改用户数据
+        String sql = "update user set password=? where email=?";
+        try{
+            //获取连接对象
+            conn = ConnectionUtils.getConn();
+            //获取ment对象
+            ment = conn.prepareStatement(sql);
+            //添加数据
+            ment.setString(1,newPassword);
+            ment.setString(2,email);
+            if(ment.executeUpdate()!=0){
+                isRegister = true;
+            }else{
+                isRegister = false;
+            }
+            //关闭数据库
+            ConnectionUtils.CloseConn();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return isRegister;
+    }
 }

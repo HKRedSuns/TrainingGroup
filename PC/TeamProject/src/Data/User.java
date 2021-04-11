@@ -11,6 +11,8 @@ public class User {
     private String UserName;
     //用户密码
     private String UserPassword;
+    //用户邮箱
+    private String email;
 
 
     //Get方法
@@ -23,6 +25,10 @@ public class User {
     public String getUserPassword() {
         return UserPassword;
     }
+    public String getEmail() {
+        return email;
+    }
+
     //Set方法
     public void setUserName(String userName) {
         UserName = userName;
@@ -33,5 +39,7 @@ public class User {
     public void setUserPassword(String userPassword) {
         UserPassword = userPassword;
     }
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
