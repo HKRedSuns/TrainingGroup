@@ -87,6 +87,17 @@ $(function () {
     $('s').mouseout(function () {
         pass.type = "password"
     })
+    // 验证码
+
+   var myCode = document.getElementById('myCode');
+   myCode.oninput = myCode.onpropertychange = function () {
+    if(this.value==""){
+        $('.err')[3].innerHTML = '';
+            sendTo = 1
+        // alert(1)
+    }
+   }
+
     // 邮箱
 
     $('#send').on('click', function () {
@@ -100,8 +111,8 @@ $(function () {
         if (!email.test($('#myEmail').val())) {
             alert('邮箱格式错误')
             $('.err')[2].innerHTML = '邮箱格式错误';
-            return
             sendTo = 0
+            return
         } else {
             alert('验证码已发送到您的邮箱，如若长时间未接受到，请前往垃圾邮件内查看')
             $('.err')[2].innerHTML = '';
