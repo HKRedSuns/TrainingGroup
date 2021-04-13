@@ -11,41 +11,41 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * 登录页面数据请求
+ * 注册页面用户名判断用户名是否存在请求
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/UserName_Verification")
+public class UserName_Verification extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //创建用户逻辑处理对象
         UserControllter userDao = new UserControllter();
-        //创建一个返回值
-        //0:用户不存在;1:登录成功;-1:用户名或密码错误
-        int result = 0;
+        //设置返回数据(默认为-1表示用户名失败
+        int temp = -1;
         //定义输出前端页面的流对象
         PrintWriter pw = null;
 
-        //设置字符集asss
+        //设置字符集
         request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
         response.setContentType("text/html,charset=utf-8");
+        response.setCharacterEncoding("utf-8");
 
         //对流对象进行赋值
         pw = response.getWriter();
 
-        //获取数据
-        String userName = request.getParameter("user");
-        String userPass = request.getParameter("pass");
-        System.out.println(userName+"......"+userPass);     //测试成功
-
-        //调用方法与数据库进行用户名密码验证
-        result = userDao.userLogin(userName,userPass);
-        if(result==0){
+        //获取用户名
+        String userName = request.getParameter("userName");
+        //测试
+        System.out.println(userName);
+        //判断和数据库中是否有重名
+        temp = userDao.UserName_Verification(userName);
+        if(temp==1){
+            //用户名存在
+            //System.out.println("用户名存在");
             //返回数据
-            pw.print("0");
-        }else if(result == -1){
-            pw.print("-1");
-        }else{
             pw.print("1");
+        }else if(temp == -1){
+            //用户名不存在
+            //System.out.println("用户名不存在");
+            pw.print("-1");
         }
 
     }

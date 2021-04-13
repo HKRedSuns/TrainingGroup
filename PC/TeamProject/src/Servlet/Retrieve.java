@@ -1,6 +1,6 @@
 package Servlet;
 
-import Utils.MailUtil;
+import Controllter.UserControllter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 
 /**
- * 邮箱验证码请求
+ * 忘记密码页面
  */
-@WebServlet("/RegVerification")
-public class Verification extends HttpServlet {
+@WebServlet("/retrieve")
+public class Retrieve extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置字符集
         request.setCharacterEncoding("utf-8");
@@ -25,26 +24,26 @@ public class Verification extends HttpServlet {
         //创建流对象
         PrintWriter pw = response.getWriter();
 
-        //获取用户的邮箱号码
+        //获取新密码
+        String newPassword = request.getParameter("newPassword");
+        //获取邮箱
         String userEmail = request.getParameter("Email");
-        //System.out.println(userEmail);
+        //测试
+        System.out.println(newPassword+"啊实打实的"+userEmail);
 
-        //获取随机数
-        String random = MailUtil.getRandom();
-        //System.out.println(random);
-        //发送邮件
-        boolean isEmail = MailUtil.SendMail(userEmail,random);
-        //System.out.println(isEmail);
-        //返回验证码
-        if(isEmail){
-            pw.print(random);
+        UserControllter user = new UserControllter();
+        //调用方法
+        boolean isRetrieve = user.UpdatePassword(userEmail,newPassword);
+        if(isRetrieve){
+            //成功
+            pw.print("修改密码成功!");
         }else{
-            pw.print(-1);
+            //失败
+            pw.print("修改密码失败!");
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        this.doPost(request, response);
     }
 }
