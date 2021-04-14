@@ -141,7 +141,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/RegVerification",
+            url: "/Verification",
             data: $('#myEmail').serialize(),
             async: true,
             error(request) {

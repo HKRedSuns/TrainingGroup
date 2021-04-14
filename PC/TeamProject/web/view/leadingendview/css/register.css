@@ -157,8 +157,7 @@ video{
     height: 30px;
     display: block;
 }
-#myForm s{
-    
+#myForm s{  
     position: relative;
     top:30px;
     right: -285px;
@@ -167,6 +166,7 @@ video{
     display: block; 
     /* border: 1px solid;  */
 }
+
 .eye{
     background:url(./../img/eye.png) no-repeat center;
 
