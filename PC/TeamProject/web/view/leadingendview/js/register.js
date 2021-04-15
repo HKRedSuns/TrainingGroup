@@ -141,7 +141,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/Verification",
+            url: "/RegVerification",
             data: $('#myEmail').serialize(),
             async: true,
             error(request) {
@@ -207,8 +207,12 @@ $(function () {
                 $('#myForm')[0].reset();
             },
             success(data) {  //成功
-                alert(data);  //就将返回的数据显示出来
-                window.location.href = "跳转页面";
+                if(data == 1){
+                    window.location.href="./login.html";
+
+                }else{
+                    alert("注册失败")
+                }
             }
         });
     })
