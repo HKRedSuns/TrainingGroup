@@ -90,7 +90,7 @@ $(function () {
     // 验证码
 
    var myCode = document.getElementById('myCode');
-   myCode.oninput = pass.onpropertychange = function () {
+   myCode.oninput = myCode.onpropertychange = function () {
     if(this.value==""){
         $('.err')[3].innerHTML = '';
             sendTo = 1

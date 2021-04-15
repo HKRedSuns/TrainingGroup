@@ -64,6 +64,16 @@ $(function() {
 		pass2.type = "password"
 	})
 
+// 验证码
+
+var myCode = document.getElementById('myCode');
+myCode.oninput = myCode.onpropertychange = function () {
+ if(this.value==""){
+	 $('.err')[3].innerHTML = '';
+		 sendTo = 1
+	//  alert(1)
+ }
+}
 
 	// 邮箱
 
