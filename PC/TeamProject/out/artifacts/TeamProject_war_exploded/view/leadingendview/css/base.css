@@ -157,6 +157,7 @@ nav .nav_login #login div a:hover{
 	line-height: 300px;
 	top: 0;
 	cursor: pointer;
+	display: none;
 }
 .slider .sli_lef{
 	

@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>食上达人</title>
 	<link rel="stylesheet" type="text/css" href="./view/leadingendview/css/base.css" />
-	<link rel="stylesheet" href="./view/leadingendview/css/semantic.min.css">
 	<link rel="shortcut icon" href="./view/logo.ico">
 	<script src="./view/leadingendview/js/jquery.min.js"></script>
 </head>
@@ -43,7 +42,7 @@
 	</nav>
 	<!-- 轮播图 -->
 	<div class="slider">
-		<ul>
+		<ul class="sli_img">
 			<li>
 				<a href="#">
 					<img src="./view/leadingendview/img/slider_1.png" id="myImg">
@@ -52,8 +51,8 @@
 			
 		</ul>
 		<ul id="sli_num">
-			<li class="active"></li>
-			<li></li>
+			<li  class="active"></li>
+			<li ></li>
 			<li></li>
 		</ul>
 
@@ -66,7 +65,19 @@
 		</div>
 
 		<script>
-			
+			var slider = document.getElementsByClassName('slider')[0];
+			var sli_lef = document.getElementsByClassName('sli_lef')[0];
+			var sli_rig = document.getElementsByClassName('sli_rig')[0];
+			var sli_num = document.getElementById('sli_num');
+			var lis = sli_num.children;
+			slider.onmouseover=function(){
+				sli_rig.style.display="block"
+				sli_lef.style.display="block"
+			}
+			slider.onmouseout=function(){
+				sli_rig.style.display="none"
+				sli_lef.style.display="none"
+			}
 			//轮播时间
 			window.onload = function(){
 				init();
@@ -90,7 +101,10 @@
 				if(index<0){
 					index = arr.length-1;
 				}
-
+				for(var i = 0 ; i < lis.length ; i++){
+					lis[i].className=''
+				}
+				lis[index].className="active"
 				myImg.src=arr[index];
 			}
 			//下一张
@@ -99,10 +113,14 @@
 				if(index>=arr.length){
 					index = 0;
 				}
-				
+				for(var i = 0 ; i < lis.length ; i++){
+					lis[i].className=''
+				}
+				lis[index].className="active"
 				myImg.src=arr[index];
 			}
 
+			
 		</script>
 	</div>
 	<!-- 墙 -->
@@ -133,223 +151,131 @@
 							<span>大表哥</span>
 						</div>
 						<div class="comment">
-							<i></i>
+							<a href="">
+								<i></i>
+							</a>
 							<span>45</span>
 						</div>
 						<div class="love">
-							<i></i>
+							<a href="">
+								<i></i>
+							</a>
 							<span>102</span>
 						</div>
 					</div>
 				</div>
 				<div class="wall_10"></div>
-
 			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>鱼香肉丝</h2>
-					</a>
-					<div class="art_all">
-						鱼香肉丝（Yuxiang shredded
-						pork），是四川省的一道特色名菜，该菜品以泡辣椒，子姜，大蒜，糖和醋炒制猪里脊肉丝而成，由民国时期的一位川菜大厨所创制，相传灵感来自泡椒肉丝。鱼香肉丝是一道著名川菜，其咸鲜酸甜兼备，葱姜蒜香浓郁，其味是调味品调制而...
+			<!-- 页面右边 -->
+			<div class="page_right">
+				<!-- 广告 -->
+				<div class="ad">
+					<div class="ad_box">
+						<span id="close_box">x</span>
+						<a href="">
+						<img src="./view/leadingendview/img/ad.png" alt="">
+
+						</a>
 					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/fish.jpg"></a>
+				</div>
+				<!-- 文章推荐 -->
+				<div class="article_rec">
+					<div class="art_top">
+						<div class="art_top_coral"></div>
+						<h2>文章推荐</h2>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>麻辣德子</span>
-						</div>
-						<div class="comment">
-							<i></i>
-							<span>345</span>
-						</div>
-						<div class="love">
-							<i></i>
-							<span>12</span>
+					<div class="art_bot">
+						<ul>
+							<li><a href="">【红油拌蒜苔】春天的应季凉拌菜</a></li>
+							<li><a href="">「元气蒸鲍鱼」-春天里的好胃口，汁水丰盈，...</a></li>
+							<li><a href="">用春天第一鲜做饼子，做早餐正合适，抓紧吃...</a></li>
+							<li><a href="">「海盐樱花饼干」-春日里的小心思烘焙茶点</a></li>
+							<li><a href="">做馒头时多加一步，8分钟就满盘，蓬松香软，...</a></li>
+							<li><a href="">尹正的减肥之路，自律很重要，看我做的减肥...</a></li>
+							<li><a href="">春天了，看看哪些野菜可以吃？收藏好每年都.</a></li>
+							<li><a href="">减肥和三高吃的菜，脂肪是0，多吃无负担，不..</a></li>
+							<li><a href="">20分钟搞定的早餐，4主食4菜，有猪肉有牛肉...</a></li>
+							<li><a href="">早餐吃面包已成我家常态，隔三差五我都要烤一两个大吐司，早上打点儿豆浆或者...</a></li>
+						</ul>
+						<div class="art_bot_updata">
+							<a href="">
+								<i></i>
+							<span>换一批</span>
+							</a>
 						</div>
 					</div>
 				</div>
-				<div class="wall_10"></div>
-
-			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>菲力牛排</h2>
-					</a>
-					<div class="art_all">菲力牛排四个字中的菲力，指的是牛里脊肉（beef
-						tenderloin）。在澳洲，这块肉被称为“眼菲力”，在法国和英国被称为filet和fillet，中文音译菲力。菲力牛排就是用一定厚度的牛里脊肉做出的牛排。</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/cow.jpg"></a>
+				<!-- 作者推荐 -->
+				<div class="author_rec">
+					<div class="aut_top">
+						<div class="aut_top_coral"></div>
+						<h2>作者推荐</h2>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>西餐</span>
-						</div>
-						<div class="comment">
-							<i></i>
-							<span>80</span>
-						</div>
-						<div class="love">
-							<i></i>
-							<span>32</span>
+					<div class="aut_bot">
+						<ul>
+							<li>
+								<a href="">
+									
+								<i><img src="./view/leadingendview/img/header_1.jpg" alt=""></i>
+								<h2>jaoden</h2>
+								<span>作者介绍</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									
+								<i><img src="./view/leadingendview/img/header_2.jpg" alt=""></i>
+								<h2>色坤</h2>
+								<span>作者介绍</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									
+								<i><img src="./view/leadingendview/img/header_3.jpg" alt=""></i>
+								<h2>阿伟</h2>
+								<span>作者介绍</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									
+								<i><img src="./view/leadingendview/img/header_4.jpg" alt=""></i>
+								<h2>作者</h2>
+								<span>作者介绍</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									
+								<i><img src="./view/leadingendview/img/header_5.jpg" alt=""></i>
+								<h2>作者</h2>
+								<span>作者介绍</span>
+								</a>
+							</li>
+							
+						</ul>
+						<div class="aut_bot_updata">
+							<a href="">
+								<i></i>
+							<span>换一批</span>
+							</a>
 						</div>
 					</div>
 				</div>
-				<div class="wall_10"></div>
-
+				
 			</div>
-			<div class="page">
-				<div class="ui bottom attached segment">
-					<div class="ui middle aligned two column grid">
-						<div class="column">
-							<a href="#" class="ui mini teal basic button">上一页</a>
-						</div>
-						<div class="right aligned column">
-							<a href="#" class="ui mini teal basic button">下一页</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="right">
-				<div class="five wide column">
-					<!--分类 -->
-					<div class="ui segments">
-						<div class="ui secondary segment">
-							<div class="ui two column grid">
-								<div class="column">
-									<i class=" icon"></i>博主
-								</div>
-								<div class="right aligned column">
-									<a href="">more<i class=" right icon"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="ui teal segment">
-							<div class="ui fluid vertical menu">
-								<a href="#" class="item">
-									蜀中桃子姐
-									<div class="ui  teal basic left pointing label">1</div>
-								</a>
-								<a href="#" class="item">
-									疯产姐妹
-									<div class="ui  teal basic left pointing label">2</div>
-								</a>
-								<a href="#" class="item">
-									办公室小野
-									<div class="ui  teal basic left pointing label">3</div>
-								</a>
-								<a href="#" class="item">
-									零食少女
-									<div class="ui  teal basic left pointing label">4</div>
-								</a>
-								<a href="#" class="item">
-									大胃爱丽斯
-									<div class="ui  teal basic left pointing label">5</div>
-								</a>
-								<a href="#" class="item">
-									牛奶少女
-									<div class="ui  teal basic left pointing label">6</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<!--标签 -->
-					<div class="ui segments">
-						<div class="ui secondary segment">
-							<div class="ui two column grid">
-								<div class="column">
-									<i class=" icon"></i>分类
-								</div>
-								<div class="right aligned column">
-									<a href="">more<i class=" right icon"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="ui teal segment">
-							<a href="#" target="_blank" class="ui  teal basic left pointing label m-margin-tb-tiny">
-								川菜
-								<div class="detail">23</div>
-							</a>
-							<a href="#" target="_blank" class="ui  teal basic left pointing label">
-								鲁菜
-								<div class="detail">23</div>
-							</a>
-							<a href="#" target="_blank" class="ui  teal basic left pointing label">
-								粤菜
-								<div class="detail">23</div>
-							</a>
-							<a href="#" target="_blank" class="ui  teal basic left pointing label">
-								闽菜
-								<div class="detail">23</div>
-							</a>
-							<a href="#" target="_blank" class="ui  teal basic left pointing label">
-								湘菜
-								<div class="detail">23</div>
-							</a>
-							<a href="#" target="_blank" class="ui  teal basic left pointing label">
-								徽菜
-								<div class="detail">23</div>
-							</a>
-
-						</div>
-					</div>
-
-
-				</div>
-			</div>
-		</div>
+			
+			
 	</div>
-	</div>
-	<!-- 侧边栏 -->
-	</div>
-	</div>
-	<footer class="ui inverted vertical segment m-padded-tb-big">
-		<div class="ui center aligned container m-text-lined">
-			<div class="ui inverted divided grid">
-				<div class="three wide column">
-					<div class="ui inverted link list">
-						<div class="item">
-							<img src="./view/leadingendview/img/code.jpg" class="ui rounded image" style="width: 110px;"
-								alt="">
-						</div>
-					</div>
-				</div>
-				<div class="four wide column">
-					<h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
-					<div class="ui inverted link list">
-						<a href="" class="item">用户故事（User Story）</a>
-						<a href="" class="item">关于刻意练习的清单</a>
-						<a href="" class="item">失败要趁早</a>
-					</div>
-				</div>
-				<div class="four wide column">
-					<h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
-					<div class="ui inverted link list">
-						<a href="" class="item">Email：2250078289@qq.com</a>
-						<a href="" class="item">QQ：2250078289</a>
-					</div>
-				</div>
-				<div class="five wide column">
-					<h4 class="ui inverted header m-text-thin m-text-spaced">食上达人</h4>
-					<p class="m-opacity-mini">
-						美食博客,美食达人的汇聚地,最具原创精神的网络美食家园,为您提供简单实用,图文并茂的美食博文,详细的美食制作指南,世界各地特色美食荟萃,以及生活百科……</p>
-				</div>
-			</div>
-			<div class="ui inverted section divider"></div>
-			<p class="m-text-thin m-text-spaced m-opacity-mini">Copyright &copy; <strong>食上达人</strong> All Rights
-				Reserved.</p>
-			<p class="m-text-thin m-text-spaced m-opacity-mini">Designed by <a href="">食上达人</a></p>
-		</div>
-	</footer>
+	
 </body>
 
-</html>
+</html>	
+<script>
+	$(function(){
+		$('#close_box').click(function(){
+			$(this).parent().parent().css("display","none")
+		})
+	})
+</script>
