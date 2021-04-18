@@ -1,0 +1,17 @@
+[{
+    "title":"鱼香肉丝",
+    "author":"麻辣德子",
+    "article":"鱼香肉丝（Yuxiang shredded pork），是四川的一道特色名菜，该菜品以泡辣椒，子姜，大蒜，糖和醋炒制猪里脊肉丝而成，由民国时期的一位川菜大厨所创制，相传灵感来自泡椒肉丝。鱼香肉丝是一道著名川菜，其咸鲜酸甜兼备，葱姜蒜香浓郁，其味是调味品调制而成...",
+    "comment":"90",
+    "love":"100",
+    "img":"./view/leadingendview/img/fish.jpg"
+},{
+    
+    "title":"西红柿炒鸡蛋",
+    "author":"大表哥",
+    "article":"西红柿炒鸡蛋是以西红柿，鸡蛋为主料制作的药膳。味道酸甜可口，特别下饭，特别适合老人孩子，食材简单易学。",
+    "comment":"90",
+    "love":"100",
+    "img":"./view/leadingendview/img/tomato.jpg"
+},{
+}]
