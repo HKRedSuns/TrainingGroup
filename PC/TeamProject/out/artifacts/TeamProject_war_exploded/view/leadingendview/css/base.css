@@ -101,6 +101,7 @@ nav .nav_login #login div{
 	line-height: 60px;
 	margin-left: 20px;
 	width: 30%;
+	position: relative;
 }
 nav .nav_login #login div img{
 	margin-top: 15%;
@@ -117,6 +118,33 @@ nav .nav_login #login div a{
 }
 nav .nav_login #login div a:hover{
 	color: coral;
+}
+nav .nav_login #login div #quit_box {
+	display: none;
+	width: 100px;
+	height: 120px;
+	background-color: #fff;
+	position: absolute;
+	top: 50px;
+	left: -45px;
+	z-index: 10;
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: #999 0px 1px 2px;
+}
+#quit_box #quit_ul li {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #f9f9f9;
+	line-height: 30px;
+}
+#quit_box #quit_ul li a{
+	font-size: 14px;
+	display: block;
+	width: 100%;
+	height: 30px;
+text-align: center;
+
 }
 .write{
 	float: left;
@@ -337,7 +365,6 @@ nav .nav_login #login div a:hover{
 	width: 80%;
 	height: 100%;
 	margin: 0 auto;
-	border: 1px solid;
 	position: relative;
 }
 .page_right .ad .ad_box img{
@@ -584,7 +611,7 @@ nav .nav_login #login div a:hover{
 .boxBot form a,img{
 	display: block;
 	float: left;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 	width: 100px;
 	height: 40px;
 }

@@ -10,12 +10,7 @@
 	<script src="./view/leadingendview/js/jquery.min.js"></script>
 	<script src="./view/leadingendview/js/vue.js"></script>
 </head>
-	<script>
-		// 判断用户是否登录
 
-
-
-	</script>
 <body>
 
 <!-- 导航 -->
@@ -42,11 +37,19 @@
 			<div >
 				<a href="./view/leadingendview/view/login.html" id="login_a">登录/注册</a>
 				<a href="" id="login_b"><img id="h_img"  alt=""></a>
+				<!--退出的盒子-->
+				<div id="quit_box">
+					<ul id="quit_ul">
+						<li id="my_home"><a href="javascript:;">我的主页</a></li>
+						<li id="setting"><a href="javascript:;">账号设置</a></li>
+						<li id="feedback"><a href="javascript:;" onclick="quit_click()">退出账号</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<script>
 
-			var login_type;
+
 			function getCookie(cname) {
 				var name = cname + "=";
 				var ca = document.cookie.split(';');
@@ -73,8 +76,33 @@
 
 				login_b.style.display='none'
 			}
+			// 退出框的隐藏和显示效果
+			var quit = document.getElementById('quit_box')
+			login_b.onmouseover =quit.onmouseover  = function () {
+				quit.style.display='block'
+			}
+			login_b.onmouseout = quit.onmouseout  =function () {
+				quit.style.display='none'
+			}
+			quit.onclick=function () {
+				this.style.display='none'
+			}
 
+			// 退出
+			function quit_click() {
+				// 清除cookies
+				clearAllCookie()
+				function clearAllCookie() {
+					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+					if(keys) {
+						for(var i = keys.length; i--;)
+							document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+					}
+				}
+				login_b.style.display='none'
+				login_a.style.display='block'
 
+			}
 		</script>
 		<div class="write">
 			<a href="javascript:;" onclick="show_login()">写文章</a>
