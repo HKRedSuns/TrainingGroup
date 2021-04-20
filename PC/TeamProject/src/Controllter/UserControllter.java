@@ -20,7 +20,7 @@ import java.util.Date;
  */
 public class UserControllter {
     //编写一个方法,验证用户登录是否成功
-    public int userLogin(String name,String pass) {
+    public User userLogin(String name,String pass) {
         //定义一个返回给调用者的结果
         int result = 0;
         //定义一个数据库连接对象
@@ -47,23 +47,25 @@ public class UserControllter {
                 //获取数据库数据并且赋值给javaBean对象
                 user.setUserName(rs.getString("name"));
                 user.setUserPassword(rs.getString("password"));
+                user.setHeadImg(rs.getString("headimg"));
                 //验证
-                System.out.println(user.getUserName());
-                System.out.println(user.getUserPassword());
+                //System.out.println(user.getUserName());
+                //System.out.println(user.getUserPassword());
+                //System.out.println(user.getHeadImg());  //1
             }
             //关闭数据库
             ConnectionUtils.CloseConn();
-            //判断用户是否为空 空就返回0
+            /*//判断用户是否为空 空就返回0
             if (user == null) return 0;
                 //判断用户密码是否正确,不正确返回-1
             else if (!user.getUserPassword().equals(pass)) return -1;
                 //用户名和密码都正确返回1
-            else return 1;
+            else return 1;*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
         //默认返回0 标识用户名错误
-        return result;
+        return user;
     }
 
     //编写一个方法,验证用户注册时用户名和在数据库中是否存在
@@ -231,5 +233,32 @@ public class UserControllter {
             e.printStackTrace();
         }
         return isRegister;
+    }
+
+    //编写一个方法，通过ID获取用户头像路径
+    public String getHeadImg(String index){
+        if(index.equals("0"))return null;
+        //定义一个数据库连接对象
+        Connection conn = null;
+        //定义一个SQL操作对象
+        PreparedStatement ment = null;
+        //返回结果
+        ResultSet rs = null;
+        //sql语句
+        String sql = "select * from HeadImg where img_ID=?";
+        try{
+            conn = ConnectionUtils.getConn();
+            ment = conn.prepareStatement(sql);
+            ment.setString(1,index);
+            rs = ment.executeQuery();
+            if(rs.next()){
+                //System.out.println(rs.getString("img_Percorso"));
+                return rs.getString("img_Percorso");
+            }
+            ConnectionUtils.CloseConn();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  null;
     }
 }

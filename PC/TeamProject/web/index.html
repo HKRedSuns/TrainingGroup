@@ -8,432 +8,370 @@
 	<link rel="stylesheet" type="text/css" href="./view/leadingendview/css/base.css" />
 	<link rel="shortcut icon" href="./view/logo.ico">
 	<script src="./view/leadingendview/js/jquery.min.js"></script>
+	<script src="./view/leadingendview/js/vue.js"></script>
 </head>
 
 <body>
 
-	<!-- 导航 -->
-	<nav>
-		<div class="nav_logo">
-			<img src="./view/leadingendview/img/logo.png">
-			<h2>食上达人</h2>
+<!-- 导航 -->
+<nav id="nav">
+	<div class="nav_logo">
+		<img src="./view/leadingendview/img/logo.png">
+		<h2>食上达人</h2>
 
-		</div>
-		<div class="nav_item">
-			<ul class="title">
-				<li class="action"><a href="javascript:;">首页</a></li>
-				<li><a href="javascript:;">今日推荐</a></li>
-				<li><a href="javascript:;">分类</a></li>
-			</ul>
-		</div>
-		<div class="nav_select">
-			<input type="text" id="search" placeholder="请输入搜索关键字" autocomplete="off" />
-			<i class="search_icon"></i>
-		</div>
-		<div class="nav_login">
-			<div id="login">
-				<div class="login"><a href="./view/leadingendview/view/login.html">登录</a></div>
-				<div class="register"><a href="./view/leadingendview/view/register.html">注册</a></div>
-			</div>
-			<div class="write">
-				<a href="javascript:;">写文章</a>
-			</div>
-		</div>
-	</nav>
-	<!-- 轮播图 -->
-	<div class="slider">
-		<ul class="sli_img">
-			<li>
-				<a href="#">
-					<img src="./view/leadingendview/img/slider_1.png" id="myImg">
-				</a>
-			</li>
-			
-		</ul>
-		<ul id="sli_num">
-			<li  class="active"></li>
-			<li ></li>
-			<li></li>
-		</ul>
-
-		<div class="sli_lef" onclick="onImg()">
-			<i >&lt;</i>
-		</div>
-
-		<div class="sli_rig" onclick="nextImg()">
-			<i >&gt;</i>
-		</div>
-
-		<script>
-			var slider = document.getElementsByClassName('slider')[0];
-			var sli_lef = document.getElementsByClassName('sli_lef')[0];
-			var sli_rig = document.getElementsByClassName('sli_rig')[0];
-			var sli_num = document.getElementById('sli_num');
-			var lis = sli_num.children;
-			slider.onmouseover=function(){
-				sli_rig.style.display="block"
-				sli_lef.style.display="block"
-			}
-			slider.onmouseout=function(){
-				sli_rig.style.display="none"
-				sli_lef.style.display="none"
-			}
-			//轮播时间
-			window.onload = function(){
-				init();
-			}
-			function init(){
-				//window.setTimeout(changeImg,2000);
-				window.setInterval(changeImg,3000);
-			}
-			//用数组放图片
-			var arr = new Array("./view/leadingendview/img/slider_1.png","./view/leadingendview/img/slider_2.png","./view/leadingendview/img/slider_3.png");
-			
-			var index = 0;//数组从0开始
-			
-			function changeImg(){
-				nextImg();
-			}
-			//上一张
-			function onImg(){
-				
-				index--;
-				if(index<0){
-					index = arr.length-1;
-				}
-				for(var i = 0 ; i < lis.length ; i++){
-					lis[i].className=''
-				}
-				lis[index].className="active"
-				myImg.src=arr[index];
-			}
-			//下一张
-			function nextImg(){
-				index++;
-				if(index>=arr.length){
-					index = 0;
-				}
-				for(var i = 0 ; i < lis.length ; i++){
-					lis[i].className=''
-				}
-				lis[index].className="active"
-				myImg.src=arr[index];
-			}
-
-			
-		</script>
 	</div>
-	<!-- 墙 -->
-	<div class="wall"></div>
-	<!-- centent -->
-	<div class="content">
-		<div class="article">
-			<!-- 左边博客列表 -->
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+	<div class="nav_item">
+		<ul class="title">
+			<li class="action"><a href="javascript:;">首页</a></li>
+			<li><a href="./one.html" onclick="show_login()">今日推荐</a></li>
+			<li><a href="javascript:;">分类</a></li>
+		</ul>
+	</div>
+	<div class="nav_select">
+		<input type="text" id="search" placeholder="请输入搜索关键字" autocomplete="off" />
+		<i class="search_icon"></i>
+	</div>
+	<div class="nav_login">
+
+		<div id="login">
+			<div >
+				<a href="./view/leadingendview/view/login.html" id="login_a">登录/注册</a>
+				<a href="" id="login_b"><img id="h_img"  alt=""></a>
+				<!--退出的盒子-->
+				<div id="quit_box">
+					<ul id="quit_ul">
+						<li id="my_home"><a href="javascript:;">我的主页</a></li>
+						<li id="setting"><a href="javascript:;">账号设置</a></li>
+						<li id="feedback"><a href="javascript:;" onclick="quit_click()">退出账号</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+
+
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++)
+				{
+					var c = ca[i].trim();
+					if (c.indexOf(name)===0)
+						return c.substring(name.length,c.length);
+				}
+				return "";
+			}
+
+			var imgs = getCookie("headImg");
+
+			var login_a = document.getElementById('login_a');
+			var login_b= document.getElementById('login_b');
+
+			if(getCookie("headImg")!="" ){
+
+				login_a.style.display='none'
+				var img = document.getElementById('h_img');
+				img.setAttribute('src',"./view/leadingendview/"+imgs);
+			}else {
+
+				login_b.style.display='none'
+			}
+			// 退出框的隐藏和显示效果
+			var quit = document.getElementById('quit_box')
+			login_b.onmouseover =quit.onmouseover  = function () {
+				quit.style.display='block'
+			}
+			login_b.onmouseout = quit.onmouseout  =function () {
+				quit.style.display='none'
+			}
+			quit.onclick=function () {
+				this.style.display='none'
+			}
+
+			// 退出
+			function quit_click() {
+				// 清除cookies
+				clearAllCookie()
+				function clearAllCookie() {
+					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+					if(keys) {
+						for(var i = keys.length; i--;)
+							document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+					}
+				}
+				login_b.style.display='none'
+				login_a.style.display='block'
+
+			}
+		</script>
+		<div class="write">
+			<a href="javascript:;" onclick="show_login()">写文章</a>
+		</div>
+	</div>
+</nav>
+<!-- 登录单页面 -->
+
+<div class="login_page" id='login_page'>
+	<div class="box" id='login_box'>
+        <a href="javascript:;" id="myLogo"><img src="./view/leadingendview/img/logo.png" alt=""></a>
+        <div class="boxTop"><a href="#">登录让你更好的了解我们</a></div>
+        <div class="boxBot">
+            <form id="myForm">
+                <input type="text" id="userName" name="user" placeholder="请输入用户名 / 邮箱" autofocus autocomplete="off"
+                    onkeyup="value=value.replace(/\s/g,'')" />
+                <span></span>
+
+                <input type="password" name="pass" id="passWord" placeholder="请输入密码"
+                    onkeyup="value=value.replace(/\s/g,'')" />
+                <span></span>
+
+                <input type="text" name="verified" id="verification" placeholder="请输入验证码" autocomplete="off"
+                    onkeyup="value=value.replace(/\s/g,'')" />
+                <a href="javascript:;" id="codeNum"></a>
+                <span></span>
+
+                <br>
+                <input type="button" value="Login" id="btn" />
+            </form>
+            <div class="insert_alter">
+
+                <a href="./view/leadingendview/view/retrieve.html" id="alter">忘记密码？</a>
+                <span class="center">|</span>
+                <a href="./view/leadingendview/view/register.html" id="insert">现在注册 > </a>
+
+            </div>
+		</div>
+	</div>
+</div>
+
+<script src="./view/leadingendview/js/login_page.js"></script>
+<!-- 轮播图 -->
+<div class="slider">
+	<ul class="sli_img">
+		<li>
+			<a href="#">
+				<img src="./view/leadingendview/img/slider_1.png" id="myImg">
+			</a>
+		</li>
+
+	</ul>
+	<ul id="sli_num">
+		<li  class="active"></li>
+		<li ></li>
+		<li></li>
+	</ul>
+
+	<div class="sli_lef" onclick="onImg()">
+		<i >&lt;</i>
+	</div>
+
+	<div class="sli_rig" onclick="nextImg()">
+		<i >&gt;</i>
+	</div>
+</div>
+<script src="./view/leadingendview/js/slide.js"></script>
+<!-- 墙 -->
+<div class="wall"></div>
+<!-- centent -->
+<div class="content">
+	<div class="article">
+		<!-- 左边博客列表 -->
+		<div class="art_left">
+			<!-- 头部 -->
+			<!-- -->
+			<div class="art_body">
+				<a href="">
+					<h2>西红柿炒鸡蛋</h2>
+				</a>
+				<div class="art_all">
+					1.将鸡蛋打入碗内搅拌均匀。
+					2.番茄切块备用。
+					3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
+					4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+				</div>
+				<div class="art_img">
+					<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+				</div>
+				<div class="art_author">
+					<!-- 作者 -->
+					<div class="author">
+						<span>大表哥</span>
 					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+					<div class="comment">
+						<a href="">
+							<i></i>
+						</a>
+						<span>45</span>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
+					<div class="love">
+						<a href="">
+							<i></i>
+						</a>
+						<span>102</span>
 					</div>
 				</div>
-				<div class="wall_10"></div>
 			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+			<div class="wall_10"></div>
+		</div>
+		<div class="art_left">
+			<!-- 头部 -->
+			<!-- -->
+			<div class="art_body">
+				<a href="">
+					<h2>西红柿炒鸡蛋</h2>
+				</a>
+				<div class="art_all">
+					1.将鸡蛋打入碗内搅拌均匀。
+					2.番茄切块备用。
+					3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
+					4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+				</div>
+				<div class="art_img">
+					<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+				</div>
+				<div class="art_author">
+					<!-- 作者 -->
+					<div class="author">
+						<span>大表哥</span>
 					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+					<div class="comment">
+						<a href="">
+							<i></i>
+						</a>
+						<span>45</span>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
+					<div class="love">
+						<a href="">
+							<i></i>
+						</a>
+						<span>102</span>
 					</div>
 				</div>
-				<div class="wall_10"></div>
 			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+			<div class="wall_10"></div>
+		</div>
+		<div class="art_left">
+			<!-- 头部 -->
+			<!-- -->
+			<div class="art_body">
+				<a href="">
+					<h2>西红柿炒鸡蛋</h2>
+				</a>
+				<div class="art_all">
+					1.将鸡蛋打入碗内搅拌均匀。
+					2.番茄切块备用。
+					3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
+					4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+				</div>
+				<div class="art_img">
+					<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+				</div>
+				<div class="art_author">
+					<!-- 作者 -->
+					<div class="author">
+						<span>大表哥</span>
 					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+					<div class="comment">
+						<a href="">
+							<i></i>
+						</a>
+						<span>45</span>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
+					<div class="love">
+						<a href="">
+							<i></i>
+						</a>
+						<span>102</span>
 					</div>
 				</div>
-				<div class="wall_10"></div>
 			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+			<div class="wall_10"></div>
+		</div>
+		<div class="art_left">
+			<!-- 头部 -->
+			<!-- -->
+			<div class="art_body">
+				<a href="">
+					<h2>西红柿炒鸡蛋</h2>
+				</a>
+				<div class="art_all">
+					1.将鸡蛋打入碗内搅拌均匀。
+					2.番茄切块备用。
+					3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
+					4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+				</div>
+				<div class="art_img">
+					<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+				</div>
+				<div class="art_author">
+					<!-- 作者 -->
+					<div class="author">
+						<span>大表哥</span>
 					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+					<div class="comment">
+						<a href="">
+							<i></i>
+						</a>
+						<span>45</span>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
+					<div class="love">
+						<a href="">
+							<i></i>
+						</a>
+						<span>102</span>
 					</div>
 				</div>
-				<div class="wall_10"></div>
 			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+			<div class="wall_10"></div>
+		</div>
+		<div class="art_left">
+			<!-- 头部 -->
+			<!-- -->
+			<div class="art_body">
+				<a href="">
+					<h2>西红柿炒鸡蛋</h2>
+				</a>
+				<div class="art_all">
+					1.将鸡蛋打入碗内搅拌均匀。
+					2.番茄切块备用。
+					3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
+					4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
+				</div>
+				<div class="art_img">
+					<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+				</div>
+				<div class="art_author">
+					<!-- 作者 -->
+					<div class="author">
+						<span>大表哥</span>
 					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
+					<div class="comment">
+						<a href="">
+							<i></i>
+						</a>
+						<span>45</span>
 					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
+					<div class="love">
+						<a href="">
+							<i></i>
+						</a>
+						<span>102</span>
 					</div>
 				</div>
-				<div class="wall_10"></div>
 			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
-					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
-					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
-					</div>
-				</div>
-				<div class="wall_10"></div>
-			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
-					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
-					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
-					</div>
-				</div>
-				<div class="wall_10"></div>
-			</div>
-			<div class="art_left">
-				<!-- 头部 -->
-				<!-- -->
-				<div class="art_body">
-					<a href="">
-						<h2>西红柿炒鸡蛋</h2>
-					</a>
-					<div class="art_all">
-						1.将鸡蛋打入碗内搅拌均匀。
-						2.番茄切块备用。
-						3.锅中倒入食用油，待油温八成热的时候倒入鸡蛋液，翻炒成块盛出备用。
-						4.锅中倒油，然后将番茄块加入翻炒，待番茄七成熟时倒入鸡蛋、生抽、精盐、鸡精翻炒至熟，装盘即可
-					</div>
-					<div class="art_img">
-						<a href=""><img src="./view/leadingendview/img/tomato.jpg"></a>
-					</div>
-					<div class="art_author">
-						<!-- 作者 -->
-						<div class="author">
-							<span>大表哥</span>
-						</div>
-						<div class="comment">
-							<a href="">
-								<i></i>
-							</a>
-							<span>45</span>
-						</div>
-						<div class="love">
-							<a href="">
-								<i></i>
-							</a>
-							<span>102</span>
-						</div>
-					</div>
-				</div>
-				<div class="wall_10"></div>
-			</div>
-			<!-- 页面右边 -->
-			<div class="page">
+			<div class="wall_10"></div>
+		</div>
+
+
+		<!-- 页面右边 -->
+		<div class="page">
 			<div class="page_right">
 				<!-- 广告 -->
 				<div class="ad">
 					<div class="ad_box">
 						<span id="close_box">x</span>
 						<a href="">
-						<img src="./view/leadingendview/img/ad.png" alt="">
+							<img src="./view/leadingendview/img/ad.png" alt="">
 
 						</a>
 					</div>
@@ -460,7 +398,7 @@
 						<div class="art_bot_updata">
 							<a href="">
 								<i></i>
-							<span>换一批</span>
+								<span>换一批</span>
 							</a>
 						</div>
 					</div>
@@ -475,63 +413,63 @@
 						<ul>
 							<li>
 								<a href="">
-									
-								<i><img src="./view/leadingendview/img/header_1.jpg" alt=""></i>
-								<h2>jaoden</h2>
-								<span>作者介绍</span>
+
+									<i><img src="view/leadingendview/img/HeadImg/a.png" alt=""></i>
+									<h2>jaoden</h2>
+									<span>作者介绍</span>
 								</a>
 							</li>
 							<li>
 								<a href="">
-									
-								<i><img src="./view/leadingendview/img/header_2.jpg" alt=""></i>
-								<h2>色坤</h2>
-								<span>作者介绍</span>
+
+									<i><img src="view/leadingendview/img/HeadImg/a.png" alt=""></i>
+									<h2>色坤</h2>
+									<span>作者介绍</span>
 								</a>
 							</li>
 							<li>
 								<a href="">
-									
-								<i><img src="./view/leadingendview/img/header_3.jpg" alt=""></i>
-								<h2>阿伟</h2>
-								<span>作者介绍</span>
+
+									<i><img src="view/leadingendview/img/HeadImg/a.png" alt=""></i>
+									<h2>阿伟</h2>
+									<span>作者介绍</span>
 								</a>
 							</li>
 							<li>
 								<a href="">
-									
-								<i><img src="./view/leadingendview/img/header_4.jpg" alt=""></i>
-								<h2>作者</h2>
-								<span>作者介绍</span>
+
+									<i><img src="view/leadingendview/img/HeadImg/a.png" alt=""></i>
+									<h2>作者</h2>
+									<span>作者介绍</span>
 								</a>
 							</li>
 							<li>
 								<a href="">
-									
-								<i><img src="./view/leadingendview/img/header_5.jpg" alt=""></i>
-								<h2>作者</h2>
-								<span>作者介绍</span>
+
+									<i><img src="view/leadingendview/img/HeadImg/a.png" alt=""></i>
+									<h2>作者</h2>
+									<span>作者介绍</span>
 								</a>
 							</li>
-							
+
 						</ul>
 						<div class="aut_bot_updata">
 							<a href="">
 								<i></i>
-							<span>换一批</span>
+								<span>换一批</span>
 							</a>
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
-			
-			</div>
+
+		</div>
 	</div>
-	
+</div>
 </body>
 
-</html>	
+</html>
 <script>
 	$(function(){
 		$('#close_box').click(function(){
@@ -539,3 +477,4 @@
 		})
 	})
 </script>
+<script src="./view/leadingendview/js/isnotLogin.js"></script>

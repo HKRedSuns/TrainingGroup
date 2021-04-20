@@ -1,9 +1,11 @@
 package Servlet;
 
 import Controllter.UserControllter;
+import Data.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,13 +40,21 @@ public class Login extends HttpServlet {
         System.out.println(userName+"......"+userPass);     //测试成功
 
         //调用方法与数据库进行用户名密码验证
-        result = userDao.userLogin(userName,userPass);
-        if(result==0){
+        User user = userDao.userLogin(userName,userPass);
+
+        if(user==null){
             //返回数据
             pw.print("0");
-        }else if(result == -1){
+        }else if(!user.getUserPassword().equals(userPass)){
             pw.print("-1");
         }else{
+            //用户登录成功，将用户头像返回给前端
+            String img = userDao.getHeadImg(user.getHeadImg());
+            //设置Cookie
+            Cookie cookie = new Cookie("headImg",img);
+            //设置时长
+            cookie.setMaxAge(60*60*24*7);
+            response.addCookie(cookie);
             pw.print("1");
         }
 

@@ -14,6 +14,7 @@ textarea {resize: none;overflow: auto;}
 body{
 	width: 100%;
 	height: 3000px;
+	position: relative;
 	background-color: #f6f6f6;
 }
 /* 导航栏 */
@@ -74,7 +75,7 @@ nav .nav_select {
 	position: relative;
 }
 nav .nav_select input{
-	
+
 	width: 200px;
 	height:40px;
 	margin: 10px;
@@ -99,17 +100,51 @@ nav .nav_login #login div{
 	/* height: 100%; */
 	line-height: 60px;
 	margin-left: 20px;
-	width: 15%;
+	width: 30%;
+	position: relative;
+}
+nav .nav_login #login div img{
+	margin-top: 15%;
+	width: 60%;
+	height: 60%;
+	display: block;
 }
 nav .nav_login #login div a{
-	width: 100%;
-	height: 100%;
+	width: 60%;
+	height: 60%;
 	display: block;
-	color: #000000;
+	color: gray;
 	font-size: 15px;
 }
 nav .nav_login #login div a:hover{
 	color: coral;
+}
+nav .nav_login #login div #quit_box {
+	display: none;
+	width: 100px;
+	height: 120px;
+	background-color: #fff;
+	position: absolute;
+	top: 50px;
+	left: -45px;
+	z-index: 10;
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: #999 0px 1px 2px;
+}
+#quit_box #quit_ul li {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #f9f9f9;
+	line-height: 30px;
+}
+#quit_box #quit_ul li a{
+	font-size: 14px;
+	display: block;
+	width: 100%;
+	height: 30px;
+text-align: center;
+
 }
 .write{
 	float: left;
@@ -120,9 +155,12 @@ nav .nav_login #login div a:hover{
 	background-color: coral;
 	border-radius: 25px;
 	margin-left: 20px;
-	
+
 }
 .write a{
+	display: block;
+	width: 100%;
+	height: 100%;
 	line-height: 40px;
 	color: #000;
 }
@@ -161,11 +199,11 @@ nav .nav_login #login div a:hover{
 	display: none;
 }
 .slider .sli_lef{
-	
+
 	left: 50px;
 }
 .slider .sli_rig{
-	
+
 	right: 50px;
 }
 .slider #sli_num{
@@ -183,8 +221,8 @@ nav .nav_login #login div a:hover{
 	width: 50px;
 	height: 5px;
 }
- .active{
-	
+.active{
+
 	background-color: coral;
 }
 .wall{
@@ -197,7 +235,7 @@ nav .nav_login #login div a:hover{
 	position: relative;
 }
 .content .article{
-	
+
 	overflow: hidden;
 	display: inline-block;
 	width: 80%;
@@ -215,8 +253,8 @@ nav .nav_login #login div a:hover{
 	height: 250px;
 	float: left;
 	position: relative;
-	}
-	
+}
+
 
 .art_left  .art_body{
 	width: 60%;
@@ -224,7 +262,7 @@ nav .nav_login #login div a:hover{
 	height: 150px;
 }
 .art_left  .art_body h2{
-	
+
 	font-size: 20px;
 	font-weight:400;
 	margin-bottom: 10px;
@@ -246,7 +284,7 @@ nav .nav_login #login div a:hover{
 .art_body .art_img img{
 	width: 200px;
 	height: 120px;
-	
+
 }
 /* 文章底部 */
 .art_body .art_author{
@@ -256,7 +294,7 @@ nav .nav_login #login div a:hover{
 }
 
 .art_author .author{
-	
+
 	color: grey;
 	margin-right: 10px;
 	float: left;
@@ -292,7 +330,7 @@ nav .nav_login #login div a:hover{
 }
 .wall_10{
 	height: 20px;
-	
+
 }
 .content .article .right{
 	width: 30%;
@@ -300,7 +338,7 @@ nav .nav_login #login div a:hover{
 	position: absolute;
 	top: 0;
 	right: 0;
-	
+
 }
 /* 右侧栏 */
 .page{
@@ -315,7 +353,7 @@ nav .nav_login #login div a:hover{
 	width:100%;
 	height: 100%;
 	float: right;
-	
+
 }
 /* 广告 */
 .page_right .ad{
@@ -327,7 +365,6 @@ nav .nav_login #login div a:hover{
 	width: 80%;
 	height: 100%;
 	margin: 0 auto;
-	border: 1px solid;
 	position: relative;
 }
 .page_right .ad .ad_box img{
@@ -396,7 +433,7 @@ nav .nav_login #login div a:hover{
 }
 .article_rec .art_bot ul li a:hover{
 	color: coral;
-	
+
 }
 .art_bot .art_bot_updata,
 .aut_bot .aut_bot_updata{
@@ -453,7 +490,7 @@ nav .nav_login #login div a:hover{
 .author_rec .aut_bot ul li i img:hover{
 	width: 60px;
 	height: 60px;
-	
+
 }
 .author_rec .aut_bot ul li h2{
 	width: 50px;
@@ -466,4 +503,178 @@ nav .nav_login #login div a:hover{
 	width: 50%;
 	text-align: left;
 	color: gray;
+}
+
+/* login_page */
+.login_page{
+	display: none;
+	width: 100%;
+	height: calc(100vh);
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100000;
+}
+
+.box{
+	width: 400px;
+	height: 500px;
+	background:#fff;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin-top: -225px;
+	margin-left: -250px;
+	background: rgba(245, 247, 243, 0.8);
+	z-index: 100000;
+   /* box-shadow: 10px 10px rgba(245, 247, 243, 0.9); */
+   border-radius: 20px;
+
+}
+
+.box #myLogo img{
+	margin-top: 20px;
+	width: 120px;
+	height: 100px;
+}
+.box .boxTop{
+	width: 100%;
+	height: 100px;
+	padding-top: 30px;
+	margin-bottom: 30px;
+	font-size: 15px;
+}
+.box .boxTop a{
+	color: #3498db;
+	display: block;
+	width: 200px;
+	height: 60px;
+	padding-top: 40px;
+	margin: 0 auto;
+	text-align: center;
+	
+}
+.boxBot{
+	width: 100%;
+	height: 370px;
+	opacity: 0.8;
+	
+}
+ #myForm span{
+	 padding-left: 90px;
+	 font-size: 12px;
+	 letter-spacing: 1px;
+	 line-height: 30px;
+	 color: red;
+	display: block;
+	width:100% ;
+	height: 30px;
+	float: left;
+}
+/* 验证码 */
+#myForm #codeNum{
+	width: 100px;
+	height: 40px;
+	border: 1px solid #3498db;
+	font-weight: bolder;
+	font-size: 20px;
+	letter-spacing: 2px;
+	border-radius: 10px;
+	color:black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+	line-height: 40px;
+	text-align: center;
+}
+.boxBot input[type="text"],input[type="password"]{
+	width: 250px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	border-radius:50px ;
+	padding-left: 20px;
+	border: 1px solid #3498db;
+	color: #000;
+}
+
+/* 文本框获得焦点时的样式 */
+.boxBot input[type="text"]:focus,input[type="password"]:focus{
+	/* width: 300px; */
+	border-color:  #2ecc71;
+}
+.boxBot input[id="verification"]{
+	width: 150px;
+	margin:0 0 0 75px;
+	float: left;
+}
+.boxBot form a,img{
+	display: block;
+	float: left;
+	/*margin-left: 10px;*/
+	width: 100px;
+	height: 40px;
+}
+.boxBot input[type="button"]{
+	width:80px;
+	height: 40px;
+	display: block;
+	border-radius: 10px;
+	margin: 0 auto;
+	/* margin-top: 30px; */
+	color: #000;
+	cursor: pointer;
+	border: 2px solid #3498db;
+}
+
+.boxBot input[type="button"]:hover{
+	background: #2ecc71;
+	border-color:#2ecc71; 
+	color: snow;
+}
+.insert_alter{
+	width: 200px;
+	height: 30px;
+	margin: 20px auto;
+}
+.insert_alter a:nth-of-type(1){
+	float: left;
+	display: block;
+	width:90px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	padding-left: 20px;
+	/* background-color: #191D3A; */
+
+}
+.insert_alter a:nth-of-type(1):hover{
+	color: #2ECC71;
+}
+
+.insert_alter a:nth-of-type(2){
+	float: right;
+	display: block;
+	width:80px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	
+}
+.insert_alter a:nth-of-type(2):hover{
+	color: #2ECC71;
+}
+
+.insert_alter .center{
+	float: left;
+	display: block;
+	width: 20px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+	/* margin-left: 10px; */
+	color: #3498db;
 }

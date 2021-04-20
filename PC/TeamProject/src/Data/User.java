@@ -13,6 +13,14 @@ public class User {
     private String UserPassword;
     //用户邮箱
     private String email;
+    //用户注册时间
+    private String regTime;
+    //用户生日
+    private String birthday;
+    //用户年龄
+    private int age;
+    //用户头像
+    private String headImg;
 
 
     //Get方法
@@ -28,6 +36,18 @@ public class User {
     public String getEmail() {
         return email;
     }
+    public String getBirthday() {
+        return birthday;
+    }
+    public String getRegTime() {
+        return regTime;
+    }
+    public int getAge() {
+        return age;
+    }
+    public String getHeadImg() {
+        return headImg;
+    }
 
     //Set方法
     public void setUserName(String userName) {
@@ -41,5 +61,17 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public void setRegTime(String regTime) {
+        this.regTime = regTime;
+    }
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
     }
 }
