@@ -1,0 +1,218 @@
+@charset "utf-8";
+idhtml, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {margin: 0;padding: 0;}
+*{box-sizing: border-box;}
+html, body {min-height: 100%;}
+body {font: 16px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+ul,ol {list-style: none;}
+a {color: #232323; text-decoration: none;}
+s,i,em{font-style:normal;text-decoration:none;}
+.fl{float: left;}
+.fr{float: right;}
+*{margin: 0;padding: 0;}
+
+
+		/* table 样式 */
+		table {
+			border-top: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+		}
+
+		table td,
+		table th {
+			border-bottom: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			padding: 3px 5px;
+		}
+
+		table th {
+			border-bottom: 2px solid #ccc;
+			text-align: center;
+		}
+
+		/* blockquote 样式 */
+		blockquote {
+			display: block;
+			border-left: 8px solid #d0e5f2;
+			padding: 5px 10px;
+			margin: 10px 0;
+			line-height: 1.4;
+			font-size: 100%;
+			background-color: #f1f1f1;
+		}
+
+		/* code 样式 */
+		code {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+			background-color: #f1f1f1;
+			border-radius: 3px;
+			padding: 3px 5px;
+			margin: 0 3px;
+		}
+
+		pre code {
+			display: block;
+		}
+
+		/* ul ol 样式 */
+		ul,
+		ol {
+			margin: 10px 0 10px 20px;
+		}
+		nav{
+			width: 100%;
+			height: 60px;
+			background-color: #fff;
+			-moz-box-shadow: 5px 5px 10px #888888;  /* 老的 Firefox*/
+			box-shadow: 2px 2px 10px #888888;
+			margin-bottom: 20px;
+			position: fixed;
+			z-index: 500;
+
+		}
+		nav .cen{
+			width: 80%;
+			height:115% ;
+			margin: 0 auto;
+		}
+		nav .cen .logo,
+		nav .cen .gohome{
+			float: left;
+			width: 100px;
+			height: 100%;
+		}
+		nav .cen .logo a img,
+		nav .cen .gohome a{
+			float: left;
+			width: 80%;
+			height: 100%;
+			display: block;
+		}
+		
+		nav .cen .gohome a{
+			margin-top: 10px;
+			border-radius: 10px;
+			text-align: center;
+			line-height: 40px;
+		}
+		nav .cen .gohome a:hover{
+			color: coral;
+		}
+		nav .cen #issue {
+			float: right;
+			width: 20%;
+			height: 100%;
+		}
+		nav .cen #issue #btn_issus{
+			cursor: pointer;
+			border: none;
+			background-color: transparent;
+			outline: none;
+			margin-top: 15px;
+			display: block;
+			width: 80px;
+			height: 50%;
+			text-align: center;
+			border-radius: 20px;
+			background-color: coral;
+			color: #efefef;
+			line-height: 38px;
+			
+		}
+		nav .cen #issue #btn_issus:hover{
+			color: #fff;
+		}
+		input{
+            outline: none;
+            border: 0;
+            display: block;
+			margin: 0 auto;
+		}
+		#title{
+			font-size:30px;
+			padding-bottom: 10px;
+			width: 500px;
+			height: 50px;
+			text-align: center;
+			border-bottom: 1px solid gray;
+		}
+		.upFile{
+			width: 500px;
+			height: 250px;
+			background-color: rgba(0,0,0,0.1);
+			margin: 0 auto;
+			border-radius: 20px;
+		}
+		.upFile .content_file{
+			position: relative;
+		}
+		.upFile .content_file #inp_file{
+			display: none;
+			
+		}
+		#inp_file_label{
+			display: block;
+			width:100%;
+			height: 250px;
+			cursor: pointer;
+			position: relative;
+		}
+		#inp_file_label #img_title{
+			/* display: none; */
+			position: absolute;
+			width: 70px;
+			height: 25px;
+			text-align: center;
+			top: 50%;
+			left: 50%;
+			color:rgba(0,0,0,0.2);
+			margin-left: -35px;
+			margin-top: 15px;
+		}
+		#inp_file_label #art_bg_img{
+			display: block;
+			width: 35px;
+			height: 32px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -18px;
+			margin-top: -18px;
+			z-index: -1;
+		}
+		#inp_file_label #art_img{
+			display: block;
+			width: 100%;
+			height: 100%;
+			z-index: 10000;
+		}
+		#del_box{
+			display: none;
+			height: 250px;
+			width:30px;
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			right:-30px;
+		}
+		#del{
+			/* display: none; */
+			border-radius: 10px;
+			width:30px ;
+			height:30px ;
+			position: absolute;
+			right: 0;
+			bottom: 5px;
+			background-color: #000;
+		}
+		#editor {
+			width: 80%;
+			margin: 0 auto;
+		}
+		#editor .w-e-text-container {
+
+			height:80vh !important ;
+			
+		}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	
+
+	<head>
+		<meta charset="utf-8" />
+		<!--适配手机-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>富文本编辑器</title>
+		<!-- 引入全屏 CSS，如不需要全屏功能可注释掉 -->
+		<link rel="stylesheet" type="text/css" href="../css/wangEditor.css">
+		<link rel="stylesheet" href="../wangEditor/wangEditor-fullscreen-plugin.css" />
+		<script src="./../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../wangEditor/wangEditor.min.js"></script>
+		<!--全屏使用 JS，如不需要全屏功能可注释掉-->
+		<script type="text/javascript" src="../wangEditor/wangEditor-fullscreen-plugin.js"></script>
+	</head>
+
+	<body>
+		<!-- 文章logo -->
+		<nav>
+			<div class="cen">
+				<div class="logo"><a href="http://jaoden.zjma.icu:8089/Project/" target="_blank"><img src="../img/logo.png" ></a></div>
+				<div class="gohome">
+					<a href="http://jaoden.zjma.icu:8089/Project/" target="_blank">?GoHome</a>
+				</div>
+				<!-- 发布文章 -->
+				<div id="issue">
+					<button id = "btn_issus" type="button">发布</button>
+				</div>
+			</div>
+			
+		</nav>
+		<br>
+		<br>
+		<br>
+		
+		<!-- 标题 -->
+		<input type="text" name="Blog_title" placeholder="请输入文章标题" autocomplete="off" id="title" maxlength="20" >
+		<br>
+		<br>
+		<!-- 图片 -->
+		<div class="upFile">
+			<div class="content_file">
+				<input type="file" name="fileImg" id="inp_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+					value="" onchange="upLoad()" />
+				<label for="inp_file" id="inp_file_label">
+					<img src="../img/def_Img.png" id="art_bg_img">
+					<s id="img_title">添加题图</s>
+					<img src="" alt="" id="art_img" style="display: none;">
+				</label>
+				<div id="del_box">
+					<div id="del" onclick="removeImg()"><i></i></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+			// var inp_file_label = $("#inp_file_label");
+			var art_img = $("#art_img");
+			var img_title = $("#img_title")
+			var del_box = $('#del_box');
+			// 图片获取
+			function upLoad(){
+				var fileInput = document.getElementById('inp_file');
+				$("#art_bg_img").css('display','none')
+			        var file = fileInput.files[0];
+			        //创建读取文件的对象
+			        var reader = new FileReader();         
+			        //创建文件读取相关的变量
+			        var imgFile;         
+			        //为文件读取成功设置事件
+			        reader.onload=function(e) {
+			            // alert('文件读取完成');
+			            imgFile = e.target.result;
+			            // console.log(imgFile);
+						// 隐藏标题
+						img_title.css('display','none')
+						// 显示图片
+						art_img.css('display','block')
+						// 显示删除键
+						art_img.mouseenter(function(){
+							del_box.css('display','block')
+						})
+						art_img.mouseleave(function(){
+							del_box.css('display','none')
+						})
+						del_box.mouseenter(function(){
+							del_box.css('display','block')
+						})
+						del_box.mouseleave(function(){
+							del_box.css('display','none')
+						})
+			            art_img.attr('src',imgFile);
+			        };
+			 
+			        //正式读取文件
+			        reader.readAsDataURL(file);
+				}
+			// 移除图片
+			function removeImg(){
+				art_img.attr('src','www.wobushitup.html.gif')
+				art_img.css('display','none')
+				img_title.css('display','block')
+				$("#art_bg_img").css('display','block')
+			}
+		</script>
+		<br>
+		
+		<div id="editor">
+
+		</div>
+		
+		<script type="text/javascript">
+			
+		</script>
+		<script src="../js/addBlog.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

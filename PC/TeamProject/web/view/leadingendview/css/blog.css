@@ -1,0 +1,702 @@
+body{
+	background-color: #f4f4f4;
+}
+
+body a,
+body a:hover {
+	text-decoration: none;
+}
+
+/* 清除边距 */
+.clearing {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/* logo */
+nav .nav_logo {
+	width: 19%;
+	height: 50px;
+	overflow: hidden;
+	float: left;
+	margin-left: 40px;
+	/* 	margin-right: 20px; */
+}
+
+nav .nav_logo img {
+	cursor: pointer;
+	width: 100px;
+	height: 50px;
+	display: block;
+	float: left;
+}
+
+nav .nav_logo h2 {
+	cursor: pointer;
+	float: left;
+	font-size: 30px;
+	font: "arial, helvetica, sans-serif";
+	font-weight: 900;
+	line-height: 50px;
+	margin-left: 10px;
+}
+
+nav ul li {
+	text-align: center;
+	width: 80px;
+	height: 100%;
+}
+
+nav ul li .home-page {
+	color: coral !important;
+}
+
+nav ul li a:hover {
+	color: coral !important;
+	background: linear-gradient(to top, #dcdcdc, #ffffff);
+	/* background-color: rgba(230, 230, 230, 0.8); */
+}
+
+form .location {
+	display: block;
+	height: 50px;
+}
+
+/* 登录 */
+nav .nav_login {
+	position: relative;
+	width: 15%;
+	min-width: 180px;
+	height: 50px;
+	/* overflow: hidden; */
+	float: right;
+	margin-left: 30px;
+	margin-right: 30px;
+	/* border: 1px solid red; */
+}
+
+nav .nav_login #login div {
+	float: left;
+	margin-right: 20px;
+	line-height: 50px;
+	width: 80px;
+}
+nav .nav_login #login div img{
+	/* margin-top: 15%; */
+	width: 55px;
+	height: 50px;
+	display: block;
+}
+nav .nav_login #login div a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #000000;
+	font-size: 15px;
+}
+
+nav .nav_login #login div a:hover {
+	color: coral;
+}
+.nav_login #login #quit_box {
+	display: none;
+
+	width: 100px;
+	height: 100px;
+	background-color: rgb(252, 251, 251);
+	position: absolute;
+	top: 50px;
+	left:-17px;
+	z-index: 1000;
+	border-radius: 15px;
+	box-shadow: #999 0px 1px 2px;
+}
+
+#quit_box #quit_ul li {
+	list-style: none;
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #f9f9f9;
+	line-height: 30px;
+}
+#quit_box #quit_ul li a{
+	font-size: 14px;
+	display: block;
+	width: 100%;
+	height: 30px;
+text-align: center;
+
+}
+
+.write {
+	float: left;
+	width: 80px;
+	height: 40px;
+	margin: 5px 0;
+	text-align: center;
+	background-color: coral;
+	border-radius: 25px;
+	/* 	margin-left: 20px; */
+}
+
+.write a {
+	line-height: 40px;
+	color: #000;
+}
+
+.write a:hover {
+	color: wheat;
+}
+
+.blog-header {
+	line-height: 1;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+	font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+	text-decoration: none;
+}
+
+/* 轮播图 */
+.carousel {
+	margin-bottom: 4rem;
+}
+
+/* 自从定位图像，标题 */
+.carousel-caption {
+	bottom: 3rem;
+	z-index: 10;
+}
+
+/* 声明高度是因为img元素的定位 */
+.carousel-item {
+	height: 32rem;
+}
+
+.carousel-item>img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 32rem;
+}
+
+/* 应式CSS */
+@media (min-width: 40em) {
+
+	/* 增加轮播图内容的大小 */
+	.carousel-caption p {
+		margin-bottom: 1.25rem;
+		font-size: 1.25rem;
+		line-height: 1.4;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+	font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+	.display-4 {
+		font-size: 3rem;
+	}
+}
+
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	font-size: .875rem;
+}
+
+.card-img-right {
+	height: 100%;
+	border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+}
+
+.h-250 {
+	height: 250px;
+}
+
+@media (min-width: 768px) {
+	.h-md-250 {
+		height: 250px;
+	}
+}
+
+.blog-pagination>.btn {
+	border-radius: 2rem;
+}
+
+/* 博客文章 */
+.blog-post {
+	width: 90%;
+}
+
+.blog-post-title {
+	margin-bottom: .25rem;
+	font-size: 1.5rem;
+}
+
+/* right */
+aside div {
+	padding: 0 !important;
+}
+
+aside .clearpadding {
+	padding: 10px 0 !important;
+	margin-bottom:30px !important ;
+}
+
+/* 广告 */
+.ad {
+	width: 350px;
+	height: 400px;
+}
+
+.ad .ad_box {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.ad .ad_box img {
+	width: 100%;
+	height: 100%;
+}
+
+.ad .ad_box span {
+	display: block;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	line-height: 15px;
+	background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.art_top,
+.aut_top {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.art_top .art_top_coral,
+.aut_top .aut_top_coral {
+	height: 10px;
+	width: 100%;
+	background-color: coral;
+}
+
+.art_top h2,
+.aut_top h2 {
+	text-align: center;
+	font-size: larger;
+	font-weight: 800;
+	display: block;
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+}
+
+.art_bot ul{
+	background-color: #fff;
+}
+.art_bot ul li {
+	text-align: left;
+	line-height: 30px;
+	color: coral;
+	margin-left: -10px;
+	
+}
+
+
+.art_bot ul li a {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	list-style: disc;
+	color: #000000;
+}
+
+.art_bot ul li a:hover {
+	color: coral;
+
+
+}
+
+.art_bot_updata,
+.aut_bot_updata {
+	width: 100%;
+	height: 30px;
+	background-color: #fff;
+}
+.aut_bot_updata{
+	
+	margin-top: 20px !important;
+	float: left;
+}
+
+.art_bot_updata a,
+.aut_bot_updata a {
+	display: block;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.art_bot_updata a i,
+.aut_bot_updata a i {
+	margin: 5px 0 0 15px;
+	width: 20px;
+	height: 20px;
+	display: block;
+	border: 1px solid;
+	float: left;
+	color: #000000;
+}
+
+.art_bot_updata a span:hover,
+.aut_bot_updata a span:hover {
+	color: coral;
+}
+
+.art_bot_updata a span,
+.aut_bot_updata a span {
+	line-height: 30px;
+	color: #000000;
+}
+
+/* 作者推荐 */
+.aut_bot ul {
+	float: left;
+	width: 100%;
+	height: 100%;
+	
+	background-color: #fff;
+}
+.aut_bot ul li {
+	display: block;
+	width: 100%;
+	height: 70px;
+	margin-top: 10px;
+	float: left;
+	/* border-bottom: 1px solid #c2c2c2; */
+}
+
+.aut_bot ul li a {
+	display: block;
+	width: 100%;
+	height: 70px;
+	color: rgb(53, 50, 50);
+}
+
+.aut_bot ul li a:hover {
+	color: coral;
+}
+
+.aut_bot ul li i {
+	float: left;
+	display: block;
+	width: 55px;
+	height: 55px;
+	margin: 10px 15px;
+	border-radius: 100%;
+	float: left;
+}
+
+.aut_bot ul li i img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.aut_bot ul li i img:hover {
+	width: 60px;
+	height: 60px;
+
+}
+
+.aut_bot ul li h2 {
+	font-size: 20px;
+	width: 100px;
+	text-align: left;
+	float: left;
+}
+
+.aut_bot ul li span {
+	float: left;
+	width: 50%;
+	text-align: left;
+	color: gray;
+}
+
+/* 文章 */
+main .row div {
+	margin: 0;
+	padding: 10px;
+}
+main .row {
+	/* border-radius: 10px; */
+	/* background-color: #fff; */
+	padding: 0 !important;
+}
+/* 博客文章 */
+.note-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+main ul {
+	display: block;
+	list-style-type: disc;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-end: 0;
+	margin-inline-start: 0;
+	padding-inline-start: 40px;
+	margin-top: 0 !important;
+}
+
+.have-img {
+	border-color: #2f2f2f;
+}
+
+.note-list li.have-img {
+	min-height: 140px;
+}
+
+.note-list li {
+	position: relative;
+	width: 100%;
+	margin: 0 !important;
+	padding-right: 3px;
+	border-bottom: 1px solid #eeb5b5;
+	word-wrap: break-word;
+	line-height: 20px;
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+
+.note-list .have-img .wrap-img {
+	width: 150px;
+	height: 90px;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -50px;
+}
+
+.note-list .have-img .wrap-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.note-list .have-img .content {
+    padding-right: 165px;
+	padding-top: 10px !important;
+	padding-bottom: 0 !important;
+}
+
+.note-list .have-img>div {
+    padding-right: 140px;
+}
+
+div {
+    display: block;
+}
+
+.note-list .content .title {
+    display: inherit;
+}
+
+.note-list .content a h4:hover {
+	text-decoration: underline;
+    color: coral;
+}
+
+.note-list .title h4 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+	color: #000000;
+}
+
+.note-list .abstract {
+	height: 90px;
+	overflow: hidden;
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #999;
+	text-indent: 2em;
+}
+
+p {
+    margin: 0 0 10px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.note-list .meta {
+    padding-right: 0!important;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.note-list .meta .nickname {
+	color: #797979;
+}
+
+.note-list .meta a, .note-list .meta a:hover {
+    transition: .1s ease-in;
+    -webkit-transition: .1s ease-in;
+    -moz-transition: .1s ease-in;
+    -o-transition: .1s ease-in;
+    -ms-transition: .1s ease-in;
+	color: #000000;
+}
+
+.note-list .meta a {
+    margin-right: 10px;
+    color: #b4b4b4;
+}
+
+a {
+	text-decoration: none;
+}
+/* .blog-main .card{
+	margin-bottom: 20px;
+}
+.blog-main .card a h2 {
+	font-size: 20px;
+	font-weight: 600;
+	color: coral;
+}
+
+.blog-main .card a h2:hover {
+	color: coral;
+	text-decoration: underline;
+}
+
+.blog-main .card .paper {
+	width: 100%;
+}
+
+.blog-main .card .paper .art_all {
+	overflow: hidden;
+	color: gray;
+	text-indent: 2em;
+	line-height: 28px;
+	text-overflow: ellipsis;
+	width: 60%;
+	height: 120px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+.blog-main .card .paper .art_img {
+	float: left;
+	width: 200px;
+	height: 120px;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.blog-main .card .paper .art_img a img {
+	display: block;
+	width: 200px;
+	height: 120px;
+}
+
+.blog-main .card .art_author {
+	height: 30px;
+}
+
+.blog-main .card .author,
+.comment,
+.love {
+	line-height: 30px;
+	width: 80px;
+	height: 30px;
+	float: left;
+}
+
+.blog-main .card .comment a i,
+.love a i {
+	float: left;
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	border: 1px solid;
+
+} */
+
+
+/* Footer */
+.blog-footer {
+	padding: 2.5rem 0;
+	color: #999;
+	text-align: center;
+	background-color: #f9f9f9;
+	border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+	margin-bottom: 0;
+}

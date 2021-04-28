@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="美食 博客">
+		<meta name="author" content="叶凯振, 方锦涛, 林家伟, 谢洪江, 陈坤鹏, 单小宝, 曹绪亮">
+		<meta name="generator" content="Hugo 0.80.0">
+		<title>食上达人</title>
+		<!-- Logo -->
+		<link rel="shortcut icon" href="./view/logo.ico">
+		<script src="./view/leadingendview/js/jquery.min.js"></script>
+		<script src="./view/leadingendview/js/vue.js"></script>
+		<script src="./view/leadingendview/js/axios.js"></script>
+		<!-- Bootstrap core CSS -->
+		<link href="./view/leadingendview/bootstrap-4.6.0-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+
+		<!-- 自定义样式 -->
+		<link rel="stylesheet" type="text/css" href="./view/leadingendview/css/blog.css">
+		<link rel="stylesheet" href="./view/leadingendview/css/login.css">
+	</head>
+	<body>
+	
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<div class="nav_logo">
+					<img src="./view/leadingendview/img/logo.png">
+					<h2>食上达人</h2>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link home-page" href="#">首页 <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./one.html" onclick="show_login()">今日推荐</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" tabindex="-1" aria-disabled="true">分类</a>
+						</li>
+					</ul>
+					<form class="form-inline mt-2 mt-md-0 location">
+						<input class="form-control mr-sm-2" type="text" placeholder="请输入搜索关键字" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					</form>
+					<div class="nav_login">
+						<div id="login">
+							<div>
+								<a href="./view/leadingendview/view/login.html" id="login_a">登录/注册</a>
+								<a href="javascript:;" id="login_b"><img id="h_img"  alt=""></a>
+							</div>
+							<!-- 退出盒子 -->
+							<div id="quit_box">
+								<ul id="quit_ul" class="clearing">
+									<li id="my_home"><a href="javascript:;">我的主页</a></li>
+									<li id="setting"><a href="javascript:;">账号设置</a></li>
+									<li id="feedback"><a href="javascript:;" onclick="quit_click()">退出账号</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="write">
+							<a href="javascript:;">写文章</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<script>
+
+				// 获取cookie值
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++)
+				{
+					var c = ca[i].trim();
+					if (c.indexOf(name)===0)
+						return c.substring(name.length,c.length);
+				}
+				return "";
+			}
+
+			var imgs = getCookie("headImg");
+
+			var login_a = document.getElementById('login_a');
+			var login_b= document.getElementById('login_b');
+
+			if(getCookie("headImg")!="" ){
+
+				login_a.style.display='none'
+				var img = document.getElementById('h_img');
+				img.setAttribute('src',"./view/leadingendview"+imgs);
+			}else {
+
+				login_b.style.display='none'
+			}
+			// 退出框的隐藏和显示效果
+			var quit = document.getElementById('quit_box')
+			login_b.onmouseover =quit.onmouseover  = function () {
+				quit.style.display='block'
+			}
+			login_b.onmouseout = quit.onmouseout  =function () {
+				quit.style.display='none'
+			}
+			quit.onclick=function () {
+				this.style.display='none'
+			}
+
+			// 退出
+			function quit_click() {
+				// 清除cookies
+				clearAllCookie()
+				function clearAllCookie() {
+					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+					if(keys) {
+						for(var i = keys.length; i--;)
+							document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+					}
+				}
+				login_b.style.display='none'
+				login_a.style.display='block'
+
+			}
+		</script>
+		<!--  轮播图  -->
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="view/leadingendview/img/slider_1.png">
+				</div>
+				<div class="carousel-item">
+					<img src="view/leadingendview/img/slider_2.png">
+				</div>
+				<div class="carousel-item">
+					<img src="view/leadingendview/img/slider_3.png">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!-- 弹出登录框 -->
+		<div class="login_page" id='login_page'>
+			<div class="box" id='login_box'>
+				<a href="javascript:;" id="myLogo"><img src="./view/leadingendview/img/logo.png" alt=""></a>
+				<div class="boxTop"><a href="#">登录让你更好的了解我们</a></div>
+				<div class="boxBot">
+					<form id="myForm">
+						<input type="text" id="userName" name="user" placeholder="请输入用户名 / 邮箱" autofocus autocomplete="off"
+							onkeyup="value=value.replace(/\s/g,'')" />
+						<span class="err"></span>
+		
+						<input type="password" name="pass" id="passWord" placeholder="请输入密码"
+							onkeyup="value=value.replace(/\s/g,'')" />
+						<span class="err"></span>
+		
+						<input type="text" name="verified" id="verification" placeholder="请输入验证码" autocomplete="off"
+							onkeyup="value=value.replace(/\s/g,'')" />
+						<a href="javascript:;" id="codeNum"></a>
+						<span class="err"></span>
+		
+						<br>
+						<input type="button" value="Login" id="btn" />
+					</form>
+					<div class="insert_alter">
+		
+						<a href="./view/leadingendview/view/retrieve.html" id="alter">忘记密码？</a>
+						<span class="center">|</span>
+						<a href="./view/leadingendview/view/register.html" id="insert">现在注册 > </a>
+		
+					</div>
+				</div>
+			</div>
+		<script src="./view/leadingendview/js/isnotLogin.js"></script>
+		<script src="./view/leadingendview/js/login_page.js"></script>
+		
+		</div>
+
+		<div class="container">
+
+
+			<div class="row mb-2">
+				<div class="col-md-6">
+					<div
+						class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+						<div class="col p-4 d-flex flex-column position-static">
+							<strong class="d-inline-block mb-2 text-primary">World</strong>
+							<h3 class="mb-0">Featured post</h3>
+							<div class="mb-1 text-muted">Nov 12</div>
+							<p class="card-text mb-auto">This is a wider card with supporting text below as a natural
+								lead-in to additional content.</p>
+							<a href="#" class="stretched-link">Continue reading</a>
+						</div>
+						<div class="col-auto d-none d-lg-block">
+							<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+								role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+								focusable="false">
+								<title>Placeholder</title>
+								<rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+									dy=".3em">Thumbnail</text>
+							</svg>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div
+						class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+						<div class="col p-4 d-flex flex-column position-static">
+							<strong class="d-inline-block mb-2 text-success">Design</strong>
+							<h3 class="mb-0">Post title</h3>
+							<div class="mb-1 text-muted">Nov 11</div>
+							<p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
+								additional content.</p>
+							<a href="#" class="stretched-link">Continue reading</a>
+						</div>
+						<div class="col-auto d-none d-lg-block">
+							<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+								role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+								focusable="false">
+								<title>Placeholder</title>
+								<rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+									dy=".3em">Thumbnail</text>
+							</svg>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main role="main" class="container">
+			<div class="row">
+				<div class="col-md-8 blog-main" id="art_box">
+					
+					<ul class="note-list" v-for="(v,k) in todoData">
+						<li class="have-img">
+							<a class="wrap-img" href="">
+								<img :src="v.img">
+							</a>
+							<div class="content">
+								<a class="title" href="">
+									<h4>{{v.Blog_Title}}</h4>
+								</a>
+								<p class="abstract">
+									{{v.Blog_ContentStr}}
+								</p>
+								<div class="meta">
+									<a class="nickname" href="">{{v.Blog_UserID}}</a>
+									<a href=""><i>??</i>{{v.Blog_Comment}}</a>
+									<a href=""><i>??</i>{{v.Blog_Likes}}</a>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+					
+					
+					<!-- <div class="card" v-for="(v,k) in todoData">
+						
+							<div class="art_author">
+								<a href="">
+									<h4 class="blog-post-title">{{v.Blog_Title}}</h4>
+								</a>
+							</div>
+							<div class="paper">
+								<div class="art_all">
+									{{v.article}}
+								</div>
+								<div class="art_img">
+									<a href=""><img :src="v.img"></a>
+								</div>
+							</div>
+							<div class="art_author">
+								<ul class="list-inline">
+									<li class="list-inline-item">
+										<a class="" href="#">{{v.author}}</a>
+									</li>
+									<li class="list-inline-item">
+										<a class="" href="#"><i>?</i></a><span>{{v.comment}}</span>
+									</li>
+									<li class="list-inline-item">
+										<a class="" href="#"><i>?</i></a><span>{{v.love}}</span>
+									</li>
+								</ul>
+							</div>
+						
+					</div> -->
+				</div>
+				<script>
+
+					new Vue({
+						el: '#art_box',
+						data: {
+							todoData: [],
+		
+						},
+						methods: {
+							getAll() {
+								var that = this;
+								axios.get('/Project/indexBlog').then((backData) => {
+									// console.log(backData.data)
+		
+									// 之前使用 . 就可以拿到值
+									// 现在可以使用 解构的方法拿到值
+									// var {a,b} = {a:1,b:2}
+									var { data } = backData;
+									// 如果在这里面使用this就会指向axios
+									// 使用箭头函数他的this就会指向外面的vue
+									// 使用 that 也可以
+									that.todoData = data;
+		
+								}).catch(function(err){
+									// console.log(00);
+								})
+							}
+
+							 
+
+
+						}, mounted() {
+							this.getAll();
+		
+						}
+					})
+		
+		
+		
+				</script>
+				<aside class="col-md-4 blog-sidebar">
+					<!-- 广告 -->
+					<div class="p-4 clearpadding">
+						<div class="ad">
+							<div class="ad_box">
+								<span id="close_box" style="text-align: center;">x</span>
+								<a href=""><img src="./view/leadingendview/img/ad.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+					<!-- 文章推荐 -->
+					<div class="p-4 clearpadding">
+						<div class="art_top">
+							<div class="art_top_coral"></div>
+							<h2 class="font-italic">文章推荐</h2>
+						</div>
+						<div class="art_bot">
+							<ul class="">
+								<li><a href="">【红油拌蒜苔】春天的应季凉拌菜</a></li>
+								<li><a href="">「元气蒸鲍鱼」-春天里的好胃口，汁水丰盈，...</a></li>
+								<li><a href="">用春天第一鲜做饼子，做早餐正合适，抓紧吃...</a></li>
+								<li><a href="">「海盐樱花饼干」-春日里的小心思烘焙茶点</a></li>
+								<li><a href="">做馒头时多加一步，8分钟就满盘，蓬松香软，...</a></li>
+								<li><a href="">尹正的减肥之路，自律很重要，看我做的减肥...</a></li>
+								<li><a href="">春天了，看看哪些野菜可以吃？收藏好每年都.</a></li>
+								<li><a href="">减肥和三高吃的菜，脂肪是0，多吃无负担，不..</a></li>
+								<li><a href="">20分钟搞定的早餐，4主食4菜，有猪肉有牛肉...</a></li>
+								<li><a href="">早餐吃面包已成我家常态，隔三差五我都要烤一两个大吐司，早上打点儿豆浆或者...</a></li>
+							</ul>
+							<div class="art_bot_updata">
+								<a href="">
+									<i></i>
+									<span>换一批</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="p-4 clearpadding">
+
+						<div class="aut_top">
+							<div class="aut_top_coral"></div>
+							<h2>作者推荐</h2>
+						</div>
+						<div class="aut_bot">
+							<ul class="list-unstyled mb-0">
+								<li>
+									<a href="">
+										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<h2>jaoden</h2>
+										<span>作者介绍</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<h2>色坤</h2>
+										<span>作者介绍</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<h2>阿伟</h2>
+										<span>作者介绍</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<h2>作者</h2>
+										<span>作者介绍</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<h2>作者</h2>
+										<span>作者介绍</span>
+									</a>
+								</li>
+
+							</ul>
+							<div class="aut_bot_updata">
+								<a href="">
+									<i></i>
+									<span>换一批</span>
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+
+				</aside>
+
+			</div>
+
+		</main>
+		
+		
+
+		<footer class="blog-footer">
+			<p>Blog template built for <a href="#">Bootstrap</a> by <a href="">@mdo</a>.</p>
+			<p>
+				<a href="#">Back to top</a>
+			</p>
+		</footer>
+		<script src="./view/leadingendview/js/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+		</script>
+		<script>
+			window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+		</script>
+		<script src="./view/leadingendview/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+		<script src="./view/leadingendview/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+
+	</body>
+	<script>
+		$(function(){
+			$('#close_box').click(function(){
+				$(this).parent().parent().parent().fadeOut(400)
+			})
+		})
+	</script>
+	
+</html>
