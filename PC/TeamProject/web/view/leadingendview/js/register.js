@@ -22,7 +22,7 @@ $(function () {
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "/Project/Login?action=userNameCheck",
+                    url: "/Login?action=userNameCheck",
                     data: $('#myName').serialize(),// 序列化表单值  
                     async: true,
                     error(request) {
@@ -141,7 +141,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/Project/Login?action=emailSend",
+            url: "/Login?action=emailSend",
             data: $('#myEmail').serialize(),
             async: true,
             error(request) {
@@ -195,7 +195,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/Project/Login?action=register",
+            url: "/Login?action=register",
             data: $('#myForm').serialize(),// 序列化表单值  
             async: true,
             error(request) {

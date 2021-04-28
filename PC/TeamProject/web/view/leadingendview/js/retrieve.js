@@ -118,7 +118,7 @@ myCode.oninput = myCode.onpropertychange = function () {
 		}
 		$.ajax({
 			type: "POST",
-			url: "/Project/Login?action=emailCheck",
+			url: "/Login?action=emailCheck",
 			data: $('#myEmail').serialize(),
 			async: true,
 			error(request) {
@@ -173,7 +173,7 @@ myCode.oninput = myCode.onpropertychange = function () {
 		}
 		$.ajax({
 			type: "POST",
-			url: "/Project/Login?action=retrieve",
+			url: "/Login?action=retrieve",
 			data: $('#myForm').serialize(), // 序列化表单值  
 			async: true,
 			error(request) {
