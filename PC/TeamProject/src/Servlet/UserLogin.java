@@ -84,9 +84,12 @@ public class UserLogin extends HttpServlet {
         }else{
             //用户登录成功，将用户头像返回给前端
             Cookie cookie = new Cookie("headImg",user.getImg());
+            Cookie cookie2 = new Cookie("id",user.getUser_ID()+"");
             //设置时长
             cookie.setMaxAge(60*60*24*7);
+            cookie2.setMaxAge(60*60*24*7);
             response.addCookie(cookie);
+            response.addCookie(cookie2);
             pw.print("1");
         }
     }
