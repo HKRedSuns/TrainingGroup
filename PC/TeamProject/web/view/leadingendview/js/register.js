@@ -141,7 +141,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/RegVerification",
+            url: "/Project/RegVerification",
             data: $('#myEmail').serialize(),
             async: true,
             error(request) {
@@ -195,7 +195,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/Register",
+            url: "/Project/Register",
             data: $('#myForm').serialize(),// 序列化表单值  
             async: true,
             error(request) {

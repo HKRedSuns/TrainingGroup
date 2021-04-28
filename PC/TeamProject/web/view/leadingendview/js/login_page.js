@@ -89,7 +89,7 @@
 		}
 		$.ajax({
 			type: "POST",
-			url: "/Login",
+			url: "/Project/Login",
 			data: $('#myForm').serialize(),// 序列化表单值  
 			async: false,
 			error(request) {

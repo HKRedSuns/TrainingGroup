@@ -245,7 +245,7 @@ public class UserControllter {
         //返回结果
         ResultSet rs = null;
         //sql语句
-        String sql = "select * from HeadImg where img_ID=?";
+        String sql = "select * from headimg where img_ID=?";
         try{
             conn = ConnectionUtils.getConn();
             ment = conn.prepareStatement(sql);

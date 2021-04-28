@@ -1,7 +1,6 @@
 package Utils;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -12,7 +11,7 @@ import java.sql.SQLException;
 public class ConnectionUtils {
     //定义四个基础变量
     private static final String driver="com.mysql.cj.jdbc.Driver";
-    private static final String url = "jdbc:mysql://localhost:3306/TeamProject?characterEncoding=utf8&useSSL=false&serverTimezone = GMT";
+    private static final String url = "jdbc:mysql://127.0.0.1:3306/teamproject?characterEncoding=utf8&useSSL=false&serverTimezone = GMT";
     //用户名和密码
     private static final String root = "admin";
     private static final String password = "123";
