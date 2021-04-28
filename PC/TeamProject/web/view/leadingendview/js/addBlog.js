@@ -66,13 +66,16 @@ $(function () {
 		// console.log(art_html) // 含有html标签的文章
 		var isAddBlog ;
 		var titleVal = $("#title").val(); // 标题
-		
+		var userId = getCookie("id");
 		
 		var context = editor.txt.text(); // 没有html标签的文章
 		var conStr = context.slice(0,100); // 主页显示文章字段
 		
 		
-		
+		if(!userId){
+			alert('亲爱的美食家，首先请登录奥');
+			return false
+		}
 		if( titleVal == ''  && art_html == undefined){
 			alert("请填写文章和标题");
 			return false
@@ -99,13 +102,15 @@ $(function () {
 		formData.append('file', $('#inp_file')[0].files[0]); // 图片
 		formData.append('title',titleVal); // 标题
 		formData.append('conStr', conStr); // 100字文章
-		formData.append('context',art_html) // 含有html标签的全部文章
+		formData.append('context',art_html) ;// 含有html标签的全部文章
+		formData.append('userId',userId);
 		// console.log(formData.get('file'))
 		// console.log(formData.get('title'))
 		// console.log(formData.get('conStr'))
 		// console.log(formData.get('context'))
-        $.ajax({
-            url:"",
+		console.log(formData.get('userId'))
+		$.ajax({
+			url:"",
             type:"POST",
             data:formData,
 			processData: false,

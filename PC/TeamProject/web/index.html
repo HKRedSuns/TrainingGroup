@@ -102,26 +102,13 @@
 				</div>
 			</nav>
 		</header>
+		<script src="./view/leadingendview/js/cookies.js"></script>
 		<script>
-			// 获取cookie值
-			function getCookie(cname) {
-				var name = cname + "=";
-				var ca = document.cookie.split(';');
-				for (var i = 0; i < ca.length; i++) {
-					var c = ca[i].trim();
-					if (c.indexOf(name) === 0)
-						return c.substring(name.length, c.length);
-				}
-				return "";
-			}
-
 			var imgs = getCookie("headImg");
-
 			var login_a = document.getElementById('login_a');
 			var login_b = document.getElementById('login_b');
 
 			if (getCookie("headImg") != "") {
-
 				login_a.style.display = 'none'
 				var img = document.getElementById('h_img');
 				img.setAttribute('src', "./view/leadingendview" + imgs);
@@ -146,13 +133,7 @@
 				// 清除cookies
 				clearAllCookie()
 
-				function clearAllCookie() {
-					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-					if (keys) {
-						for (var i = keys.length; i--;)
-							document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
-					}
-				}
+
 				login_b.style.display = 'none'
 				login_a.style.display = 'block'
 
