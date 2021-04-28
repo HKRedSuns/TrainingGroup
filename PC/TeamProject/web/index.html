@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="美食 博客">
-		<meta name="author" content="叶凯振, 方锦涛, 林家伟, 谢洪江, 陈坤鹏, 单小宝, 曹绪亮">
+		<meta name="author" content="方景涛, 林家伟, 谢洪江">
 		<meta name="generator" content="Hugo 0.80.0">
 		<title>食上达人</title>
 		<!-- Logo -->
@@ -14,6 +14,8 @@
 		<script src="./view/leadingendview/js/axios.js"></script>
 		<!-- Bootstrap core CSS -->
 		<link href="./view/leadingendview/bootstrap-4.6.0-dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- 图标 -->
+		<link rel="stylesheet" type="text/css" href="view/leadingendview/font-icon/iconfont.css" />
 
 		<style>
 			.bd-placeholder-img {
@@ -33,11 +35,18 @@
 		</style>
 
 		<!-- 自定义样式 -->
-		<link rel="stylesheet" type="text/css" href="./view/leadingendview/css/blog.css">
 		<link rel="stylesheet" href="./view/leadingendview/css/login.css">
+		<link rel="stylesheet" type="text/css" href="./view/leadingendview/css/blog.css">
 	</head>
 	<body>
-	
+		<script>
+			// 关闭广告
+			$(function() {
+				$('#close_box').click(function() {
+					$(this).parent().parent().parent().fadeOut(400)
+				})
+			})
+		</script>
 		<header>
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 				<div class="nav_logo">
@@ -51,24 +60,28 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link home-page" href="#">首页 <span class="sr-only">(current)</span></a>
+							<a class="nav-link home-page" href="#"><i class="iconfont icon-shouye"></i>&nbsp;首页<span
+									class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="./one.html" onclick="show_login()">今日推荐</a>
+							<a class="nav-link" href="#" onclick="show_login()"><i
+									class="iconfont icon-jinrituijian"></i>&nbsp;今日推荐</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#" tabindex="-1" aria-disabled="true">分类</a>
+							<a class="nav-link" onclick="show_login()" href="#" tabindex="-1" aria-disabled="true"><i
+									class="iconfont icon-fenlei"></i>&nbsp;分类</a>
 						</li>
 					</ul>
-					<form class="form-inline mt-2 mt-md-0 location">
-						<input class="form-control mr-sm-2" type="text" placeholder="请输入搜索关键字" aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					<form class="form-inline mt-2 mt-md-0">
+						<input class="form-control" type="text" placeholder="请输入搜索关键字" aria-label="搜索">
+						<span class="sousuo"><i class="iconfont icon-sousuo"></i></span>
+						<button class="btn btn-outline-success my-2 my-sm-0 Btn" type="submit">搜索</button>
 					</form>
 					<div class="nav_login">
 						<div id="login">
 							<div>
-								<a href="./view/leadingendview/view/login.html" id="login_a">登录/注册</a>
-								<a href="javascript:;" id="login_b"><img id="h_img"  alt=""></a>
+								<a href="./view/leadingendview/view/login.html" id="login_a" target="_blank">登录/注册</a>
+								<a href="javascript:;" id="login_b"><img id="h_img" alt=""></a>
 							</div>
 							<!-- 退出盒子 -->
 							<div id="quit_box">
@@ -79,24 +92,25 @@
 								</ul>
 							</div>
 						</div>
+
 						<div class="write">
-							<a href="javascript:;">写文章</a>
+							<a href="./view/leadingendview/view/wangEditor.html" onclick="show_login()"><i
+									class="iconfont icon-xietiezi"></i>&nbsp;写文章</a>
 						</div>
 					</div>
+				</div>
 				</div>
 			</nav>
 		</header>
 		<script>
-
-				// 获取cookie值
+			// 获取cookie值
 			function getCookie(cname) {
 				var name = cname + "=";
 				var ca = document.cookie.split(';');
-				for(var i=0; i<ca.length; i++)
-				{
+				for (var i = 0; i < ca.length; i++) {
 					var c = ca[i].trim();
-					if (c.indexOf(name)===0)
-						return c.substring(name.length,c.length);
+					if (c.indexOf(name) === 0)
+						return c.substring(name.length, c.length);
 				}
 				return "";
 			}
@@ -104,46 +118,48 @@
 			var imgs = getCookie("headImg");
 
 			var login_a = document.getElementById('login_a');
-			var login_b= document.getElementById('login_b');
+			var login_b = document.getElementById('login_b');
 
-			if(getCookie("headImg")!="" ){
+			if (getCookie("headImg") != "") {
 
-				login_a.style.display='none'
+				login_a.style.display = 'none'
 				var img = document.getElementById('h_img');
-				img.setAttribute('src',"./view/leadingendview"+imgs);
-			}else {
+				img.setAttribute('src', "./view/leadingendview" + imgs);
+			} else {
 
-				login_b.style.display='none'
+				login_b.style.display = 'none'
 			}
 			// 退出框的隐藏和显示效果
 			var quit = document.getElementById('quit_box')
-			login_b.onmouseover =quit.onmouseover  = function () {
-				quit.style.display='block'
+			login_b.onmouseover = quit.onmouseover = function() {
+				quit.style.display = 'block'
 			}
-			login_b.onmouseout = quit.onmouseout  =function () {
-				quit.style.display='none'
+			login_b.onmouseout = quit.onmouseout = function() {
+				quit.style.display = 'none'
 			}
-			quit.onclick=function () {
-				this.style.display='none'
+			quit.onclick = function() {
+				this.style.display = 'none'
 			}
 
 			// 退出
 			function quit_click() {
 				// 清除cookies
 				clearAllCookie()
+
 				function clearAllCookie() {
 					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-					if(keys) {
-						for(var i = keys.length; i--;)
+					if (keys) {
+						for (var i = keys.length; i--;)
 							document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
 					}
 				}
-				login_b.style.display='none'
-				login_a.style.display='block'
+				login_b.style.display = 'none'
+				login_a.style.display = 'block'
 
 			}
 		</script>
 		<!--  轮播图  -->
+
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -170,193 +186,128 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-		<!-- 弹出登录框 -->
+		<!-- 登录框的弹出 -->
 		<div class="login_page" id='login_page'>
 			<div class="box" id='login_box'>
 				<a href="javascript:;" id="myLogo"><img src="./view/leadingendview/img/logo.png" alt=""></a>
 				<div class="boxTop"><a href="#">登录让你更好的了解我们</a></div>
 				<div class="boxBot">
 					<form id="myForm">
-						<input type="text" id="userName" name="user" placeholder="请输入用户名 / 邮箱" autofocus autocomplete="off"
-							onkeyup="value=value.replace(/\s/g,'')" />
+						<input type="text" id="userName" name="user" placeholder="请输入用户名 / 邮箱" autofocus
+							autocomplete="off" onkeyup="value=value.replace(/\s/g,'')" />
 						<span class="err"></span>
-		
+
 						<input type="password" name="pass" id="passWord" placeholder="请输入密码"
 							onkeyup="value=value.replace(/\s/g,'')" />
 						<span class="err"></span>
-		
+
 						<input type="text" name="verified" id="verification" placeholder="请输入验证码" autocomplete="off"
 							onkeyup="value=value.replace(/\s/g,'')" />
 						<a href="javascript:;" id="codeNum"></a>
 						<span class="err"></span>
-		
+
 						<br>
 						<input type="button" value="Login" id="btn" />
 					</form>
 					<div class="insert_alter">
-		
+
 						<a href="./view/leadingendview/view/retrieve.html" id="alter">忘记密码？</a>
 						<span class="center">|</span>
 						<a href="./view/leadingendview/view/register.html" id="insert">现在注册 > </a>
-		
+
 					</div>
 				</div>
 			</div>
-		<script src="./view/leadingendview/js/isnotLogin.js"></script>
-		<script src="./view/leadingendview/js/login_page.js"></script>
-		
+			<script src="./view/leadingendview/js/isnotLogin.js"></script>
+			<script src="./view/leadingendview/js/login_page.js"></script>
+
 		</div>
-
-		<div class="container">
-
-
-			<div class="row mb-2">
-				<div class="col-md-6">
-					<div
-						class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-						<div class="col p-4 d-flex flex-column position-static">
-							<strong class="d-inline-block mb-2 text-primary">World</strong>
-							<h3 class="mb-0">Featured post</h3>
-							<div class="mb-1 text-muted">Nov 12</div>
-							<p class="card-text mb-auto">This is a wider card with supporting text below as a natural
-								lead-in to additional content.</p>
-							<a href="#" class="stretched-link">Continue reading</a>
-						</div>
-						<div class="col-auto d-none d-lg-block">
-							<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
-								role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-								focusable="false">
-								<title>Placeholder</title>
-								<rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-									dy=".3em">Thumbnail</text>
-							</svg>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div
-						class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-						<div class="col p-4 d-flex flex-column position-static">
-							<strong class="d-inline-block mb-2 text-success">Design</strong>
-							<h3 class="mb-0">Post title</h3>
-							<div class="mb-1 text-muted">Nov 11</div>
-							<p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
-								additional content.</p>
-							<a href="#" class="stretched-link">Continue reading</a>
-						</div>
-						<div class="col-auto d-none d-lg-block">
-							<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
-								role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-								focusable="false">
-								<title>Placeholder</title>
-								<rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-									dy=".3em">Thumbnail</text>
-							</svg>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		<!-- <div class="container">
+			<div class="alert alert-success alert-dismissible fade show">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <strong>登录成功!</strong>
+			</div> -->
 		<main role="main" class="container">
 			<div class="row">
 				<div class="col-md-8 blog-main" id="art_box">
-					
+
 					<ul class="note-list" v-for="(v,k) in todoData">
 						<li class="have-img">
-							<a class="wrap-img" href="">
-								<img :src="v.img">
+							<a class="wrap-img" href="" v-show='v.Blog_ImgID.length>0'>
+								<img :src="v.Blog_ImgID" onclick="show_login()">
 							</a>
 							<div class="content">
-								<a class="title" href="">
+								<a class="title" href="" onclick="show_login()">
 									<h4>{{v.Blog_Title}}</h4>
 								</a>
-								<p class="abstract">
-									{{v.Blog_ContentStr}}
+								<p class="article">
+									{{v.Blog_ContextStr}}
 								</p>
 								<div class="meta">
-									<a class="nickname" href="">{{v.Blog_UserID}}</a>
-									<a href=""><i>??</i>{{v.Blog_Comment}}</a>
-									<a href=""><i>??</i>{{v.Blog_Likes}}</a>
+									<a class="nickname" href="" onclick="show_login()">{{v.Blog_UserID}}</a>
+									<a href="" onclick="show_login()"><i
+											class="iconfont icon-pinglun"></i>&nbsp;{{v.Blog_Comment}}</a>
+									<a href="" onclick="show_login()"><i
+											class="iconfont icon-xihuan"></i>&nbsp;{{v.Blog_Likes}}</a>
 								</div>
 							</div>
 						</li>
-						
-					</ul>
-					
-					
-					<!-- <div class="card" v-for="(v,k) in todoData">
-						
-							<div class="art_author">
-								<a href="">
-									<h4 class="blog-post-title">{{v.Blog_Title}}</h4>
+						<!-- <li class="">
+							<div class="content">
+								<a class="title" href="">
+									<h4>西红柿炒鸡蛋</h4>
 								</a>
-							</div>
-							<div class="paper">
-								<div class="art_all">
-									{{v.article}}
+								<p class="article">
+									这几天，张丽君的视频刷爆了朋友圈，我也是含着眼泪，看完了关于她的报道。其实，张丽君的名字，早已熟悉，第一次看到的时候，是张丽君在医院我也是含着眼泪，看完了关于她的报道。其实，张丽君的名字，早已熟悉，第一次看到的时候，是张丽君在医院，为未...
+								</p>
+								<div class="meta">
+									<a class="nickname" href="">幸福在路上</a>
+									<a href=""><i class="iconfont icon-pinglun"></i>&nbsp;202</a>
+									<a href=""><i class="iconfont icon-xihuan"></i>&nbsp;7</a>
 								</div>
-								<div class="art_img">
-									<a href=""><img :src="v.img"></a>
-								</div>
 							</div>
-							<div class="art_author">
-								<ul class="list-inline">
-									<li class="list-inline-item">
-										<a class="" href="#">{{v.author}}</a>
-									</li>
-									<li class="list-inline-item">
-										<a class="" href="#"><i>?</i></a><span>{{v.comment}}</span>
-									</li>
-									<li class="list-inline-item">
-										<a class="" href="#"><i>?</i></a><span>{{v.love}}</span>
-									</li>
-								</ul>
-							</div>
-						
-					</div> -->
+						</li> -->
+					</ul>
+
 				</div>
 				<script>
-
 					new Vue({
 						el: '#art_box',
 						data: {
-							todoData: [],
-		
+							todoData: []
 						},
 						methods: {
+
 							getAll() {
 								var that = this;
-								axios.get('/Project/indexBlog').then((backData) => {
+								axios.get('/indexBlog').then((backData) => {
 									// console.log(backData.data)
-		
+
 									// 之前使用 . 就可以拿到值
 									// 现在可以使用 解构的方法拿到值
 									// var {a,b} = {a:1,b:2}
-									var { data } = backData;
+									var {
+										data
+									} = backData;
 									// 如果在这里面使用this就会指向axios
 									// 使用箭头函数他的this就会指向外面的vue
 									// 使用 that 也可以
 									that.todoData = data;
-		
-								}).catch(function(err){
+
+								}).catch(function(err) {
 									// console.log(00);
 								})
 							}
 
-							 
 
 
-						}, mounted() {
+
+						},
+						mounted() {
 							this.getAll();
-		
+
 						}
 					})
-		
-		
-		
 				</script>
 				<aside class="col-md-4 blog-sidebar">
 					<!-- 广告 -->
@@ -389,8 +340,7 @@
 							</ul>
 							<div class="art_bot_updata">
 								<a href="">
-									<i></i>
-									<span>换一批</span>
+									<span><i class="iconfont icon-huanyipi"></i>&nbsp;换一批</span>
 								</a>
 							</div>
 						</div>
@@ -443,8 +393,7 @@
 							</ul>
 							<div class="aut_bot_updata">
 								<a href="">
-									<i></i>
-									<span>换一批</span>
+									<span><i class="iconfont icon-huanyipi"></i>&nbsp;换一批</span>
 								</a>
 							</div>
 
@@ -452,36 +401,45 @@
 
 					</div>
 
+					<footer class="blog-footer">
+						<div class="team">
+							<h5>我们的团队</h5>
+							<ul class="list-unstyled mb-0">
+								<li>
+									<h6>方锦涛</h6>
+									<span>作者介绍</span>
+								</li>
+								<li>
+									<h6>林家伟</h6>
+									<span>作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍</span>
+								</li>
+								<li>
+									<h6>谢洪江</h6>
+									<span>作者介绍</span>
+								</li>
+							</ul>
+						</div>
+						<div class="team">
+							<h5>关于我们</h5>
+							<p>
+								我们的博客建立宗旨是“民以食为天，美食秘籍以<a href="">食上达人</a>为先”<em>！！！</em>每位小可爱们都可以畅所欲言，分享小主儿们美食小秘籍……
+							</p>
+						</div>
+					</footer>
 				</aside>
 
 			</div>
 
 		</main>
-		
-		
 
-		<footer class="blog-footer">
-			<p>Blog template built for <a href="#">Bootstrap</a> by <a href="">@mdo</a>.</p>
-			<p>
-				<a href="#">Back to top</a>
-			</p>
-		</footer>
-		<script src="./view/leadingendview/js/jquery-3.5.1.slim.min.js"
-			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-		</script>
+
+		<!-- <script src="./view/leadingendview/js/jquery-3.5.1.slim.min.js"></script> -->
 		<script>
 			window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
 		</script>
+		<script src="./view/leadingendview/bootstrap-4.6.0-dist/js/popper.min.js"></script>
 		<script src="./view/leadingendview/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
 		<script src="./view/leadingendview/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
 
 	</body>
-	<script>
-		$(function(){
-			$('#close_box').click(function(){
-				$(this).parent().parent().parent().fadeOut(400)
-			})
-		})
-	</script>
-	
 </html>

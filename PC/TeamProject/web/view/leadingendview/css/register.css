@@ -35,8 +35,8 @@ video{
 	position: relative;
 	top: 50%;
 	left: 50%;
-	margin-top: -220px;
-	margin-left: -250px;
+	margin-top: -225px;
+	margin-left: -200px;
 	background: rgba(245, 247, 243, 0.8);
 	z-index: 100000;
    /* box-shadow: 10px 10px rgba(245, 247, 243, 0.9); */
