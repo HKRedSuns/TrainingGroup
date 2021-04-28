@@ -22,7 +22,6 @@ public class Index_Blog extends HttpServlet {
         PrintWriter pw = response.getWriter();
         //获取操作对象
         IndexDao index = new IndexDao();
-
         pw.print(index.getBlog());
     }
 

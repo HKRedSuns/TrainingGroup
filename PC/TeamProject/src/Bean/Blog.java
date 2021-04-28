@@ -21,17 +21,17 @@ public class Blog {
     //文章评论量
     private int Blog_Comment;
     //文章显示
-    private String Blog_ContentStr;
+    private String Blog_ContextStr;
 
     //无参构造函数
     public Blog(){}
 
-    public String getBlog_ContentStr() {
-        return Blog_ContentStr;
+    public String getBlog_ContextStr() {
+        return Blog_ContextStr;
     }
 
-    public void setBlog_ContentStr(String blog_ContentStr) {
-        Blog_ContentStr = blog_ContentStr;
+    public void setBlog_ContextStr(String blog_ContextStr) {
+        Blog_ContextStr = blog_ContextStr;
     }
 
     public int getBlog_ID() {
@@ -109,7 +109,8 @@ public class Blog {
                 ", Blog_ImgID=" + Blog_ImgID +
                 ", Blog_ReleaseDate='" + Blog_ReleaseDate + '\'' +
                 ", Blog_Comment=" + Blog_Comment +
-                ", Blog_ContentStr='" + Blog_ContentStr + '\'' +
+                ", Blog_ContextStr='" + Blog_ContextStr + '\'' +
                 '}';
     }
+
 }

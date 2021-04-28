@@ -315,6 +315,7 @@ main ul {
 	line-height: 20px;
 	display: list-item;
 	text-align: -webkit-match-parent;
+	margin-bottom: 10px !important;
 }
 
 .note-list .have-img .wrap-img {
@@ -372,6 +373,14 @@ div {
 	line-height: 24px;
 	color: #999;
 	text-indent: 2em;
+	/*max-height: 90px;*/
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
+	display: -webkit-box !important;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
 }
 
 p {
@@ -387,7 +396,7 @@ p {
 	padding-right: 0 !important;
 	font-size: 12px;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: 10px;
 }
 
 .note-list .meta .nickname {
