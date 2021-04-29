@@ -4,8 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="美食 博客">
-		<meta name="author" content="方景涛, 林家伟, 谢洪江">
-		<meta name="generator" content="Hugo 0.80.0">
+		<meta name="author" content="方锦涛, 林家伟, 谢洪江">
 		<title>食上达人</title>
 		<!-- Logo -->
 		<link rel="shortcut icon" href="./view/logo.ico">
@@ -48,7 +47,7 @@
 			})
 		</script>
 		<header>
-			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg mb-5 bg-white">
 				<div class="nav_logo">
 					<img src="./view/leadingendview/img/logo.png">
 					<h2>食上达人</h2>
@@ -102,13 +101,26 @@
 				</div>
 			</nav>
 		</header>
-		<script src="./view/leadingendview/js/cookies.js"></script>
 		<script>
+			// 获取cookie值
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i].trim();
+					if (c.indexOf(name) === 0)
+						return c.substring(name.length, c.length);
+				}
+				return "";
+			}
+
 			var imgs = getCookie("headImg");
+
 			var login_a = document.getElementById('login_a');
 			var login_b = document.getElementById('login_b');
 
 			if (getCookie("headImg") != "") {
+
 				login_a.style.display = 'none'
 				var img = document.getElementById('h_img');
 				img.setAttribute('src', "./view/leadingendview" + imgs);
@@ -133,7 +145,13 @@
 				// 清除cookies
 				clearAllCookie()
 
-
+				function clearAllCookie() {
+					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+					if (keys) {
+						for (var i = keys.length; i--;)
+							document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+					}
+				}
 				login_b.style.display = 'none'
 				login_a.style.display = 'block'
 

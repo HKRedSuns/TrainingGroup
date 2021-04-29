@@ -1,5 +1,5 @@
 body {
-	background-color: #d9d9d9;
+	background-color: #e7e7e7;
 	font-size: 1rem;
 }
 
@@ -640,7 +640,7 @@ main .row {
 	width: 100%;
 	margin-top: 50px !important;
 	padding: 20px 10px 0 10px !important;
-	background: linear-gradient(to bottom, #d3d3d3, #d9d9d9);
+	background: linear-gradient(to bottom, #d5d5d5, #e6e6e6);
 }
 
 .blog-footer .team h5 {
