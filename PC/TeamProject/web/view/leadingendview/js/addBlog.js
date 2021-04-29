@@ -108,16 +108,16 @@ $(function () {
 		// console.log(formData.get('title'))
 		// console.log(formData.get('conStr'))
 		// console.log(formData.get('context'))
-		console.log(formData.get('userId'))
+		console.log(formData.get('userId'));
 		$.ajax({
-			url:"",
+			url:"/addBlog",
             type:"POST",
             data:formData,
 			processData: false,
 			contentType: false,
             success:function (result) {
-                if (result.status == 200){
-                    alert("发布成功")
+                if (result.status === 200){
+                    alert("发布成功");
                     window.location='./blogList.html';
                 }
             }

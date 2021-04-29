@@ -2,11 +2,14 @@ package Tests;
 
 import Bean.Blog;
 import Bean.User;
+import Dao.Blog_Edit;
 import Dao.User_LoginAndRegister;
 import Utils.ConnectionUtil;
 import Utils.JsonUtils;
 import Utils.MailUtil;
+import Utils.UseUtils;
 import org.junit.Test;
+import org.junit.validator.PublicClassValidator;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import java.sql.Connection;
@@ -28,7 +31,6 @@ public class ConnectionUtilTest {
             e.printStackTrace();
         }
     }
-
     //登录测试
     @Test
     public void LoginTest(){
@@ -50,7 +52,6 @@ public class ConnectionUtilTest {
         System.out.println(total);
 
     }
-
     //注册功能测试
     @Test
     public void registerTest(){
@@ -89,5 +90,17 @@ public class ConnectionUtilTest {
     @Test
     public void SendEmailTest(){
         System.out.println(MailUtil.SendMail("1835784566@qq.com", "123"));
+    }
+    //测试发布文章功能
+    @Test
+    public void addBlog(){
+        Blog blog = new Blog();
+//        blog.setBlog_Title("Jaoden");
+//        blog.setBlog_ContextStr("欢迎大家，我希望和大家皮带能否");
+//        blog.setBlog_Content("欢迎大家，我希望和大家皮带能否");
+        blog.setBlog_UserID("1");
+//        blog.setBlog_ReleaseDate(UseUtils.getRunTiem());
+        Blog_Edit edit = new Blog_Edit();
+        System.out.println(edit.addImg(blog));
     }
 }

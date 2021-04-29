@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50549
 File Encoding         : 65001
 
-Date: 2021-04-28 17:01:14
+Date: 2021-04-29 13:28:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,12 +25,12 @@ CREATE TABLE `blog` (
   `Blog_Content` longtext NOT NULL COMMENT '文章内容',
   `Blog_UserID` varchar(20) NOT NULL COMMENT '文章用户',
   `Blog_Likes` bigint(255) DEFAULT '0' COMMENT '文章点赞量',
-  `Blog_ImgID` bigint(255) DEFAULT NULL COMMENT '文章图片ID',
+  `Blog_ImgID` varchar(255) DEFAULT NULL COMMENT '文章图片ID',
   `Blog_ReleaseDate` datetime NOT NULL COMMENT '文章发布日期',
   `Blog_Comment` bigint(255) DEFAULT '0',
   `Blog_ContextStr` longtext NOT NULL,
   PRIMARY KEY (`Blog_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blog

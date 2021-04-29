@@ -4,77 +4,78 @@ Using CATALINA_TMPDIR: "D:\wamp\TomacatServer\apache-tomcat-8.5.64\temp"
 Using JRE_HOME:        "C:\Program Files\Java\jdk1.8.0_131"
 Using CLASSPATH:       "D:\wamp\TomacatServer\apache-tomcat-8.5.64\bin\bootstrap.jar;D:\wamp\TomacatServer\apache-tomcat-8.5.64\bin\tomcat-juli.jar"
 Using CATALINA_OPTS:   ""
-28-Apr-2021 20:17:31.765 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/8.5.64
-28-Apr-2021 20:17:31.767 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Mar 4 2021 23:14:16 UTC
-28-Apr-2021 20:17:31.767 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      8.5.64.0
-28-Apr-2021 20:17:31.767 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk1.8.0_131\jre
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    1.8.0_131-b11
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     D:\wamp\TomacatServer\apache-tomcat-8.5.64
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3\conf\logging.properties
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dfile.encoding=UTF-8
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote=
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.port=1097
-28-Apr-2021 20:17:31.768 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.ssl=false
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.password.file=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3\jmxremote.password
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.access.file=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3\jmxremote.access
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.rmi.server.hostname=127.0.0.1
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=D:\wamp\TomacatServer\apache-tomcat-8.5.64
-28-Apr-2021 20:17:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=D:\wamp\TomacatServer\apache-tomcat-8.5.64\temp
-28-Apr-2021 20:17:31.808 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.26]。
-28-Apr-2021 20:17:31.808 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]。
-28-Apr-2021 20:17:31.808 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL配置：useAprConnector[false]，useOpenSSL[true]
-28-Apr-2021 20:17:31.811 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1i  8 Dec 2020]
-28-Apr-2021 20:17:31.963 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-80"]
-28-Apr-2021 20:17:31.978 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
-28-Apr-2021 20:17:31.991 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 602 ms
-28-Apr-2021 20:17:32.035 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
-28-Apr-2021 20:17:32.036 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.64
-28-Apr-2021 20:17:32.048 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-80"]
-28-Apr-2021 20:17:32.075 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 83 ms
+29-Apr-2021 13:21:36.520 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/8.5.64
+29-Apr-2021 13:21:36.522 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Mar 4 2021 23:14:16 UTC
+29-Apr-2021 13:21:36.522 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      8.5.64.0
+29-Apr-2021 13:21:36.522 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+29-Apr-2021 13:21:36.522 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk1.8.0_131\jre
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    1.8.0_131-b11
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     D:\wamp\TomacatServer\apache-tomcat-8.5.64
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3\conf\logging.properties
+29-Apr-2021 13:21:36.523 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dfile.encoding=UTF-8
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote=
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.port=1097
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.ssl=false
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.password.file=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3\jmxremote.password
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcom.sun.management.jmxremote.access.file=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3\jmxremote.access
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.rmi.server.hostname=127.0.0.1
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+29-Apr-2021 13:21:36.524 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3
+29-Apr-2021 13:21:36.525 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=D:\wamp\TomacatServer\apache-tomcat-8.5.64
+29-Apr-2021 13:21:36.525 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=D:\wamp\TomacatServer\apache-tomcat-8.5.64\temp
+29-Apr-2021 13:21:36.528 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.26]。
+29-Apr-2021 13:21:36.528 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]。
+29-Apr-2021 13:21:36.528 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL配置：useAprConnector[false]，useOpenSSL[true]
+29-Apr-2021 13:21:36.531 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1i  8 Dec 2020]
+29-Apr-2021 13:21:36.630 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-80"]
+29-Apr-2021 13:21:36.647 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+29-Apr-2021 13:21:36.660 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 499 ms
+29-Apr-2021 13:21:36.686 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+29-Apr-2021 13:21:36.687 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.64
+29-Apr-2021 13:21:36.695 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-80"]
+29-Apr-2021 13:21:36.706 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 46 ms
 Connected to server
-28-Apr-2021 20:17:32.557 警告 [RMI TCP Connection(3)-127.0.0.1] org.apache.tomcat.util.descriptor.web.WebXml.setVersion 未知版本字符串 [4.0]。将使用默认版本。
-28-Apr-2021 20:17:33.412 信息 [RMI TCP Connection(3)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
-28-Apr-2021 20:17:36.757 严重 [http-nio-80-exec-7] com.alibaba.druid.pool.DruidDataSource.error testWhileIdle is true, validationQuery not set
-28-Apr-2021 20:17:37.201 信息 [http-nio-80-exec-7] com.alibaba.druid.pool.DruidDataSource.info {dataSource-1} inited
-28-Apr-2021 20:17:42.063 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\wamp\TomacatServer\apache-tomcat-8.5.64\webapps\manager]
-28-Apr-2021 20:17:42.690 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
-28-Apr-2021 20:17:42.714 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[D:\wamp\TomacatServer\apache-tomcat-8.5.64\webapps\manager]的部署已在[650]毫秒内完成
+29-Apr-2021 13:21:37.480 警告 [RMI TCP Connection(3)-127.0.0.1] org.apache.tomcat.util.descriptor.web.WebXml.setVersion 未知版本字符串 [4.0]。将使用默认版本。
+29-Apr-2021 13:21:38.354 信息 [RMI TCP Connection(3)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+29-Apr-2021 13:21:39.638 严重 [http-nio-80-exec-5] com.alibaba.druid.pool.DruidDataSource.error testWhileIdle is true, validationQuery not set
+29-Apr-2021 13:21:39.941 信息 [http-nio-80-exec-5] com.alibaba.druid.pool.DruidDataSource.info {dataSource-1} inited
+29-Apr-2021 13:21:46.695 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\wamp\TomacatServer\apache-tomcat-8.5.64\webapps\manager]
+29-Apr-2021 13:21:46.989 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+29-Apr-2021 13:21:47.000 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[D:\wamp\TomacatServer\apache-tomcat-8.5.64\webapps\manager]的部署已在[304]毫秒内完成
+
+
 Using CATALINA_BASE:   "C:\Users\Jaoden\.IntelliJIdea2019.3\system\tomcat\Unnamed_TeamProject_3"
 Using CATALINA_HOME:   "D:\wamp\TomacatServer\apache-tomcat-8.5.64"
 Using CATALINA_TMPDIR: "D:\wamp\TomacatServer\apache-tomcat-8.5.64\temp"
 Using JRE_HOME:        "C:\Program Files\Java\jdk1.8.0_131"
 Using CLASSPATH:       "D:\wamp\TomacatServer\apache-tomcat-8.5.64\bin\bootstrap.jar;D:\wamp\TomacatServer\apache-tomcat-8.5.64\bin\tomcat-juli.jar"
 Using CATALINA_OPTS:   ""
-28-Apr-2021 20:18:47.328 信息 [main] org.apache.catalina.core.StandardServer.await 通过关闭端口接收到有效的关闭命令。正在停止服务器实例。
-28-Apr-2021 20:18:47.328 信息 [main] org.apache.coyote.AbstractProtocol.pause 暂停ProtocolHandler["http-nio-80"]
-28-Apr-2021 20:18:47.608 信息 [main] org.apache.catalina.core.StandardService.stopInternal 正在停止服务[Catalina]
-28-Apr-2021 20:18:47.612 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc Web应用程序 [ROOT] 注册了JDBC驱动程序 [com.alibaba.druid.proxy.DruidDriver]，但在Web应用程序停止时无法注销它。 为防止内存泄漏，JDBC驱动程序已被强制取消注册。
-28-Apr-2021 20:18:47.612 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc Web应用程序 [ROOT] 注册了JDBC驱动程序 [com.mysql.cj.jdbc.Driver]，但在Web应用程序停止时无法注销它。 为防止内存泄漏，JDBC驱动程序已被强制取消注册。
-28-Apr-2021 20:18:47.612 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads Web应用程序[ROOT]似乎启动了一个名为[mysql-cj-abandoned-connection-cleanup]的线程，但未能停止它。这很可能会造成内存泄漏。线程的堆栈跟踪：[
+29-Apr-2021 13:26:27.468 信息 [main] org.apache.catalina.core.StandardServer.await 通过关闭端口接收到有效的关闭命令。正在停止服务器实例。
+29-Apr-2021 13:26:27.469 信息 [main] org.apache.coyote.AbstractProtocol.pause 暂停ProtocolHandler["http-nio-80"]
+29-Apr-2021 13:26:27.814 信息 [main] org.apache.catalina.core.StandardService.stopInternal 正在停止服务[Catalina]
+29-Apr-2021 13:26:27.818 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc Web应用程序 [ROOT] 注册了JDBC驱动程序 [com.alibaba.druid.proxy.DruidDriver]，但在Web应用程序停止时无法注销它。 为防止内存泄漏，JDBC驱动程序已被强制取消注册。
+29-Apr-2021 13:26:27.818 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc Web应用程序 [ROOT] 注册了JDBC驱动程序 [com.mysql.cj.jdbc.Driver]，但在Web应用程序停止时无法注销它。 为防止内存泄漏，JDBC驱动程序已被强制取消注册。
+29-Apr-2021 13:26:27.819 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads Web应用程序[ROOT]似乎启动了一个名为[mysql-cj-abandoned-connection-cleanup]的线程，但未能停止它。这很可能会造成内存泄漏。线程的堆栈跟踪：[
  java.lang.Object.wait(Native Method)
  java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
  com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
  java.lang.Thread.run(Thread.java:748)]
-28-Apr-2021 20:18:47.612 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads Web应用程序[ROOT]似乎启动了一个名为[Druid-ConnectionPool-Create-1637417448]的线程，但未能停止它。这很可能会造成内存泄漏。线程的堆栈跟踪：[
+29-Apr-2021 13:26:27.819 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads Web应用程序[ROOT]似乎启动了一个名为[Druid-ConnectionPool-Create-1572518736]的线程，但未能停止它。这很可能会造成内存泄漏。线程的堆栈跟踪：[
  sun.misc.Unsafe.park(Native Method)
  java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
  java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
  com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1824)]
-28-Apr-2021 20:18:47.612 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads Web应用程序[ROOT]似乎启动了一个名为[Druid-ConnectionPool-Destroy-1637417448]的线程，但未能停止它。这很可能会造成内存泄漏。线程的堆栈跟踪：[
+29-Apr-2021 13:26:27.820 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads Web应用程序[ROOT]似乎启动了一个名为[Druid-ConnectionPool-Destroy-1572518736]的线程，但未能停止它。这很可能会造成内存泄漏。线程的堆栈跟踪：[
  java.lang.Thread.sleep(Native Method)
  com.alibaba.druid.pool.DruidDataSource$DestroyConnectionThread.run(DruidDataSource.java:1898)]
-28-Apr-2021 20:18:47.622 信息 [main] org.apache.coyote.AbstractProtocol.stop 正在停止ProtocolHandler ["http-nio-80"]
-28-Apr-2021 20:18:47.624 信息 [main] org.apache.coyote.AbstractProtocol.destroy 正在摧毁协议处理器 ["http-nio-80"]
-Disconnected from server
+29-Apr-2021 13:26:27.831 信息 [main] org.apache.coyote.AbstractProtocol.stop 正在停止ProtocolHandler ["http-nio-80"]
+29-Apr-2021 13:26:27.833 信息 [main] org.apache.coyote.AbstractProtocol.destroy 正在摧毁协议处理器 ["http-nio-80"]

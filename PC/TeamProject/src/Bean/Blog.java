@@ -15,7 +15,7 @@ public class Blog {
     //文章点赞量
     private int Blog_Likes;
     //文章图片ID
-    private int Blog_ImgID;
+    private String Blog_ImgID;
     //文章发布时间
     private String Blog_ReleaseDate;
     //文章评论量
@@ -74,11 +74,11 @@ public class Blog {
         Blog_Likes = blog_Likes;
     }
 
-    public int getBlog_ImgID() {
+    public String getBlog_ImgID() {
         return Blog_ImgID;
     }
 
-    public void setBlog_ImgID(int blog_ImgID) {
+    public void setBlog_ImgID(String blog_ImgID) {
         Blog_ImgID = blog_ImgID;
     }
 
@@ -106,11 +106,10 @@ public class Blog {
                 ", Blog_Content='" + Blog_Content + '\'' +
                 ", Blog_UserID='" + Blog_UserID + '\'' +
                 ", Blog_Likes=" + Blog_Likes +
-                ", Blog_ImgID=" + Blog_ImgID +
+                ", Blog_ImgID='" + Blog_ImgID + '\'' +
                 ", Blog_ReleaseDate='" + Blog_ReleaseDate + '\'' +
                 ", Blog_Comment=" + Blog_Comment +
                 ", Blog_ContextStr='" + Blog_ContextStr + '\'' +
                 '}';
     }
-
 }
