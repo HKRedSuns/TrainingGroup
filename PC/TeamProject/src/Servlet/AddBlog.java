@@ -37,11 +37,6 @@ public class AddBlog extends HttpServlet {
             for (FileItem item : items) {
                 map.put(item.getFieldName(),item);
             }
-            /*System.out.println(map.get("title"));
-            System.out.println(map.get("conStr"));
-            System.out.println(map.get("context"));
-            System.out.println(map.get("userId"));
-            System.out.println(map.get("file"));*/
             System.out.println(request.getContextPath());
             //将数据封装到Blog对象中
             Blog blog = new Blog();
@@ -85,7 +80,6 @@ public class AddBlog extends HttpServlet {
             edit.add(blog);
             // 输出数据
             out.println("200");
-
 
         } catch (FileUploadException e1) {
             e1.printStackTrace();

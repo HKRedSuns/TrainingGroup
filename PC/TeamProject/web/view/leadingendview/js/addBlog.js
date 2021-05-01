@@ -112,6 +112,10 @@ $(function () {
 		$.ajax({
 			url:"/addBlog",
             type:"POST",
+			headers:{
+				'cache-control':'no-cache',
+				'Pragma':'no-cache'
+			},
             data:formData,
 			processData: false,
 			contentType: false,
