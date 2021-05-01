@@ -27,6 +27,8 @@ public class AddBlog extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         try {
+            //创建Blog实体类
+            Blog_Edit edit = new Blog_Edit();
             DiskFileItemFactory factory = new DiskFileItemFactory();
             ServletFileUpload upload = new ServletFileUpload(factory);
             upload.setHeaderEncoding("UTF-8");
@@ -51,16 +53,21 @@ public class AddBlog extends HttpServlet {
             blog.setBlog_Content(map.get("context").getString("utf-8"));
             //添加文章的用户ID
             blog.setBlog_UserID(map.get("userId").getString("utf-8"));
+            //添加用户发布文章的时间
+            blog.setBlog_ReleaseDate(UseUtils.getRunTiem());
+            //获取用户名
+            String name = edit.getUserName(blog);
             //将图片放入对应地址
-            String Img_url = "E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\Jaoden\\img";
+            String Img_url = "E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\"+name+"\\img";
             //获取input流
             InputStream in = map.get("file").getInputStream();
             //创建文件对象，并且判断文件是否存在，不存在就创建
-            File file = new File(Img_url.toString());
+            File file = new File(Img_url);
             if(!file.exists())file.mkdir();
 
             //重构图片路径
-            Img_url = Img_url+"\\"+new Date().getTime() +".jpg";
+            String date = new Date().getTime()+"";
+            Img_url = Img_url+"\\"+name+"_"+date+".jpg";
             //创建输出流
             FileOutputStream fos = new FileOutputStream(Img_url);
             int len = 0;
@@ -68,21 +75,17 @@ public class AddBlog extends HttpServlet {
             while((len=in.read(b))!=-1){
                 fos.write(b,0,len);
             }
+            String path = "/User/"+name+"/img/"+name+"_"+date+".jpg";
             //将路径存储到对应的字段中
-            blog.setBlog_ImgID(Img_url);
+            blog.setBlog_ImgID(path);
             //关闭流对象
             fos.close();
             in.close();
-
-            //添加用户发布文章的时间
-            blog.setBlog_ReleaseDate(UseUtils.getRunTiem());
-
-            //创建Blog实体类
-            Blog_Edit edit = new Blog_Edit();
             //调用添加数据方法
             edit.add(blog);
             // 输出数据
             out.println("200");
+
 
         } catch (FileUploadException e1) {
             e1.printStackTrace();

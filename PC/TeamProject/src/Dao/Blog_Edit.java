@@ -19,7 +19,7 @@ public class Blog_Edit {
     }
 
     //定义一个添加博客图片路径的方法
-    public String addImg(Blog blog){
+    public String getUserName(Blog blog){
         String sql = "select User_Name from user where User_ID=?";
         return temp.queryForObject(sql, String.class, blog.getBlog_UserID());
     }

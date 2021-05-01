@@ -116,9 +116,9 @@ $(function () {
 			processData: false,
 			contentType: false,
             success:function (result) {
-                if (result.status === 200){
+                if (result == 200){
                     alert("发布成功");
-                    window.location='./blogList.html';
+                    window.location.href= "http://localhost:80/index.html";
                 }
             }
         });

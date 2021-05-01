@@ -101,6 +101,6 @@ public class ConnectionUtilTest {
         blog.setBlog_UserID("1");
 //        blog.setBlog_ReleaseDate(UseUtils.getRunTiem());
         Blog_Edit edit = new Blog_Edit();
-        System.out.println(edit.addImg(blog));
+        System.out.println(edit.getUserName(blog));
     }
 }

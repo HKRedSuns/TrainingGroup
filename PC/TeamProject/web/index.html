@@ -279,7 +279,7 @@
 
 							getAll() {
 								var that = this;
-								axios.get('/indexBlog').then((backData) => {
+								axios.post('/indexBlog').then((backData) => {
 									// console.log(backData.data)
 
 									// 之前使用 . 就可以拿到值

@@ -5,6 +5,8 @@ import Utils.ConnectionUtil;
 import Utils.UseUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.io.File;
 import java.util.List;
 
 /**
@@ -31,6 +33,12 @@ public class User_LoginAndRegister {
         String sql = "insert into user(User_IP,User_Name,User_Pass,User_Email,User_RegTime,User_Birthday) values(?,?,?,?,?,?)";
         String date = UseUtils.getRunTiem();
         int count = temp.update(sql,IP,UserName,Pass,UserEmail,date,date);
+        //判断是否注册成功，用户注册成功就给用户新建一个文件夹
+        if(count==1){
+            File file = new File("E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\"+UserName);
+            //没有对应的文件夹，就创建
+            if(!file.exists())file.mkdir();
+        }
         return count==1;
     }
 
