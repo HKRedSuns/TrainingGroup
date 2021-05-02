@@ -591,6 +591,9 @@ aside .clearpadding {
 	margin: 10px 15px;
 	border-radius: 100%;
 	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .aut_bot ul li i img {

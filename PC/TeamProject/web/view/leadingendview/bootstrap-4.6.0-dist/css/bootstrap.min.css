@@ -502,7 +502,7 @@ mark {
 
 .img-fluid {
 	max-width: 100%;
-	height: auto
+	height: auto;
 }
 
 .img-thumbnail {
@@ -7379,6 +7379,17 @@ a.bg-secondary:hover,
 button.bg-secondary:focus,
 button.bg-secondary:hover {
 	background-color: #545b62 !important
+}
+
+.bg-gray {
+	background-color: #d1d1d1 !important
+}
+
+a.bg-gray:focus,
+a.bg-gray:hover,
+button.bg-gray:focus,
+button.bg-gray:hover {
+	background-color: #c2c2c2 !important
 }
 
 .bg-success {

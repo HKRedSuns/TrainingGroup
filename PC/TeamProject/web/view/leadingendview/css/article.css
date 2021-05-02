@@ -1,0 +1,248 @@
+header {
+	margin-bottom: 100px !important;
+}
+
+a {
+	color: #ec7259;
+	text-decoration: none;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+	-webkit-transition: color .3s;
+	transition: color .3s;
+	-webkit-text-decoration-skip: objects;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+	font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+	.display-4 {
+		font-size: 3rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.h-md-250 {
+		height: 250px;
+	}
+}
+
+/* 分页 */
+.blog-pagination {
+	margin-bottom: 4rem;
+}
+
+.blog-pagination>.btn {
+	border-radius: 2rem;
+}
+
+/* 博客文章 */
+.blog-post {
+	margin-bottom: 4rem;
+}
+
+.blog-post div {
+	padding: 0 !important;
+}
+
+.blog-post-title {
+	margin-bottom: 20px;
+	font-size: 2.5rem;
+}
+
+/* 作者相关区 */
+.author-out {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+}
+
+.bd-bottom{
+	margin: 10px 0 !important;
+	border-bottom: 1px solid #888888 !important;
+}
+
+.author-out .author-internal {
+	display: flex;
+	align-items: center;
+	height: 60px;
+}
+
+.author-out .author-internal .head_portrait {
+	position: relative;
+	color: inherit;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.author-out .author-internal .head_portrait .img-border-radius {
+	display: block;
+	border-radius: 50%;
+	min-width: 50px;
+	min-height: 50px;
+	width: 50px;
+	height: 50px;
+	line-height: 60px;
+}
+
+.author-out .author-internal .head_portrait .img-border-radius:hover {
+	width: 60px;
+	height: 60px;
+}
+
+.author-out .author-internal .author-about {
+	display: flex;
+	align-items: center;
+}
+
+.author-out .author-internal .author-about .author {
+	font-size: 16px;
+	font-weight: 500;
+	margin-right: 8px;
+}
+
+.author-out .author-internal .author-about .author .inherit {
+	color: inherit;
+}
+
+.author-out .author-internal .author-about .author .inherit:hover {
+	color: coral;
+}
+
+.author-out .author-internal .author-about .attention {
+	color: #ec7259;
+	background-color: #e7e7e7;
+	border-color: #ec7259;
+	padding: 2px 9px !important;
+	font-size: 12px;
+	position: relative;
+	flex-shrink: 0;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: all .2s cubic-bezier(.645, .045, .355, 1);
+	border: 1px solid #999;
+}
+.author-out .author-internal .author-about .bg-color{
+	background-color: #d1d1d1;
+}
+.author-out .author-internal .author-about .attention:hover {
+	border: 1px solid #ec7259;
+}
+
+.author-out .author-internal .post-about {
+	display: flex;
+	color: #969696;
+}
+
+.author-out .author-internal .post-about span {
+	margin-right: 15px;
+}
+
+.blog-post .post-content {
+	font-weight: 400;
+	line-height: 1.8;
+	margin-bottom: 20px;
+	word-break: break-word;
+}
+
+/* 收藏喜欢等功能区 */
+.border-bottom {
+	border-color: #c8c8c8 !important;
+}
+
+.border-bottom .mg-bottom {
+	margin-bottom: 20px;
+}
+
+.border-bottom .mg-bottom span {
+	margin-right: 10px;
+}
+
+.border-bottom .mg-bottom span a {
+	font-size: 14px;
+	color: dimgrey;
+}
+
+.border-bottom .mg-bottom span a:hover {
+	font-size: 14px;
+	color: coral;
+}
+
+.border-bottom .mg-bottom .rests {
+	margin-right: 0;
+	cursor: pointer;
+}
+
+.border-bottom .mg-bottom .rests:hover {
+	color: coral;
+}
+
+/* 侧边栏 */
+.team {
+	width: 100%;
+}
+
+.team ul li {
+	color: #626262;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #c5c5c5;
+}
+
+.team ul li:hover {
+	color: #000000;
+	border-bottom: 1px solid #9c9c9c;
+}
+
+.team ul li h6 {
+	font-family: "仿宋";
+	font-size: 18px;
+	font-weight: 900;
+	width: 60px;
+	cursor: pointer;
+}
+
+.team ul li span {
+	font-family: "楷体";
+	font-size: 14px;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+/* Footer */
+.footer {
+	padding: 2.5rem 0;
+	color: #999;
+	text-align: center;
+	background-color: #f9f9f9;
+	border-top: .05rem solid #e5e5e5;
+}
+
+.footer p:last-child {
+	margin-bottom: 0;
+}

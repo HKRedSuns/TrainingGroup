@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>文章页面</title>
+		<link rel="shortcut icon" href="./../../logo.ico">
+		<script src="./../js/jquery.min.js"></script>
+		<script src="./../js/vue.js"></script>
+		<script src="./../js/axios.js"></script>
+		<link href="../bootstrap-4.6.0-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+
+		<link rel="stylesheet" type="text/css" href="../font-icon/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../css/blog.css" />
+		<link href="../css/article.css" rel="stylesheet">
+		<!-- 评论区 -->
+		<link rel="stylesheet" type="text/css" href="../comments-master/css/comment.css">
+	</head>
+	<body>
+
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg mb-5 bg-white">
+				<div class="nav_logo">
+					<img src="./../img/logo.png">
+					<h2>食上达人</h2>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link home-page" href="#"><i class="iconfont icon-shouye"></i>&nbsp;首页<span
+									class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" onclick="show_login()"><i
+									class="iconfont icon-jinrituijian"></i>&nbsp;今日推荐</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" onclick="show_login()" href="#" tabindex="-1"
+								aria-disabled="true" id="navbarDropdownMenuLink" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"><i
+									class="iconfont icon-fenlei"></i>&nbsp;分类</a>
+							<div class="dropdown-menu m-sm-0" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="#">Action</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Another action</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</li>
+					</ul>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							dropdownOpen();
+						});
+
+						function dropdownOpen() {
+							var $dropdownLi = $('li.dropdown');
+							$dropdownLi.mouseover(function() {
+								$(this).addClass('show');
+								$('div.dropdown-menu').addClass('show');
+							}).mouseout(function() {
+								$('div.dropdown-menu').removeClass('show');
+								$(this).removeClass('show');
+							});
+						}
+					</script>
+
+					<div class="nav_login">
+						<div id="login">
+							<div>
+								<a href="./view/leadingendview/view/login.html" id="login_a" target="_blank">登录/注册</a>
+							</div>
+						</div>
+						<div class="write">
+							<a href="./view/leadingendview/view/wangEditor.html"><i
+									class="iconfont icon-xietiezi"></i>&nbsp;写文章</a>
+						</div>
+					</div>
+				</div>
+				</div>
+			</nav>
+		</header>
+
+		<main role="main" class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="blog-post">
+						<h2 class="blog-post-title">标题</h2>
+
+						<!-- 作者相关区 -->
+						<div class="author-out">
+							<div class="author-internal">
+								<a class="head_portrait" href=""><img class="img-border-radius"
+										src="../img/HeadImg/12.jpg"></a>
+								<div style="margin-left: 8px;">
+									<div class="author-about">
+										<span class="author">
+											<a class="inherit" href="">作者</a>
+										</span>
+										<button data-locale="zh-CN" class="attention"
+											type="button"><span>关注</span></button>
+									</div>
+									<div class="post-about">
+										<span><i
+												class="iconfont icon-riqishijian"></i>&nbsp;2021.5.1&nbsp;22:28:00</span>
+										<span><i class="iconfont icon-guanzhu1"></i>&nbsp;7</span>
+										<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="post-content">
+							<p>I am ready for the road less traveled. Already <a href="#">brushing off the dust</a>.
+								Yeah,
+								you're lucky if you're on her plane. I used to bite my tongue and hold my breath. Uh,
+								She’s
+								a beast. I call her Karma (come back). Black ray-bans, you know she's with the band. I
+								can't
+								sleep let's run away and don't ever look back, don't ever look back.</p>
+							<blockquote>
+								<p>Growing fast into a <strong>bolt of lightning</strong>. Be careful Try not to lead
+									her on
+								</p>
+							</blockquote>
+							<p>I'm intrigued, for a peek, heard it's fascinating. Oh oh! Wanna be a victim ready for
+								abduction. She's got that international smile, oh yeah, she's got that one international
+								smile. Do you ever feel, feel so paper thin. I’m gon’ put her in a coma. Sun-kissed skin
+								so
+								hot we'll melt your popsicle.</p>
+							<p>This is transcendental, on another level, boy, you're my lucky star.</p>
+						</div>
+
+						<!-- 收藏喜欢等功能区 -->
+						<div class="row justify-content-between border-bottom">
+							<div class="col-4 mg-bottom">
+								<div class="float-left">
+									<span><a href=""><i class="iconfont icon-shoucang"></i>&nbsp;202</a></span>
+									<span><a href=""><i class="iconfont icon-xihuan"></i>&nbsp;7</a></span>
+								</div>
+							</div>
+							<div class="col-4 mg-bottom">
+								<div class="float-right">
+									<span><a href=""><i class="iconfont icon-article"></i>&nbsp;作者</a></span>
+									<span class="rests"><i class="iconfont icon-qita"></i></span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 评论区 -->
+					<section class="tent_info">
+						<div class="textarea one">
+							<textarea class="text_send" id="text_send"></textarea>
+							<div class="col-md-12 col-sm-12 col-xl-12 btn btn_send">提交</div>
+						</div>
+					</section>
+
+				</div>
+
+				<aside class="col-md-4 blog-sidebar">
+					<div class="p-4 bg-gray rounded">
+						<div class="author-out">
+							<div class="author-internal">
+								<a class="head_portrait" href=""><img class="img-border-radius"
+										src="../img/HeadImg/12.jpg"></a>
+								<div style="margin-left: 8px;">
+									<div class="author-about">
+										<span class="author">
+											<a class="inherit" href="">作者</a>
+										</span>
+										<button data-locale="zh-CN" class="attention bg-color"
+											type="button"><span>关注</span></button>
+									</div>
+									<div class="post-about">
+										<span><i class="iconfont icon-guanzhu1"></i>&nbsp;7</span>
+										<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bd-bottom"></div>
+						<div class="team">
+							<ul class="list-unstyled mb-0">
+								<li>
+									<h6>标题</h6>
+									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
+									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+								</li>
+								<li>
+									<h6>标题</h6>
+									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
+									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+								</li>
+								<li>
+									<h6>标题</h6>
+									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
+									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-4 bg-gray rounded mt-4">
+						<div class="team">
+							<ul class="list-unstyled mb-0">
+								<li>
+									<h6>标题</h6>
+									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
+									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+								</li>
+								<li>
+									<h6>标题</h6>
+									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
+									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+								</li>
+								<li>
+									<h6>标题</h6>
+									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
+									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</aside>
+
+			</div>
+
+		</main>
+
+		<footer class="footer">
+			<p>“民以食为天，美食秘籍以<a href="">食上达人</a>为先”<em>！！！</em></p>
+			<p>
+				我们的博客坚决贯穿党的纲领，诚心诚意的为每一位美丽的小可爱们服务，每位小可爱们都可以畅所欲言，分享小主儿们美食小秘籍……
+			</p>
+		</footer>
+
+
+		<!-- <script src="./../js/jquery-3.5.1.slim.min.js"></script> -->
+		<script>
+			window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+		</script>
+		<script src="./../bootstrap-4.6.0-dist/js/popper.min.js"></script>
+		<script src="./../bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+		<script src="./../bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+		<!-- 评论区 -->
+		<script type="text/javascript" src="../comments-master/js/jquery-min.js"></script>
+		<script type="text/javascript" src="../comments-master/js/comment.js"></script>
+	</body>
+</html>
