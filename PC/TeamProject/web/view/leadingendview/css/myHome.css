@@ -1,0 +1,365 @@
+@charset "utf-8";
+idhtml, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {margin: 0;padding: 0;}
+*{box-sizing: border-box;}
+html, body {min-height: 100%;}
+body {font: 13px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif; height: 1000px;}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+li {list-style: none;}
+s,i,em{font-style:normal;text-decoration:none;}
+img {border: none;vertical-align: middle;}
+a {text-decoration: none;color: #3498db;}
+table {border-collapse: collapse;table-layout: fixed;}
+input, textarea {outline: none; background-color:transparent;}
+textarea {resize: none;overflow: auto;}
+
+.blog-main .top_hea-Img{
+    padding: 0 !important;
+    width: 100%;
+    height: 200px;
+}
+
+.top_hea-Img .cen_hea-Img{
+    border-radius: 5px;
+    margin:30px auto;
+    margin-bottom: 0;
+    width: 100%;
+    height: 170px;
+    background-color: #fff;
+    position: relative;
+}
+
+.cen_hea-Img #head_IMg,
+.cen_hea-Img .addImg{
+    cursor: pointer;
+    position:absolute;
+    top: -35px;
+    left: 50%;
+    margin-left: -50px;
+    border-radius: 50px;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+/* 更换头像 */
+.cen_hea-Img .addImg{
+    display: none;
+    padding: 0;
+    background-color:rgba(0,0,0,0.5);
+    line-height: 100px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    z-index: 1000;
+}
+#addImgBox{
+    display: none;
+    position: absolute;
+    width: 580px;
+    height: 580px;
+    margin-left:-290px;
+    margin-top: -290px;
+    top: 50%;
+    left: 50%; 
+    z-index: 1000;
+    padding: 30px;
+    background-color:white;
+    box-shadow: 5px 5px 5px 3px  rgb(185, 184, 184) ;
+    border-radius: 10px;
+}
+#addImgBox button{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 80px;
+    height: 30px;
+    margin-left: -40px;
+    border-radius:20px;
+    border: 1px solid coral;
+    background-color:coral;
+    color: whitesmoke;
+}
+#addImgBox ul{
+    padding:0;
+    margin: 40px auto;
+    width: 85%;
+    height: 100%;
+}
+#addImgBox ul li,#addImgBox ul li img{
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 10px 10px 0;
+}
+#addImgBox ul li{
+    overflow: hidden;
+}
+.borderBox{
+    border: 2px solid coral;
+}
+
+.cen_hea-Img .userBox{
+    padding: 0 ;
+    margin-top: 60px;
+    width: 100%;
+    height: 100px;
+    /* background-color: #0666; */
+    position: relative;
+}
+.cen_hea-Img .userBox h3{
+    text-align: center;
+    padding:0;
+    width: 200px;
+    height:50px ;
+    display: block;
+   position: absolute;
+   left: 50%;
+    margin-left: -100px;
+    margin-bottom: 0;
+    font-weight: 700;
+
+}
+.cen_hea-Img .userBox .info{
+    padding:  0;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    position: relative;
+}
+/* 头像列表 */
+.userBox .info ul{
+    padding: 0;
+    width: 280px;
+    height: 100%;
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left: -120px;
+    margin-bottom: 0;
+}
+.userBox .info ul li {
+   line-height: 50px;
+    width: 70px;
+    height: 100%;
+    text-align: center;
+    float: left;
+    list-style: none;
+
+}
+.userBox .info ul li i{
+    line-height: 46px;
+    font-size: 20px;
+    width: 20px;
+    height: 100%;
+    display: block;
+    color: #dcdce4;
+    margin: 0 !important;
+    float: left;
+}
+.userBox .info ul li a{
+    float: left;
+    color:  gray;
+    text-align: center;
+    
+}
+.userBox .info ul li a:hover{
+    color: coral;
+}
+
+.blog-main .body_top{
+    border-radius: 5px;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+.blog-main .body_top ul
+.att-top ul{
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+.blog-main .body_top ul li,
+.att-top ul li
+{
+    float: left;
+    list-style: none;
+    width: 80px;
+    height: 100%;
+    line-height: 50px;
+    cursor: pointer;
+    text-align: center;
+    color: gray;
+    font-weight: 700;
+    
+}
+
+.blog-main .body_top ul li:hover,
+.att-top ul li:hover
+{
+    color: coral;
+    border-bottom:3px solid coral;
+}
+.blog-main .body_cen,.body_cen .art,.art ul{
+    padding: 0;
+}
+.show{
+    display: block !important;
+}
+.close{
+    display: none;
+}
+.active{
+    color: coral !important;
+    border-bottom:3px solid coral;
+}
+/* 文章 */
+.blog-main .body_cen div{
+    padding: 0px;
+}
+.blog-main .body_cen .art{
+
+    height: 105px;
+    width: 100%;
+    
+}
+.body_cen .art ul li{
+    float: left;
+    display: block;
+    height: 105px;
+    width: 100%;
+    border-bottom: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+.body_cen .art ul li .content{
+    padding: 10px 10px 0 10px;
+}
+.body_cen .art ul li .content .title{
+    display: inherit;
+}
+.body_cen .art ul li .content a h4:hover {
+	text-decoration: underline;
+	color: coral;
+}
+/* 消息 */
+/* .body_cen .mess{
+} */
+/* 关注 */
+.body_cen .att{
+
+    padding: 0;
+
+}
+.body_cen .att .att-top{
+    width: 100%;
+    height: 40px;
+    background-color:whitesmoke;
+    margin-bottom: 10px;
+}
+.body_cen .att ul li{
+    height: 40px;
+}
+.body_cen .att ol{
+    padding: 0;
+}
+.body_cen .att ol li{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: block;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.body_cen .att ol li button{
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    border:0;
+    background:transparent;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    background-color:wheat;
+    color: #000;
+}
+.body_cen .att ol li button:hover{
+    color: coral;
+}
+.body_cen .att ol li a{
+    width: 80%;
+    padding: 10px;
+    height: 100%;
+    float: left;
+    line-height:27px;
+    overflow: hidden;
+}
+.body_cen .att ol li a h2{
+    width: 100%;
+    height: 30px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+}
+.body_cen .att ol li a h2:hover{
+    color: coral;
+}
+.body_cen .att ol li a p{
+    float: left;
+    width: 90%;
+    color:gray !important;
+}
+/* 修改 */
+.body_cen .change{
+    padding: 0;
+    width: 100%;
+    height: 700px;
+    background-color:white;
+    margin-bottom: 10px;
+}
+.body_cen .change .alert_data{
+    padding: 30px;
+}
+
+.body_cen .change .alert_data table{
+    width: 100%;
+    height: 500px;
+}
+.body_cen .change .alert_data table tr{
+    border-bottom: 1px solid #e6e6e6;
+}
+.body_cen .change .alert_data table td{
+    display: block;
+    width: 100px;
+    height: 50px;
+    float: left;
+    padding:0 !important;
+    margin-left: 30px !important;
+    margin-top: 30px;
+}
+.alert_data table .updata_person{
+   
+    height: 150px;
+}
+.alert_data table .updata_person textarea{
+    padding: 10px;
+    width: 250px;
+    height: 100px;
+    background-color: whitesmoke; 
+    border-color: wheat; 
+    border-radius: 5px;
+}
+.alert_data table .updata_person .one{
+    line-height: 100px;
+}
+.alert_data table .updataOk button{
+    width:80px;
+    height: 30px;
+    border-radius: 20px;
+    border:1px solid wheat;
+    color: white;
+    background-color: coral;
+}
