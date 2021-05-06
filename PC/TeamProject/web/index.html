@@ -310,7 +310,7 @@
 							<h2 class="font-italic">文章推荐</h2>
 						</div>
 						<div class="art_bot">
-							<ul class="">
+							<ul class="" id="art_bot">
 								<li><a href="">【红油拌蒜苔】春天的应季凉拌菜</a></li>
 								<li><a href="">「元气蒸鲍鱼」-春天里的好胃口，汁水丰盈，...</a></li>
 								<li><a href="">用春天第一鲜做饼子，做早餐正合适，抓紧吃...</a></li>
@@ -323,13 +323,32 @@
 								<li><a href="">早餐吃面包已成我家常态，隔三差五我都要烤一两个大吐司，早上打点儿豆浆或者...</a></li>
 							</ul>
 							<div class="art_bot_updata">
-								<a href="">
+								<a href="javascript:;" id="upText">
 									<span><i class="iconfont icon-huanyipi"></i>&nbsp;换一批</span>
 								</a>
 							</div>
 						</div>
 					</div>
-
+					<script>
+						var art_bot = $('#art_bot');
+						$('#upText').click(function () {
+							$.ajax({
+								url:"http://localhost:3000/data",
+								dataType: 'jsonp',  // 自己改值
+								jsonp:'callback',
+								data:'',
+								success:function (result) {
+									var html = '';
+									for(var i in result){
+										html+=`<li><a href="">${result[i].context}</a></li>`;
+									}
+									art_bot.children().remove()
+									art_bot.html(html);
+									console.log(result)
+								}
+							});
+						})
+					</script>
 					<div class="p-4 clearpadding">
 
 						<div class="aut_top">
@@ -337,7 +356,7 @@
 							<h2>作者推荐</h2>
 						</div>
 						<div class="aut_bot">
-							<ul class="list-unstyled mb-0">
+							<ul class="list-unstyled mb-0" id="aut_bot">
 								<li>
 									<a href="">
 										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
@@ -376,7 +395,7 @@
 
 							</ul>
 							<div class="aut_bot_updata">
-								<a href="">
+								<a href="javascript:;" id="upaut">
 									<span><i class="iconfont icon-huanyipi"></i>&nbsp;换一批</span>
 								</a>
 							</div>
@@ -384,6 +403,32 @@
 						</div>
 
 					</div>
+					<script>
+						var aut_bot  = $('#aut_bot');
+						$('#upaut').click(function () {
+							$.ajax({
+								url:"http://localhost:3000/aut",
+								dataType: 'jsonp',  // 自己改值
+								jsonp:'callback',
+								data:'',
+								success:function (result) {
+									var html = '';
+									for(var i in result){
+										html+=`<li><a href="">
+										<i><img src="${result[i].src}" alt=""></i>
+										<h2>作者</h2>
+										<span>作者介绍</span>
+									</a>
+								</li>`;
+									}
+									aut_bot.children().remove()
+									aut_bot.html(html);
+									console.log(result)
+								}
+							});
+						})
+
+					</script>
 
 					<footer class="blog-footer">
 						<div class="team">
