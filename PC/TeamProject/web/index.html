@@ -266,7 +266,6 @@
 								var that = this;
 								axios.get('/indexBlog?action=blog').then((backData) => {
 									// console.log(backData.data)
-
 									// 之前使用 . 就可以拿到值
 									// 现在可以使用 解构的方法拿到值
 									// var {a,b} = {a:1,b:2}
@@ -277,7 +276,6 @@
 									// 使用箭头函数他的this就会指向外面的vue
 									// 使用 that 也可以
 									that.todoData = data;
-									console.log(data)
 								}).catch(function(err) {
 									// console.log(00);
 								})
@@ -333,18 +331,16 @@
 						var art_bot = $('#art_bot');
 						$('#upText').click(function () {
 							$.ajax({
-								url:"http://localhost:3000/data",
-								dataType: 'jsonp',  // 自己改值
-								jsonp:'callback',
-								data:'',
+								url:"/indexBlog?action=blogSort",
 								success:function (result) {
+									var jsData = JSON.parse(result);
 									var html = '';
-									for(var i in result){
-										html+=`<li><a href="">${result[i].context}</a></li>`;
+									for(var i in jsData){
+										html+=`<li><a href="">${jsData[i].Blog_ContextStr}</a></li>`;
 									}
-									art_bot.children().remove()
+									art_bot.children().remove();
 									art_bot.html(html);
-									console.log(result)
+									console.log(jsData)
 								}
 							});
 						})
@@ -407,23 +403,22 @@
 						var aut_bot  = $('#aut_bot');
 						$('#upaut').click(function () {
 							$.ajax({
-								url:"http://localhost:3000/aut",
-								dataType: 'jsonp',  // 自己改值
-								jsonp:'callback',
-								data:'',
+								url:"/indexBlog?action=userSort",
 								success:function (result) {
 									var html = '';
-									for(var i in result){
+									alert("1");			//测试
+									var jsData = JSON.parse(result);
+									for(var i in jsData){
 										html+=`<li><a href="">
-										<i><img src="${result[i].src}" alt=""></i>
-										<h2>作者</h2>
-										<span>作者介绍</span>
+										<i><img src="./view/leadingendview${jsData[i].headimg}" alt=""></i>
+										<h2>${jsData[i].User_Name}</h2>
+										<span>${jsData[i].User_Str}</span>
 									</a>
 								</li>`;
 									}
-									aut_bot.children().remove()
+									aut_bot.children().remove();
 									aut_bot.html(html);
-									console.log(result)
+									console.log(jsData)
 								}
 							});
 						})

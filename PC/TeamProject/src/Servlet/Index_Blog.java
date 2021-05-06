@@ -35,11 +35,11 @@ public class Index_Blog extends HttpServlet {
             case "blog":
                 pw.print(index.getBlog());
                 break;
-            case "blogSort":
-
+            case "blogSort":        //字符串
+                pw.print(index.getBolgSort());
                 break;
-            case "userSort":
-
+            case "userSort":        //头像，用户名，个人介绍
+                pw.print(index.getUserSort());
                 break;
         }
 

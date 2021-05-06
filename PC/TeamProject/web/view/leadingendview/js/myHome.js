@@ -61,7 +61,6 @@ $.ajax({
     jsonp:'callback',
     async: false,
     success(userData) {  // 请求成功
-
         // var jsData = JSON.parse(userData);
         var html = '';
         for(var i in userData){

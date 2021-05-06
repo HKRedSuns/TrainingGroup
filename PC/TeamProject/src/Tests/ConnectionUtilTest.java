@@ -157,4 +157,21 @@ public class ConnectionUtilTest {
         Map<String, Object> map = temp.queryForMap(sql);
         System.out.println(map);
     }
+
+    @Test
+    public void Demo04(){
+        String sql = "select Blog_ContextStr from blog ORDER BY Blog_Likes DESC";
+        List<Map<String, Object>> maps = temp.queryForList(sql);
+        /*for(int i = 0;i<maps.size();i++){
+            Map map = maps.get(i);
+            System.out.println(map.get("Blog_ContextStr"));
+        }*/
+        System.out.println(gson.toJson(maps));
+    }
+    @Test
+    public void Demo05(){
+        String sql = "select (SELECT img_Percorso From headimg where img_ID=User_ID) as img,User_Name,User_Str from user ORDER BY User_FansNumber DESC";
+        List<Map<String, Object>> maps = temp.queryForList(sql);
+        System.out.println(maps);
+    }
 }

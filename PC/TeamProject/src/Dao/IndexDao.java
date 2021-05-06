@@ -26,14 +26,19 @@ public class IndexDao {
                 " Blog_UserID = User_ID";
         List<Blog> list = temp.query(sql,new BeanPropertyRowMapper<>(Blog.class));
         return gson.toJson(list);
+
     }
     //定义一个方法，以json格式返回排序后的文章
     public String getBolgSort(){
-        String sql = "select Blog_Title from blog ORDER BY Blog_Likes DESC";
-        Map<String, Object> map = temp.queryForMap(sql);
-        return gson.toJson(map);
+        String sql = "select Blog_ContextStr from blog ORDER BY Blog_Likes DESC";
+        List<Map<String, Object>> maps = temp.queryForList(sql);
+        return gson.toJson(maps);
     }
 
     //排序（用户，文章）
-
+    public String getUserSort(){
+        String sql = "select (SELECT img_Percorso From headimg where img_ID=User_HeadImg) as headimg,User_Name,User_Str from user ORDER BY User_FansNumber DESC";
+        List<Map<String, Object>> maps = temp.queryForList(sql);
+        return gson.toJson(maps);
+    }
 }
