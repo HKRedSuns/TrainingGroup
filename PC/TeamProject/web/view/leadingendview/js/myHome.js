@@ -153,7 +153,7 @@ var upImg_btn = $('#upImg_btn');
         }
         this.className = "borderBox";
 
-       path = $(this.children).attr('src') // 获取到的src路径
+        path = {"path":$(this.children).attr('src')};// 获取到的src路径
     };
 };
 // 点击修改图片
@@ -172,7 +172,7 @@ upImg_btn.click(function(){
         var data = parseInt(data); // 转换
         if (data == 1) {
             alert('修改成功');
-             head_IMg.attr('src',path)
+            head_IMg.attr('src',path);
         }else { // 0用户不存在
             alert('修改失败');
             return false

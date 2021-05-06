@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 个人中心页面逻辑类
@@ -50,5 +51,16 @@ public class Personnal_Center {
         String sql = "update user set User_Sex=?,User_Birthday=?,User_Str=? where User_ID=?";
         int count = temp.update(sql,sex,Birthday,Str,id);
         return count==1;
+    }
+    //修改用户图片
+    public boolean setUserImg(String path,String id){
+        String sql = "UPDATE `user` SET User_HeadImg=(SELECT img_ID FROM headimg WHERE img_Percorso=?) WHERE User_ID=?";
+        int count = temp.update(sql,path,id);
+        return count==1;
+    }
+    public Object getUserImg(String id){
+        String sql = "select img_Percorso as img from headimg,user where User_ID=? and img_ID = User_HeadImg";
+        Map<String, Object> map = temp.queryForMap(sql,id);
+        return map.get("img");
     }
 }

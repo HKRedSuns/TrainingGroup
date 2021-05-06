@@ -149,4 +149,12 @@ public class ConnectionUtilTest {
         List<Personal> personal = temp.query(sql,new BeanPropertyRowMapper<>(Personal.class),"1");
         System.out.println(personal);
     }
+
+    @Test
+    public void Demo03(){
+        String sql = "select img_Percorso from headimg,user where User_ID='1' and img_ID = User_HeadImg";
+//        User user = temp.queryForObject(sql, new BeanPropertyRowMapper<>(User.class));
+        Map<String, Object> map = temp.queryForMap(sql);
+        System.out.println(map);
+    }
 }
