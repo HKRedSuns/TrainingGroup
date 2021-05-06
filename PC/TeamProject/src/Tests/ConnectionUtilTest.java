@@ -41,7 +41,7 @@ public class ConnectionUtilTest {
         //SQl语句
         String sql = "select t1.*,t2.img_Percorso as img from user t1,headimg t2 where t1.User_Name=? AND t1.User_Pass=? AND t1.User_HeadImg=t2.img_ID";
         //List<User> list = temp.query(sql,new BeanPropertyRowMapper<User>(User.class));
-        List<User> list = temp.query(sql,new Object[]{"Jaoden","123456"},new BeanPropertyRowMapper<>(User.class));
+        List<User> list = temp.query(sql,new Object[]{"Jaoden","123123"},new BeanPropertyRowMapper<>(User.class));
         System.out.println(list);
     }
     //用户名判重测试

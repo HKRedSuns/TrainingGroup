@@ -1,8 +1,6 @@
 package Servlet;
 
 import Dao.Personnal_Center;
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;

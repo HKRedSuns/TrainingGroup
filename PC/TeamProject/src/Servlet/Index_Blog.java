@@ -33,7 +33,7 @@ public class Index_Blog extends HttpServlet {
         String action = request.getParameter("action");
         switch (action){
             case "blog":
-                pw.print(index.getBlog(map.get("id")));
+                pw.print(index.getBlog());
                 break;
             case "blogSort":
 

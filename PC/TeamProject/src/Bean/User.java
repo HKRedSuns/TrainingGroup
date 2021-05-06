@@ -21,7 +21,7 @@ public class User {
     //用户生日
     private Date User_Birthday;
     //用户性别
-    private int User_Sex;
+    private String User_Sex;
     //用户头像
     private int User_HeadImg;
     //用户粉丝量
@@ -33,7 +33,7 @@ public class User {
 
     public User(){}
 
-    public User(int user_ID, String user_IP, String user_Name, String user_Pass, String user_Email, Date user_RegTime, Date user_Birthday, int user_Sex, int user_HeadImg, int user_FansNumber, String img, String user_Str) {
+    public User(int user_ID, String user_IP, String user_Name, String user_Pass, String user_Email, Date user_RegTime, Date user_Birthday, String user_Sex, int user_HeadImg, int user_FansNumber, String img, String user_Str) {
         User_ID = user_ID;
         User_IP = user_IP;
         User_Name = user_Name;
@@ -104,11 +104,11 @@ public class User {
         User_Birthday = user_Birthday;
     }
 
-    public int getUser_Sex() {
+    public String getUser_Sex() {
         return User_Sex;
     }
 
-    public void setUser_Sex(int user_Sex) {
+    public void setUser_Sex(String user_Sex) {
         User_Sex = user_Sex;
     }
 
@@ -154,7 +154,7 @@ public class User {
                 ", User_Email='" + User_Email + '\'' +
                 ", User_RegTime=" + User_RegTime +
                 ", User_Birthday=" + User_Birthday +
-                ", User_Sex=" + User_Sex +
+                ", User_Sex='" + User_Sex + '\'' +
                 ", User_HeadImg=" + User_HeadImg +
                 ", User_FansNumber=" + User_FansNumber +
                 ", img='" + img + '\'' +
