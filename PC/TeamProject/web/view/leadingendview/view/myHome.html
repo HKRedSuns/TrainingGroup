@@ -118,35 +118,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- 模板引擎代码 --> 
-                <!-- 头像个人信息修改 -->
-                <script type="text/html" id="tpm_user">
-                         <h3>{{name}}</h3> 
-                        <br>
-                        <div class="info">
-                            <ul>
-                                <li>
-                                    <a href="javascript:;"><span>{{}}</span>&nbsp;关注</a>
-                                    <i>|</i>
-                                </li>
-                                <li>
-                                    <a href="javascript:;"><span>{{}}</span>&nbsp;粉丝</a>
-                                    <i>|</i>
-
-                                </li>
-                                <li>
-                                    <a href="javascript:;"><span>{{}}</span>&nbsp;文章</a>
-                                    <i>|</i>
-                                </li>
-                                <li>
-                                    <a href="javascript:;"><span>{{}}</span>&nbsp;点赞</a>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                </script>
-               
                 <!-- 页面大体 -->
                 <div class="body_top">
 
@@ -232,14 +203,14 @@
                                         </tr>
                                         <tr class="updata_sex">
                                             <td>性别</td>
-                                            <td> <input type="radio" name="sex"> 男 </td>
-                                            <td> <input type="radio" name="sex"> 女 </td>
+                                            <td> <input type="radio" name="sex" value="男"> 男 </td>
+                                            <td> <input type="radio" name="sex" value="女"> 女 </td>
                                             <td> <label for="sex"></label></td>
 
                                         </tr>
                                         <tr class="updata_bir">
                                             <td>生日</td>
-                                            <td><input type="date" name="" id=""
+                                            <td><input type="date" name="birthday" id=""
                                                     style="border-color: wheat; border-radius: 5px;"></td>
                                         </tr>
 
@@ -253,7 +224,7 @@
                                                     maxlength="120"></textarea></td>
                                         </tr>
                                         <tr class="updataOk">
-                                            <td><button type="button">保存</button></td>
+                                            <td><button type="button" id="userBTN">保存</button></td>
 
                                         </tr>
                                     </table>

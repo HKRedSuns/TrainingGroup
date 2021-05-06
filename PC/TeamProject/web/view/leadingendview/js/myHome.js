@@ -2,43 +2,62 @@
 # 页面加载获取页面数据
 # 用户信息 文章信息 关注
 */
+var tpm_user = $("#tpm_user");
 // 使用模板字符串
-getData('data','tpm_user','userData') // 获取用户信息
-function getData(data,tpm_user,userBox){
-// 用户请求
 $.ajax({
-    type: "GET",
-    url: "http://localhost:3000/"+data,
-    dataType: 'jsonp',  // 自己改值
+    type: "POST",
+    url: "/personal_Center?action=user",
+    dataType: 'json',  // 自己改值
     jsonp:'callback',
     async: false,
     success(userData) {  // 请求成功
         console.log(userData);
-        // obj = {}; // 创建对象
-        // for(var key in userData){ // 转换为对象
-        //     obj[key]=userData[key]
-        // }
-        var userdata;
-        
-        for(var i = 0 ; i<userData.length ; i++){
-            userdata = template(tpm_user, userData[i]);// 最后一个值要是对象
-        //     console.log(userData[i])
+        var html = '';
+        for(var i in userData){
+            // userData[i].Blog_Title // 文章标题
+            // userData[i].Blog_ContextStr // 文章
+
+            html+=`
+            <h3>${userData[i].UserName}</h3>
+                        <br>
+                        <div class="info">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;"><span>${userData[i].LaunchNumber}</span>&nbsp;关注</a>
+                                    <i>|</i>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>${userData[i].FansNumber}</span>&nbsp;粉丝</a>
+                                    <i>|</i>
+
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>${userData[i].BlogNumber}</span>&nbsp;文章</a>
+                                    <i>|</i>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>${userData[i].LikesNUmber}</span>&nbsp;点赞</a>
+                                </li>
+
+                            </ul>
+                        </div>
+            
+            
+            `
         }
-        $('#'+userBox).html(userdata);
+        $('#userData').html(html)
 
-        
-
-        
     }
-})
+});
 
-}
+
+
 // 文章请求
 
 $.ajax({
-    type: "GET",
-    url: "http://localhost:3000/art",
-    dataType: 'jsonp',  // 自己改值
+    type: "POST",
+    url: "/personal_Center?action=blog",
+    dataType: 'json',  // 自己改值
     jsonp:'callback',
     async: false,
     success(userData) {  // 请求成功
@@ -78,11 +97,11 @@ $('#userBTN').click(function(){
 
     $.ajax({
         type: "GET",
-        url: "",
+        url: "/personal_Center?action=person",
         data,
         async: false,
         success(callback) {  // 请求成功
-    
+
         }
     })
       
@@ -143,7 +162,7 @@ upImg_btn.click(function(){
    addImgBox.fadeOut(300);
    $.ajax({
     type: "POST",
-    url: "",
+    url: "/personal_Center?action=img",
     data: path,
     async: false,
     error(request) {

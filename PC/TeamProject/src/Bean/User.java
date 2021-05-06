@@ -20,17 +20,20 @@ public class User {
     private Date User_RegTime;
     //用户生日
     private Date User_Birthday;
-    //用户年龄
-    private int User_Age;
+    //用户性别
+    private int User_Sex;
     //用户头像
     private int User_HeadImg;
     //用户粉丝量
     private int User_FansNumber;
     //头像路径
     private String img;
+    //用户简介
+    private String User_Str;
 
     public User(){}
-    public User(int user_ID, String user_IP, String user_Name, String user_Pass, String user_Email, Date user_RegTime, Date user_Birthday, int user_Age, int user_HeadImg, int user_FansNumber, String img) {
+
+    public User(int user_ID, String user_IP, String user_Name, String user_Pass, String user_Email, Date user_RegTime, Date user_Birthday, int user_Sex, int user_HeadImg, int user_FansNumber, String img, String user_Str) {
         User_ID = user_ID;
         User_IP = user_IP;
         User_Name = user_Name;
@@ -38,10 +41,11 @@ public class User {
         User_Email = user_Email;
         User_RegTime = user_RegTime;
         User_Birthday = user_Birthday;
-        User_Age = user_Age;
+        User_Sex = user_Sex;
         User_HeadImg = user_HeadImg;
         User_FansNumber = user_FansNumber;
         this.img = img;
+        User_Str = user_Str;
     }
 
     public int getUser_ID() {
@@ -100,12 +104,12 @@ public class User {
         User_Birthday = user_Birthday;
     }
 
-    public int getUser_Age() {
-        return User_Age;
+    public int getUser_Sex() {
+        return User_Sex;
     }
 
-    public void setUser_Age(int user_Age) {
-        User_Age = user_Age;
+    public void setUser_Sex(int user_Sex) {
+        User_Sex = user_Sex;
     }
 
     public int getUser_HeadImg() {
@@ -132,6 +136,14 @@ public class User {
         this.img = img;
     }
 
+    public String getUser_Str() {
+        return User_Str;
+    }
+
+    public void setUser_Str(String user_Str) {
+        User_Str = user_Str;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -142,10 +154,11 @@ public class User {
                 ", User_Email='" + User_Email + '\'' +
                 ", User_RegTime=" + User_RegTime +
                 ", User_Birthday=" + User_Birthday +
-                ", User_Age=" + User_Age +
+                ", User_Sex=" + User_Sex +
                 ", User_HeadImg=" + User_HeadImg +
                 ", User_FansNumber=" + User_FansNumber +
                 ", img='" + img + '\'' +
+                ", User_Str='" + User_Str + '\'' +
                 '}';
     }
 }

@@ -56,6 +56,7 @@ public class AddBlog extends HttpServlet {
             String Img_url = "E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\"+name+"\\img";
             //获取input流
             InputStream in = map.get("file").getInputStream();
+
             //创建文件对象，并且判断文件是否存在，不存在就创建
             File file = new File(Img_url);
             if(!file.exists())file.mkdir();

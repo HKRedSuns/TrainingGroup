@@ -264,7 +264,7 @@
 
 							getAll() {
 								var that = this;
-								axios.get('/indexBlog').then((backData) => {
+								axios.get('/indexBlog?action=blog').then((backData) => {
 									// console.log(backData.data)
 
 									// 之前使用 . 就可以拿到值

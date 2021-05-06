@@ -1,24 +1,26 @@
 package Tests;
 
 import Bean.Blog;
+import Bean.Personal;
 import Bean.User;
 import Dao.Blog_Edit;
 import Dao.User_LoginAndRegister;
 import Utils.ConnectionUtil;
-import Utils.JsonUtils;
 import Utils.MailUtil;
-import Utils.UseUtils;
+import com.google.gson.Gson;
 import org.junit.Test;
-import org.junit.validator.PublicClassValidator;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 
 public class ConnectionUtilTest {
 
+    Gson gson = new Gson();
+    JdbcTemplate temp = new JdbcTemplate(ConnectionUtil.getDataSource());
     //获取连接
     @Test
     public void GetConnTest(){
@@ -35,7 +37,7 @@ public class ConnectionUtilTest {
     @Test
     public void LoginTest(){
         //获取JDBCTemplate对象
-        JdbcTemplate temp = new JdbcTemplate(ConnectionUtil.getDataSource());
+        temp = new JdbcTemplate(ConnectionUtil.getDataSource());
         //SQl语句
         String sql = "select t1.*,t2.img_Percorso as img from user t1,headimg t2 where t1.User_Name=? AND t1.User_Pass=? AND t1.User_HeadImg=t2.img_ID";
         //List<User> list = temp.query(sql,new BeanPropertyRowMapper<User>(User.class));
@@ -45,7 +47,7 @@ public class ConnectionUtilTest {
     //用户名判重测试
     @Test
     public void userNameCheck(){
-        JdbcTemplate temp = new JdbcTemplate(ConnectionUtil.getDataSource());
+        temp = new JdbcTemplate(ConnectionUtil.getDataSource());
         //SQL
         String sql = "select count(User_ID) from user where User_Name=?";
         long total = temp.queryForObject(sql,new Object[]{"js"},Long.class);
@@ -83,7 +85,7 @@ public class ConnectionUtilTest {
             System.out.println(blog);
         }*/
         //转换为Json对象
-        String str = JsonUtils.JsonSerializeList(list);
+        String str = gson.toJson(list);
         System.out.println(str);
     }
     //测试邮件发送功能
@@ -102,5 +104,49 @@ public class ConnectionUtilTest {
 //        blog.setBlog_ReleaseDate(UseUtils.getRunTiem());
         Blog_Edit edit = new Blog_Edit();
         System.out.println(edit.getUserName(blog));
+    }
+
+    //测试用户
+    @Test
+    public void GetUser(){
+        String sql ="select Blog_Title,Blog_ContextStr from blog";
+        List<Blog> blog = temp.query(sql,new BeanPropertyRowMapper<>(Blog.class));
+        System.out.println(blog);
+    }
+
+    //排序查询
+    @Test
+    public void Demo01(){
+        String sql = "select Blog_Title from blog ORDER BY Blog_Likes DESC";
+        List<Blog> map = temp.query(sql, new BeanPropertyRowMapper<>(Blog.class));
+        System.out.println(gson.toJson(map));
+        String sql2 = "select User_Name from user order by  User_FansNumber desc";
+        List<User> user = temp.query(sql2, new BeanPropertyRowMapper<>(User.class));
+        System.out.println(user);
+    }
+
+    @Test
+    public void Demo2(){
+        String sql = "SELECT\n" +
+                "\tt1.User_Name as UserName ,\n" +
+                "\tt1.User_FansNumber as FansNumber ,\n" +
+                "\tCOUNT(t1.Blog_Title) as BlogNumber,\n" +
+                "\tCOUNT(t1.Launch_ID) as LaunchNumber,\n" +
+                "\tSUM(t1.Blog_Likes) as LikesNumber\n" +
+                "FROM\n" +
+                "\t(select\n" +
+                "\tDISTINCT\n" +
+                "\tt1.User_Name,\n" +
+                "\tt1.User_FansNumber,\n" +
+                "\tt3.Launch_ID,\n" +
+                "\tt2.*\n" +
+                "FROM\n" +
+                "\t`user` as t1 INNER JOIN blog as t2 INNER JOIN follow as t3\n" +
+                "ON\n" +
+                "\tt1.User_ID=t2.Blog_UserID=t3.Launch_ID\n" +
+                "WHERE\n" +
+                " t1.User_ID = ?) as t1";
+        List<Personal> personal = temp.query(sql,new BeanPropertyRowMapper<>(Personal.class),"1");
+        System.out.println(personal);
     }
 }
