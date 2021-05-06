@@ -139,6 +139,7 @@ close_addBox.click(function(){
  
 // 定义img 路径
 var path = '' ;
+var img = '';
 // 点击按钮
 var upImg_btn = $('#upImg_btn');
 // 获取所有的图像图片
@@ -153,6 +154,7 @@ var upImg_btn = $('#upImg_btn');
         }
         this.className = "borderBox";
 
+        img = $(this.children).attr('src');
         path = {"path":$(this.children).attr('src')};// 获取到的src路径
     };
 };
@@ -172,7 +174,7 @@ upImg_btn.click(function(){
         var data = parseInt(data); // 转换
         if (data == 1) {
             alert('修改成功');
-            head_IMg.attr('src',path);
+            head_IMg.attr('src',img);
         }else { // 0用户不存在
             alert('修改失败');
             return false
