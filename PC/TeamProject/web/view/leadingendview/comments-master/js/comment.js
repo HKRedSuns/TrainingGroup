@@ -11,7 +11,7 @@ $(".btn_send").on('click',function(){
 				'<div class="observer-out">'+
 					'<div class="observer-internal">'+
 						'<div class="one img">'+
-							'<img src="../comments-master/img/timg.jpg">'+
+							'<img src="../comments-master/img/a.png">'+
 						'</div>'+
 						'<div style="margin-left: 8px;">'+
 							'<div class="comment-right">'+

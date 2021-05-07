@@ -65,5 +65,14 @@
         {
             "src":"./view/leadingendview/img/HeadImg/10.jpg"
         }
+    ],
+    "user":[
+        {
+            "title":"土豆丝",
+            "head_img":"./../img/HeadImg/10.jpg",
+            "aut":"jaoden",
+            "com":"200",
+            "like":"1000"
+        }
     ]
 }

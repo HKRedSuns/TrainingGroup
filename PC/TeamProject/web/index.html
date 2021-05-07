@@ -118,7 +118,7 @@
 			var login_a = document.getElementById('login_a');
 			var login_b = document.getElementById('login_b');
 
-			if (getCookie("headImg") != "") {
+			if (imgs != "") {
 
 				login_a.style.display = 'none'
 				var img = document.getElementById('h_img');
@@ -235,7 +235,7 @@
 								<img :src="v.Blog_ImgID" onclick="show_login()">
 							</a>
 							<div class="content">
-								<a class="title" :href="'./view/leadingendview/view/article.html?Blog_id='+v.Blog_ID" target="_blank" onclick="show_login()">
+								<a class="title" :href="'./view/leadingendview/view/article.html?Blog_id='+v.Blog_ID+'&Blog_img='+v.Blog_ImgID" target="_blank" onclick="show_login()">
 									<h4>{{v.Blog_Title}}</h4>
 								</a>
 								<p class="article">
@@ -280,10 +280,6 @@
 									// console.log(00);
 								})
 							}
-
-
-
-
 						},
 						mounted() {
 							this.getAll();
@@ -297,7 +293,7 @@
 						<div class="ad">
 							<div class="ad_box">
 								<span id="close_box" style="text-align: center;">x</span>
-								<a href=""><img src="./view/leadingendview/img/ad.png" alt=""></a>
+								<a TARGET="_blank" href="https://detail.tmall.com/item.htm?id=618056089652&ali_refid=a3_430673_1006:1109741581:N:gLNDfdO7X3X%20a/tEHZ6d0vW0aKt72YD0:95f7773104824197d55707d55c2140a3&ali_trackid=1_95f7773104824197d55707d55c2140a3&spm=a2e0b.20350158.31919782.15&skuId=4792693614342"><img src="./view/leadingendview/img/ad.png" alt=""></a>
 							</div>
 						</div>
 					</div>
@@ -355,35 +351,35 @@
 							<ul class="list-unstyled mb-0" id="aut_bot">
 								<li>
 									<a href="">
-										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<i><img src="./view/leadingendview/img/HeadImg/1.jpg" alt=""></i>
 										<h2>jaoden</h2>
 										<span>作者介绍</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
-										<h2>色坤</h2>
+										<i><img src="./view/leadingendview/img/HeadImg/2.jpg" alt=""></i>
+										<h2></h2>
 										<span>作者介绍</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<i><img src="./view/leadingendview/img/HeadImg/9.jpg" alt=""></i>
 										<h2>阿伟</h2>
 										<span>作者介绍</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<i><img src="./view/leadingendview/img/HeadImg/10.jpg" alt=""></i>
 										<h2>作者</h2>
 										<span>作者介绍</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<i><img src="./view/leadingendview/img/code.jpg" alt=""></i>
+										<i><img src="./view/leadingendview/img/HeadImg/15.jpg" alt=""></i>
 										<h2>作者</h2>
 										<span>作者介绍</span>
 									</a>
@@ -406,7 +402,7 @@
 								url:"/indexBlog?action=userSort",
 								success:function (result) {
 									var html = '';
-									alert("1");			//测试
+									// alert("1");			//测试
 									var jsData = JSON.parse(result);
 									for(var i in jsData){
 										html+=`<li><a href="">

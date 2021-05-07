@@ -169,6 +169,21 @@ h6 {
 	margin-bottom: 20px;
 	word-break: break-word;
 }
+.blog-post .post-content .title_img {
+	display: block;
+	margin: 20px auto;
+	/*border: 1px solid;*/
+	width: 60%;
+	height: 300px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.blog-post .post-content .title_img img{
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 0;
+}
 
 /* 收藏喜欢等功能区 */
 .border-bottom {
@@ -237,7 +252,7 @@ h6 {
 	font-family: "仿宋";
 	font-size: 18px;
 	font-weight: 900;
-	width: 60px;
+	width: 150px;
 	cursor: pointer;
 }
 

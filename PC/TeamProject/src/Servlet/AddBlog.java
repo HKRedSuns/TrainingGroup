@@ -53,8 +53,8 @@ public class AddBlog extends HttpServlet {
             //获取用户名
             String name = edit.getUserName(blog);
             //将图片放入对应地址
-            String Img_url = "E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\"+name+"\\img";
-            //String Img_url = "F:\\github\\project\\PC\\TeamProject\\web\\User\\"+name+"\\img";
+//            String Img_url = "E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\"+name+"\\img";
+            String Img_url = "F:\\github\\project\\PC\\TeamProject\\web\\User\\"+name+"\\img";
             //获取input流
             InputStream in = map.get("file").getInputStream();
 

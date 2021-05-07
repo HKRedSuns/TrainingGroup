@@ -58,13 +58,12 @@ textarea {
 .btn {
 	height: 35px;
 	line-height: 35px;
-	background: #cccccc;
+	background: coral ;
 	color: #fff;
 }
 
 .btn:hover {
-	background: #acacac;
-	color: #0cff00;
+	color: #000;
 }
 
 img {

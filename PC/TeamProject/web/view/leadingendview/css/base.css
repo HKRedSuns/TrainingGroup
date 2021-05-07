@@ -108,6 +108,7 @@ nav .nav_login #login div img{
 	width: 60%;
 	height: 60%;
 	display: block;
+	border-radius: 50px;
 }
 nav .nav_login #login div a{
 	width: 60%;

@@ -8,6 +8,7 @@
 		<script src="./../js/jquery.min.js"></script>
 		<script src="./../js/vue.js"></script>
 		<script src="./../js/axios.js"></script>
+		<script src="./../js/cookies.js"></script>
 		<link href="../bootstrap-4.6.0-dist/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
@@ -96,13 +97,8 @@
 					</script>
 
 					<div class="nav_login">
-						<div id="login">
-							<div>
-								<a href="./view/leadingendview/view/login.html" id="login_a" target="_blank">登录/注册</a>
-							</div>
-						</div>
 						<div class="write">
-							<a href="./view/leadingendview/view/wangEditor.html" target="_blank"><i
+							<a href="./wangEditor.html" target="_blank"><i
 									class="iconfont icon-xietiezi"></i>&nbsp;写文章</a>
 						</div>
 					</div>
@@ -115,33 +111,14 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="blog-post">
-						<h2 class="blog-post-title">标题</h2>
+						<div id="blog_box">
 
-						<!-- 作者相关区 -->
-						<div class="author-out">
-							<div class="author-internal">
-								<a class="head_portrait" href=""><img class="img-border-radius"
-										src="../img/HeadImg/12.jpg"></a>
-								<div style="margin-left: 8px;">
-									<div class="author-about">
-										<span class="author">
-											<a class="inherit" href="">作者</a>
-										</span>
-										<button data-locale="zh-CN" class="attention"
-											type="button"><span>关注</span></button>
-									</div>
-									<div class="post-about">
-										<span><i
-												class="iconfont icon-riqishijian"></i>&nbsp;2021.5.1&nbsp;22:28:00</span>
-										<span><i class="iconfont icon-guanzhu1"></i>&nbsp;7</span>
-										<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-									</div>
-								</div>
-							</div>
 						</div>
-
-						<div class="post-content" id="art_content">
-
+						<div class="post-content" >
+							<div class="title_img" id="title_ImgBox"><a href="javascript:;"><img id="title_Img" src="" alt=""></a></div>
+							<div class="context" id="art_context">
+<!--								文章存放点-->
+							</div>
 						</div>
 
 						<!-- 收藏喜欢等功能区 -->
@@ -164,8 +141,8 @@
 					<!-- 评论区 -->
 					<section class="tent_info">
 						<div class="textarea one">
-							<textarea class="text_send" id="text_send"></textarea>
-							<div class="col-md-12 col-sm-12 col-xl-12 btn btn_send">提交</div>
+							<textarea class="text_send" maxlength="100" id="text_send"></textarea>
+							<div class="col-md-12 col-sm-12 col-xl-12 btn btn_send" style="background-color:coral;">提交</div>
 						</div>
 					</section>
 
@@ -173,43 +150,15 @@
 
 				<aside class="col-md-4 blog-sidebar">
 					<div class="p-4 bg-gray rounded">
-						<div class="author-out">
-							<div class="author-internal">
-								<a class="head_portrait" href=""><img class="img-border-radius"
-										src="../img/HeadImg/12.jpg"></a>
-								<div style="margin-left: 8px;">
-									<div class="author-about">
-										<span class="author">
-											<a class="inherit" href="">作者</a>
-										</span>
-										<button data-locale="zh-CN" class="attention bg-color"
-											type="button"><span>关注</span></button>
-									</div>
-									<div class="post-about">
-										<span><i class="iconfont icon-guanzhu1"></i>&nbsp;7</span>
-										<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-									</div>
-								</div>
-							</div>
-						</div>
+						<div id="blog_html"></div>
 						<div class="bd-bottom"></div>
 						<div class="team">
 							<ul class="list-unstyled mb-0">
-								<li>
-									<h6>标题</h6>
-									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
-									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-								</li>
-								<li>
-									<h6>标题</h6>
-									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
-									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-								</li>
-								<li>
-									<h6>标题</h6>
-									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
-									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-								</li>
+<!--								<li>-->
+<!--									<h6>标题</h6>-->
+<!--									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>-->
+<!--									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>-->
+<!--								</li>-->
 							</ul>
 						</div>
 					</div>
@@ -217,22 +166,14 @@
 					<div class="p-4 bg-gray rounded mt-4">
 						<div class="team">
 							<span class="segmentation"><h5>推荐阅读</h5></span>
-							<ul class="list-unstyled mb-0">
+							<ul class="list-unstyled mb-0" id="blog_con_tilte">
+
 								<li>
-									<h6>标题</h6>
+									<h6>牛奶泡巧克力</h6>
 									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
 									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
 								</li>
-								<li>
-									<h6>标题</h6>
-									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
-									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-								</li>
-								<li>
-									<h6>标题</h6>
-									<span><i class="iconfont icon-xihuan"></i>&nbsp;7</span>
-									<span><i class="iconfont icon-pinglun"></i>&nbsp;202</span>
-								</li>
+
 							</ul>
 						</div>
 					</div>
