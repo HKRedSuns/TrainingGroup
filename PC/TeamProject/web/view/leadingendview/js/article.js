@@ -5,36 +5,41 @@ $(function () {
     var art_context = $('#art_context');
     var cont_ID = getUrl("Blog_id");
     var cont_Img = getUrl("Blog_img");
-
+    var BlogID = {"cont_ID":cont_ID};
 
     // 获取作者信息
     $.ajax({
-        url:"http://localhost:3000/user",
+        url:"/Browse_Blog?action=user",
         async:false,
         dataType: 'json',  // 自己改值
         jsonp:'callback',
-        data:cont_ID,
+        data:BlogID,
         success:function (result) {
             var html = '';
             var html_two = '';
             for(var i in result){
-                html+=`<h2 class="blog-post-title" id="blog_title">${result[i].title}</h2>
+                //文章标题
+                //角色头像
+                //作者名称
+                //评论数量
+                //点赞数量
+                html+=`<h2 class="blog-post-title" id="blog_title">${result[i].Title}</h2>
 							<!-- 作者相关区 -->
 							<div class="author-out">
 								<div class="author-internal">
-									<a class="head_portrait" href=""><img class="img-border-radius" src="${result[i].head_img}"></a>
+									<a class="head_portrait" href=""><img class="img-border-radius" src="./..${result[i].UserHeadImg}"></a>
 									<div style="margin-left: 8px;">
 										<div class="author-about">
 										<span class="author">
-											<a class="inherit" href="">${result[i].aut}</a>
+											<a class="inherit" href="">${result[i].UserName}</a>
 										</span>
 											<button data-locale="zh-CN" class="attention"
 													type="button"><span>关注</span></button>
 										</div>
 										<div class="post-about">
 											<span><i class="iconfont icon-riqishijian"></i>&nbsp;2021.5.1&nbsp;22:28:00</span>
-											<span><i class="iconfont icon-guanzhu1"></i>&nbsp;${result[i].com}</span>
-											<span><i class="iconfont icon-pinglun"></i>&nbsp;${result[i].like}</span>
+											<span><i class="iconfont icon-guanzhu1"></i>&nbsp;${result[i].Comments}</span>
+											<span><i class="iconfont icon-pinglun"></i>&nbsp;${result[i].Likes}</span>
 										</div>
 									</div>
 								</div>
@@ -42,18 +47,18 @@ $(function () {
                 html_two = `<div class="author-out">
 \t\t\t\t\t\t\t<div class="author-internal">
 \t\t\t\t\t\t\t\t<a class="head_portrait" href=""><img class="img-border-radius"
-\t\t\t\t\t\t\t\t\t\tsrc="${result[i].head_img}"></a>
+\t\t\t\t\t\t\t\t\t\tsrc="./..${result[i].UserHeadImg}"></a>
 \t\t\t\t\t\t\t\t<div style="margin-left: 8px;">
 \t\t\t\t\t\t\t\t\t<div class="author-about">
 \t\t\t\t\t\t\t\t\t\t<span class="author">
-\t\t\t\t\t\t\t\t\t\t\t<a class="inherit" href="">${result[i].aut}</a>
+\t\t\t\t\t\t\t\t\t\t\t<a class="inherit" href="">${result[i].UserName}</a>
 \t\t\t\t\t\t\t\t\t\t</span>
 \t\t\t\t\t\t\t\t\t\t<button data-locale="zh-CN" class="attention bg-color"
 \t\t\t\t\t\t\t\t\t\t\ttype="button"><span>关注</span></button>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class="post-about">
-\t\t\t\t\t\t\t\t\t\t<span><i class="iconfont icon-guanzhu1"></i>&nbsp;${result[i].com}</span>
-\t\t\t\t\t\t\t\t\t\t<span><i class="iconfont icon-pinglun"></i>&nbsp;${result[i].like}</span>
+\t\t\t\t\t\t\t\t\t\t<span><i class="iconfont icon-guanzhu1"></i>&nbsp;${result[i].Comments}</span>
+\t\t\t\t\t\t\t\t\t\t<span><i class="iconfont icon-pinglun"></i>&nbsp;${result[i].Likes}</span>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
@@ -91,12 +96,14 @@ $(function () {
     }
     // 获取文章信息
     if (imgs != '' && ids != '') {
+        //请求带有标签对象的文章内容
         $.ajax({
-            url:"",
+            url:"/Browse_Blog?action=BlogStr",
             async:false,
-            data:cont_ID,
+            data:BlogID,
             success:function (result) {
-                // art_context.html(result);
+                console.log(result);
+                art_context.html(result);
             }
         });
     }

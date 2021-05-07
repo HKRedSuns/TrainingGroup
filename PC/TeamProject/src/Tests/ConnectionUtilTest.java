@@ -174,4 +174,27 @@ public class ConnectionUtilTest {
         List<Map<String, Object>> maps = temp.queryForList(sql);
         System.out.println(maps);
     }
+    @Test
+    public void Demo06(){
+        String sql ="SELECT\n" +
+                "\tblog.Blog_Title as Title,\n" +
+                "\tblog.Blog_Likes as Likes,\n" +
+                "\tblog.Blog_Comment as Comments,\n" +
+                "\t(select User_Name from `user` where blog.Blog_UserID=User_ID) as UserName,\n" +
+                "\t(select img_Percorso FROM headimg where img_ID=(select `user`.User_HeadImg FROM `user` where `user`.User_ID=blog.Blog_UserID)) as UserHeadImg\n" +
+                "FROM\n" +
+                "\tblog\n" +
+                "WHERE\n" +
+                "\tblog.Blog_ID = '3'";
+        List<Map<String, Object>> maps = temp.queryForList(sql);
+        System.out.println(maps);
+    }
+    @Test
+    public void Demo07(){
+        String sql="SELECT Blog_Content as BlogStr FROM blog WHERE Blog_ID=?";
+        List<Map<String, Object>> maps = temp.queryForList(sql,"1");
+        Map<String, Object> map = maps.get(0);
+        String blogStr = map.get("BlogStr").toString();
+        System.out.println(blogStr);
+    }
 }
