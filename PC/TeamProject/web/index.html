@@ -231,11 +231,11 @@
 
 					<ul class="note-list" v-for="(v,k) in todoData">
 						<li class="have-img">
-							<a class="wrap-img" href="" v-show='v.Blog_ImgID.length>0'>
+							<a class="wrap-img" href="" v-show='v.Blog_ImgID.length>1'>
 								<img :src="v.Blog_ImgID" onclick="show_login()">
 							</a>
 							<div class="content">
-								<a class="title" :href="'./view/leadingendview/view/article.html?Blog_id='+v.Blog_ID+'&Blog_img='+v.Blog_ImgID" target="_blank" onclick="show_login()">
+								<a class="title" :href="'./view/leadingendview/view/article.html?Blog_id='+v.Blog_ID+'&Blog_img='+v.Blog_ImgID"  onclick="show_login()">
 									<h4>{{v.Blog_Title}}</h4>
 								</a>
 								<p class="article">
@@ -264,7 +264,7 @@
 
 							getAll() {
 								var that = this;
-								axios.get('/indexBlog?action=blog').then((backData) => {
+								axios.get('/Project/indexBlog?action=blog').then((backData) => {
 									// console.log(backData.data)
 									// 之前使用 . 就可以拿到值
 									// 现在可以使用 解构的方法拿到值
@@ -330,7 +330,7 @@
 							r++;
 							var blog_r = {"blog_r":r}
 							$.ajax({
-								url:"/indexBlog?action=blogSort",
+								url:"/Project/indexBlog?action=blogSort",
 								data:blog_r,
 								success:function (result) {
 									var jsData = JSON.parse(result);
@@ -406,7 +406,7 @@
 							u++;
 							var blog_u = {"blog_u":u}
 							$.ajax({
-								url:"/indexBlog?action=userSort",
+								url:"/Project/indexBlog?action=userSort",
 								data:blog_u,
 								success:function (result) {
 									var html = '';

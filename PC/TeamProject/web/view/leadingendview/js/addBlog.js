@@ -90,7 +90,7 @@ $(function () {
 			return false
 		}
 		if(art_html.length<20 && art_html !=undefined && art_html != '<p><br></p>'){
-			alert('文章字数应大于20')
+			alert('文章字数应大于20');
 			isAddBlog = 0;
 		}
 		if(isAddBlog == 0){
@@ -99,7 +99,11 @@ $(function () {
 		
        
 		var formData = new FormData();
-		formData.append('file', $('#inp_file')[0].files[0]); // 图片
+		if(($('#inp_file')[0].files[0])==undefined){
+			formData.append('file', "1"); // 图片
+		}else{
+			formData.append('file', $('#inp_file')[0].files[0]); // 图片
+		}
 		formData.append('title',titleVal); // 标题
 		formData.append('conStr', conStr); // 100字文章
 		formData.append('context',art_html) ;// 含有html标签的全部文章
@@ -110,7 +114,7 @@ $(function () {
 		// console.log(formData.get('context'))
 		console.log(formData.get('userId'));
 		$.ajax({
-			url:"/addBlog",
+			url:"/Project/addBlog",
             type:"POST",
 			headers:{
 				'cache-control':'no-cache',
@@ -122,7 +126,7 @@ $(function () {
             success:function (result) {
                 if (result == 200){
                     alert("发布成功");
-                    window.location.href= "http://localhost:80/index.html";
+                    //window.location.href= "http://localhost:80/index.html";
                 }
             }
         });

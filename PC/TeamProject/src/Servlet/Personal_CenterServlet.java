@@ -42,7 +42,6 @@ public class Personal_CenterServlet extends HttpServlet {
                 String sex = request.getParameter("sex");
                 String birthday = request.getParameter("birthday");
                 String UserStr = request.getParameter("person_data");
-                //System.out.println(sex+"...."+birthday+"....."+UserStr);    //数据获取成功
                 boolean temp = personnal_center.setUser(sex, birthday, UserStr, map.get("id").toString());
                 if(temp){
                     pw.write("1");
@@ -67,9 +66,6 @@ public class Personal_CenterServlet extends HttpServlet {
                 }else{
                     pw.write("-1");
                 }
-                break;
-            case "User1":
-                pw.write(personnal_center.getUser1(map.get("id").toString()));
                 break;
 
         }

@@ -196,7 +196,7 @@ public class UserLogin extends HttpServlet {
         String userName = request.getParameter("userName");         //用户名
         String passWord = request.getParameter("passWord");         //密码
         String userEmil = request.getParameter("Email");            //邮箱
-        if(UserCon.UserInsert(IP,userName,passWord,userEmil)){
+        if(UserCon.UserInsert(request,IP,userName,passWord,userEmil)){
             //注册成功
             pw.print(1);
         }else{

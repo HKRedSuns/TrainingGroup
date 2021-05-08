@@ -18,8 +18,8 @@ public class Personnal_Center {
     Gson gson = new Gson();
     private JdbcTemplate temp = new JdbcTemplate(ConnectionUtil.getDataSource());
     public String getBlog(String id){
-        String sql ="select Blog_Title,Blog_ContextStr from blog where Blog_UserID=?";
-        List<Blog> blog = temp.query(sql,new BeanPropertyRowMapper<>(Blog.class),id);
+        String sql ="select user_name as Blog_UserID,User_Birthday as Blog_ReleaseDate,User_Str as Blog_Content,Blog_Title,Blog_ContextStr from user,blog where Blog_UserID=? and User_ID=?";
+        List<Blog> blog = temp.query(sql,new BeanPropertyRowMapper<>(Blog.class),id,id);
         return gson.toJson(blog);
     }
     public String getUser(String id){
@@ -62,11 +62,5 @@ public class Personnal_Center {
         String sql = "select img_Percorso as img from headimg,user where User_ID=? and img_ID = User_HeadImg";
         Map<String, Object> map = temp.queryForMap(sql,id);
         return map.get("img");
-    }
-    public String getUser1(String id){
-        String sql = "select User_Name,User_Birthday,User_Str from user where User_ID=?";
-        Map<String, Object> map = temp.queryForMap(sql, id);
-        System.out.println(gson.toJson(map));
-        return gson.toJson(map);
     }
 }

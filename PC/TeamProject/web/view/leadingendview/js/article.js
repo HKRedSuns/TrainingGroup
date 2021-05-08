@@ -9,7 +9,7 @@ $(function () {
 
     // 获取作者信息
     $.ajax({
-        url:"/Browse_Blog?action=user",
+        url:"/Project/Browse_Blog?action=user",
         async:false,
         dataType: 'json',  // 自己改值
         jsonp:'callback',
@@ -89,8 +89,8 @@ $(function () {
     // console.log(getUrl("Blog_img")) //  获取 url 参数值
 
 
-    if(cont_Img != ''){
-        $('#title_Img').attr('src','./../../../'+cont_Img);
+    if(cont_Img != '1'){
+        $('#title_Img').attr('src',cont_Img);
     }else {
         $('#title_ImgBox').css('display','none')
     }
@@ -98,7 +98,7 @@ $(function () {
     if (imgs != '' && ids != '') {
         //请求带有标签对象的文章内容
         $.ajax({
-            url:"/Browse_Blog?action=BlogStr",
+            url:"/Project/Browse_Blog?action=BlogStr",
             async:false,
             data:BlogID,
             success:function (result) {

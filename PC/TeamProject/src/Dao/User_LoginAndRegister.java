@@ -6,8 +6,10 @@ import Utils.UseUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户登录注册的逻辑代码类
@@ -29,15 +31,26 @@ public class User_LoginAndRegister {
     }
 
     //用户注册方法
-    public boolean UserInsert(String IP,String UserName,String Pass,String UserEmail){
-        String sql = "insert into user(User_IP,User_Name,User_Pass,User_Email,User_RegTime,User_Birthday) values(?,?,?,?,?,?)";
+    public boolean UserInsert(HttpServletRequest request,String IP, String UserName, String Pass, String UserEmail){
+        String sql = "insert into user(User_IP,User_Name,User_Pass,User_Email,User_RegTime,User_Birthday,User_Str) values(?,?,?,?,?,?,?)";
         String date = UseUtils.getRunTiem();
-        int count = temp.update(sql,IP,UserName,Pass,UserEmail,date,date);
+        String Str = "大家好，我是"+UserName+"，很高兴和大家认识";
+        int count = temp.update(sql,IP,UserName,Pass,UserEmail,date,date,Str);
         //判断是否注册成功，用户注册成功就给用户新建一个文件夹
         if(count==1){
-            File file = new File("E:\\Project(School)\\计算机实训小组\\ProjectOne\\TrainingGroup\\PC\\TeamProject\\web\\User\\"+UserName);
+            String sql3 = "select User_ID from user where User_Name=?";
+            Map<String, Object> map = temp.queryForMap(sql3, UserName);
+            String userid = map.get("User_ID").toString();
+            File file = new File(request.getServletContext().getRealPath("")+"/User/"+UserName);
             //没有对应的文件夹，就创建
             if(!file.exists())file.mkdir();
+            //给用户添加一篇系统文章
+            String sql1 = "insert into \n" +
+                    "\tblog(Blog_Title,Blog_Content,Blog_UserID,Blog_ReleaseDate,Blog_ContextStr) \n" +
+                    "VALUE \n" +
+                    "\t(?,?,?,?,?)";
+            String content = "欢迎使用食上达人博客，希望你在接下来的使用过程中体验良好，有任何问题请联系管理员";
+            int count1 = temp.update(sql1,"你好新用户！",content,userid,date,content);
         }
         return count==1;
     }

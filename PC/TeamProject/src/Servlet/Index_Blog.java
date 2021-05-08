@@ -20,15 +20,16 @@ public class Index_Blog extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html,charset=utf-8");
-
         //定义输出流对象
         PrintWriter pw = response.getWriter();
         //获取操作对象
         IndexDao index = new IndexDao();
         Cookie[] cookie = request.getCookies();
         Map<String,String > map = new HashMap<>();
-        for (Cookie item : cookie) {
-            map.put(item.getName(),item.getValue());
+        if(cookie!=null) {
+            for (Cookie item : cookie) {
+                map.put(item.getName(), item.getValue());
+            }
         }
         String action = request.getParameter("action");
         switch (action){

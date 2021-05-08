@@ -2,11 +2,14 @@
 # 页面加载获取页面数据
 # 用户信息 文章信息 关注
 */
+var userName = "";
+var userBirthday = "";
+var userStr = "";
 var tpm_user = $("#tpm_user");
 // 使用模板字符串
 $.ajax({
     type: "POST",
-    url: "/personal_Center?action=user",
+    url: "/Project/personal_Center?action=user",
     dataType: 'json',  // 自己改值
     jsonp:'callback',
     async: false,
@@ -16,6 +19,10 @@ $.ajax({
         for(var i in userData){
             // userData[i].Blog_Title // 文章标题
             // userData[i].Blog_ContextStr // 文章
+
+            if(typeof(userData[i].UserName)=="undefined"){
+                userData[i].UserName = userName;
+            }
 
             html+=`
             <h3>${userData[i].UserName}</h3>
@@ -56,13 +63,16 @@ $.ajax({
 
 $.ajax({
     type: "POST",
-    url: "/personal_Center?action=blog",
+    url: "/Project/personal_Center?action=blog",
     dataType: 'json',  // 自己改值
     jsonp:'callback',
     async: false,
     success(userData) {  // 请求成功
         // var jsData = JSON.parse(userData);
         var html = '';
+        userName = userData[0].Blog_UserID;
+        userBirthday = userData[0].Blog_ReleaseDate;
+        userStr = userData[0].Blog_Content;
         for(var i in userData){
              // userData[i].Blog_Title // 文章标题
              // userData[i].Blog_ContextStr // 文章
@@ -89,18 +99,25 @@ $.ajax({
         
     }
 })
-
+$('#userName').val(userName);
+$('#user_bir').val(userBirthday);
+$('#user_str').val(userStr);
 // 修改个人信息
 $('#userBTN').click(function(){
    var data =  $('#UpdataMyForm').serialize();
 
     $.ajax({
         type: "GET",
-        url: "/personal_Center?action=person",
+        url: "/Project/personal_Center?action=person",
         data,
         async: false,
         success(callback) {  // 请求成功
-
+            if(callback=="1"){
+                alert("数据修改成功");
+            }
+        },
+        error(request) {
+            alert("请填写生日信息！")
         }
     })
       
@@ -163,7 +180,7 @@ upImg_btn.click(function(){
    addImgBox.fadeOut(300);
    $.ajax({
     type: "POST",
-    url: "/personal_Center?action=img",
+    url: "/Project/personal_Center?action=img",
     data: path,
     async: false,
     error(request) {
