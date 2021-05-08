@@ -125,11 +125,12 @@
                         <li class="active" id="article"> <span></span>文章</li>
                         <!-- <li id="message"> <span></span>消息</li> -->
                         <li id="attention"> <span></span>关注</li>
-                        <li id="change_info"><span></span>修改信息</li>
+                        <li><span></span><a href="javascript:;" id="change">修改信息</a></li>
                     </ul>
 
                 </div>
                 <script>
+<<<<<<< Updated upstream
                     $('#change_info').click(function () {
                         $.ajax({
                             url:"/personal_Center?action=User1",
@@ -177,6 +178,67 @@
                             }
                         });
                     })
+=======
+                    var change = document.getElementById('change');
+                    change.onclick=function(){
+                        alert(9)
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function(){
+                            if(xhr.readyState == 4){
+                                alert(xhr.responseText);
+                            }
+                        }
+                        xhr.open('get','',false);
+                        // 发送请求
+                        xhr.send();
+
+                        // $.ajax({
+                        //     url:"",
+                        //     data:ids,
+                        //     async:false,
+                        //     success:function (result) {
+                        //         var html = ''
+                        //         for(var i in result){
+                        //             html+=`              <form id="UpdataMyForm">
+                        //             <table>
+                        //                 <tr class="updata_userName">
+                        //                     <td>昵称</td>
+                        //                     <td>${}</td>
+                        //                 </tr>
+                        //                 <tr class="updata_sex">
+                        //                     <td>性别</td>
+                        //                     <td> <input type="radio" name="sex" value="男"> 男 </td>
+                        //                     <td> <input type="radio" name="sex" value="女"> 女 </td>
+                        //                     <td> <label for="sex"></label></td>
+                        //
+                        //                 </tr>
+                        //                 <tr class="updata_bir">
+                        //                     <td>生日</td>
+                        //                     <td><input type="date" name="birthday" id="" value="${}"
+                        //                             style="border-color: wheat; border-radius: 5px;"></td>
+                        //                 </tr>
+                        //
+                        //                 <tr class="updata_pass">
+                        //                     <td>修改密码</td>
+                        //                     <td><a href="./retrieve.html">修改密码</a></td>
+                        //                 </tr>
+                        //                 <tr class="updata_person">
+                        //                     <td class="one">个人简介</td>
+                        //                     <td class="two"><textarea value="${}" name="person_data" id=""
+                        //                             maxlength="120"></textarea></td>
+                        //                 </tr>
+                        //                 <tr class="updataOk">
+                        //                     <td><button type="button" id="userBTN">保存</button></td>
+                        //
+                        //                 </tr>
+                        //             </table>
+                        //         </form>`;
+                        //         }
+                        //         $('#art_form').html(html);
+                        //     }
+                        // });
+                    }
+>>>>>>> Stashed changes
                 </script>
                 <div class="body_cen" id="body_cen_art">
                     <!-- 文章 -->
@@ -292,19 +354,19 @@
 
     </main>
     <!-- 判读是否登录 -->
- <script>
-        var imgs = getCookie("headImg");
-        var ids = getCookie('id');
-        if (imgs != '' && ids != '') {
-            $('#head_IMg').attr('src', "./.." + imgs)
+<!-- <script>-->
+<!--        var imgs = getCookie("headImg");-->
+<!--        var ids = getCookie('id');-->
+<!--        if (imgs != '' && ids != '') {-->
+<!--            $('#head_IMg').attr('src', "./.." + imgs)-->
 
-        }
-        if (imgs == '' || ids == '') {
-            $('body').css('display', 'none')
-            alert('请登录')
-            window.location.href = './login.html';
-        }
-    </script>
+<!--        }-->
+<!--        if (imgs == '' || ids == '') {-->
+<!--            $('body').css('display', 'none')-->
+<!--            alert('请登录')-->
+<!--            window.location.href = './login.html';-->
+<!--        }-->
+<!--    </script>-->
 </body>
 <!-- <script src="./view/leadingendview/js/jquery-3.5.1.slim.min.js"></script> -->
 <script>
