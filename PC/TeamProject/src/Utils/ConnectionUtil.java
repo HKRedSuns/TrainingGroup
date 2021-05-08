@@ -1,8 +1,6 @@
 package Utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-
-import javax.smartcardio.CardChannel;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.Properties;
