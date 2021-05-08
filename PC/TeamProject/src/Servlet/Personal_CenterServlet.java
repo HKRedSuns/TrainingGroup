@@ -68,6 +68,10 @@ public class Personal_CenterServlet extends HttpServlet {
                     pw.write("-1");
                 }
                 break;
+            case "User1":
+                pw.write(personnal_center.getUser1(map.get("id").toString()));
+                break;
+
         }
 
     }

@@ -63,4 +63,10 @@ public class Personnal_Center {
         Map<String, Object> map = temp.queryForMap(sql,id);
         return map.get("img");
     }
+    public String getUser1(String id){
+        String sql = "select User_Name,User_Birthday,User_Str from user where User_ID=?";
+        Map<String, Object> map = temp.queryForMap(sql, id);
+        System.out.println(gson.toJson(map));
+        return gson.toJson(map);
+    }
 }

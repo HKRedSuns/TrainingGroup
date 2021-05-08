@@ -574,6 +574,7 @@ aside .clearpadding {
 	width: 100%;
 	height: 70px;
 	margin-top: 10px;
+	overflow: hidden;
 	float: left;
 	/* border-bottom: 1px solid #c2c2c2; */
 }

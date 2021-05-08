@@ -131,24 +131,9 @@
                 </div>
                 <script>
                     $('#change_info').click(function () {
-                        // 获取cookie值
-                        function getCookie(cname) {
-                            var name = cname + "=";
-                            var ca = document.cookie.split(';');
-                            for (var i = 0; i < ca.length; i++) {
-                                var c = ca[i].trim();
-                                if (c.indexOf(name) === 0)
-                                    return c.substring(name.length, c.length);
-                            }
-                            return "";
-                        }
-
-                        var id = getCookie("ids");
-                        var ids = {"id",id};
-
                         $.ajax({
-                            url:"",
-                            data:ids,
+                            url:"/personal_Center?action=User1",
+                            data:{},
                             async:false,
                             success:function (result) {
                                 var html = ''
