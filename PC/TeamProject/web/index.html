@@ -325,9 +325,13 @@
 					</div>
 					<script>
 						var art_bot = $('#art_bot');
+						var r = 0 ;
 						$('#upText').click(function () {
+							r++;
+							var blog_r = {"blog_r":r}
 							$.ajax({
 								url:"/indexBlog?action=blogSort",
+								data:blog_r,
 								success:function (result) {
 									var jsData = JSON.parse(result);
 									var html = '';
