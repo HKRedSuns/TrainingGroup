@@ -129,6 +129,70 @@
                     </ul>
 
                 </div>
+                <script>
+                    $('#change_info').click(function () {
+                        // 获取cookie值
+                        function getCookie(cname) {
+                            var name = cname + "=";
+                            var ca = document.cookie.split(';');
+                            for (var i = 0; i < ca.length; i++) {
+                                var c = ca[i].trim();
+                                if (c.indexOf(name) === 0)
+                                    return c.substring(name.length, c.length);
+                            }
+                            return "";
+                        }
+
+                        var id = getCookie("ids");
+                        var ids = {"id",id};
+
+                        $.ajax({
+                            url:"",
+                            data:ids,
+                            async:false,
+                            success:function (result) {
+                                var html = ''
+                                for(var i in result){
+                                    html+=`              <form id="UpdataMyForm">
+                                    <table>
+                                        <tr class="updata_userName">
+                                            <td>昵称</td>
+                                            <td>${}</td>
+                                        </tr>
+                                        <tr class="updata_sex">
+                                            <td>性别</td>
+                                            <td> <input type="radio" name="sex" value="男"> 男 </td>
+                                            <td> <input type="radio" name="sex" value="女"> 女 </td>
+                                            <td> <label for="sex"></label></td>
+
+                                        </tr>
+                                        <tr class="updata_bir">
+                                            <td>生日</td>
+                                            <td><input type="date" name="birthday" id="" value="${}"
+                                                    style="border-color: wheat; border-radius: 5px;"></td>
+                                        </tr>
+
+                                        <tr class="updata_pass">
+                                            <td>修改密码</td>
+                                            <td><a href="./retrieve.html">修改密码</a></td>
+                                        </tr>
+                                        <tr class="updata_person">
+                                            <td class="one">个人简介</td>
+                                            <td class="two"><textarea value="${}" name="person_data" id=""
+                                                    maxlength="120"></textarea></td>
+                                        </tr>
+                                        <tr class="updataOk">
+                                            <td><button type="button" id="userBTN">保存</button></td>
+
+                                        </tr>
+                                    </table>
+                                </form>`;
+                                }
+                                $('#art_form').html(html);
+                            }
+                        });
+                    })
+                </script>
                 <div class="body_cen" id="body_cen_art">
                     <!-- 文章 -->
                     <div class="show">
@@ -151,29 +215,7 @@
                                     <li>
                                         <a href="">
                                             <h2>达宝</h2>
-                                            <p>小达人我是你的达宝,有什么事情可以问我,我一定不告诉你奥小达人我是你的达宝,有什么事情可以问我,我一定不告诉你奥小达人我是你的达宝,有什么事情可以问我,我一定不告诉你奥
-                                            </p>
-                                        </a>
-                                        <button type="button">取消关注</button>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <h2>达宝</h2>
-                                            <p>小达人我是你的达宝,有什么事情可以问我,我一定不告诉你奥</p>
-                                        </a>
-                                        <button type="button">取消关注</button>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <h2>达宝</h2>
-                                            <p>小达人我是你的达宝,有什么事情可以问我,我一定不告诉你奥</p>
-                                        </a>
-                                        <button type="button">取消关注</button>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <h2>达宝</h2>
-                                            <p>小达人我是你的达宝,有什么事情可以问我,我一定不告诉你奥</p>
+                                            <p>小达人我是你的达宝呀,如果你有什么问题需要帮助可以问我奥！</p>
                                         </a>
                                         <button type="button">取消关注</button>
                                     </li>
@@ -194,41 +236,8 @@
                     <!-- 修改 -->
                     <div style="display: none;">
                         <div class="change">
-                            <div class="alert_data">
-                                <form id="UpdataMyForm">
-                                    <table>
-                                        <tr class="updata_userName">
-                                            <td>昵称</td>
-                                            <td>jaoden</td>
-                                        </tr>
-                                        <tr class="updata_sex">
-                                            <td>性别</td>
-                                            <td> <input type="radio" name="sex" value="男"> 男 </td>
-                                            <td> <input type="radio" name="sex" value="女"> 女 </td>
-                                            <td> <label for="sex"></label></td>
+                            <div class="alert_data" id="art_form">
 
-                                        </tr>
-                                        <tr class="updata_bir">
-                                            <td>生日</td>
-                                            <td><input type="date" name="birthday" id=""
-                                                    style="border-color: wheat; border-radius: 5px;"></td>
-                                        </tr>
-
-                                        <tr class="updata_pass">
-                                            <td>修改密码</td>
-                                            <td><a href="./retrieve.html">修改密码</a></td>
-                                        </tr>
-                                        <tr class="updata_person">
-                                            <td class="one">个人简介</td>
-                                            <td class="two"><textarea name="person_data" id=""
-                                                    maxlength="120"></textarea></td>
-                                        </tr>
-                                        <tr class="updataOk">
-                                            <td><button type="button" id="userBTN">保存</button></td>
-
-                                        </tr>
-                                    </table>
-                                </form>
 
                             </div>
 
@@ -273,32 +282,14 @@
             </script>
             <aside class="col-md-4 blog-sidebar">
 
-                <!-- 文章推荐
-                <div class="p-4 clearpadding">
-
-                </div>
-
-                <div class="p-4 clearpadding">
-
-
-
-                </div> -->
 
                 <footer class="blog-footer">
                     <div class="team">
-                        <h5>我们的团队</h5>
+                        <h5>我们的美食</h5>
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <h6>方锦涛</h6>
-                                <span>作者介绍</span>
-                            </li>
-                            <li>
-                                <h6>林家伟</h6>
-                                <span>作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍</span>
-                            </li>
-                            <li>
-                                <h6>谢洪江</h6>
-                                <span>作者介绍</span>
+                                <h6>MYteam</h6>
+                                <span>民以食物为天 美食秘籍以食上达人为先，</span>
                             </li>
                         </ul>
                     </div>

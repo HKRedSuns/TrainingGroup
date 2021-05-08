@@ -21,7 +21,7 @@
         <div class="boxTop"><a href="#">登录让你更好的了解我们</a></div>
         <div class="boxBot">
             <form id="myForm">
-                <input type="text" id="userName" name="user" maxlength="20" placeholder="请输入用户名 / 邮箱" autofocus autocomplete="off"
+                <input type="text" id="userName" name="user" maxlength="15" placeholder="请输入用户名 / 邮箱" autofocus autocomplete="off"
                     onkeyup="value=value.replace(/\s/g,'')" />
                 <span></span>
 
@@ -129,7 +129,6 @@
                             // alert(typeof(data));  // string 类型
                             var data = parseInt(data); // 转换
                             if (data == 1) {
-                                alert('登录成功');
                                 window.location.href = "./../../../index.html";
                             }else { // 0用户不存在
                                 alert('登录失败,用户名或密码错误');

@@ -356,36 +356,36 @@
 								<li>
 									<a href="">
 										<i><img src="./view/leadingendview/img/HeadImg/1.jpg" alt=""></i>
-										<h2>jaoden</h2>
-										<span>作者介绍</span>
+										<h2>mark</h2>
+										<span>hello 大家好，我是mark</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
 										<i><img src="./view/leadingendview/img/HeadImg/2.jpg" alt=""></i>
-										<h2></h2>
-										<span>作者介绍</span>
+										<h2>jack</h2>
+										<span>hello 大家好，我是jack</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
 										<i><img src="./view/leadingendview/img/HeadImg/9.jpg" alt=""></i>
-										<h2>阿伟</h2>
-										<span>作者介绍</span>
+										<h2>Jia</h2>
+										<span>hello 大家好，我是Jia</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
 										<i><img src="./view/leadingendview/img/HeadImg/10.jpg" alt=""></i>
-										<h2>作者</h2>
-										<span>作者介绍</span>
+										<h2>crea</h2>
+										<span>hello 大家好，我是crea</span>
 									</a>
 								</li>
 								<li>
 									<a href="">
 										<i><img src="./view/leadingendview/img/HeadImg/15.jpg" alt=""></i>
-										<h2>作者</h2>
-										<span>作者介绍</span>
+										<h2>laike</h2>
+										<span>hello 大家好，我是laike</span>
 									</a>
 								</li>
 
@@ -401,9 +401,13 @@
 					</div>
 					<script>
 						var aut_bot  = $('#aut_bot');
+						var u = 0 ;
 						$('#upaut').click(function () {
+							u++;
+							var blog_u = {"blog_u":u}
 							$.ajax({
 								url:"/indexBlog?action=userSort",
+								data:blog_u,
 								success:function (result) {
 									var html = '';
 									// alert("1");			//测试
@@ -427,19 +431,11 @@
 
 					<footer class="blog-footer">
 						<div class="team">
-							<h5>我们的团队</h5>
+							<h5>我们的美食</h5>
 							<ul class="list-unstyled mb-0">
 								<li>
-									<h6>方锦涛</h6>
-									<span>作者介绍</span>
-								</li>
-								<li>
-									<h6>林家伟</h6>
-									<span>作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍作者介绍</span>
-								</li>
-								<li>
-									<h6>谢洪江</h6>
-									<span>作者介绍</span>
+									<h6>MYteam</h6>
+									<span>民以食物为天 美食秘籍以食上达人为先，</span>
 								</li>
 							</ul>
 						</div>

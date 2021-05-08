@@ -105,7 +105,6 @@
 			   // alert(typeof(data));  // string 类型
 			   var data = parseInt(data); // 转换
 			   if (data == 1) {
-				   alert('登录成功');
 				   window.location.href = "./../../../index.html";
 			   }else { // 0用户不存在
 				   alert('登录失败,用户名或密码错误');
