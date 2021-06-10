@@ -185,8 +185,7 @@ myCode.oninput = myCode.onpropertychange = function () {
 				$('#myForm')[0].reset();
 			},
 			success(data) { //成功
-				alert(data); //就将返回的数据显示出来
-				window.location.href = "/view/leadingendview/view/login.html";
+				window.location.href = "/Project/view/leadingendview/view/login.html";
 			}
 		});
 	})

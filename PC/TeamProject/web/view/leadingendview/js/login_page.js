@@ -105,7 +105,7 @@
 			   // alert(typeof(data));  // string 类型
 			   var data = parseInt(data); // 转换
 			   if (data == 1) {
-				   window.location.href = "http://jaoden.zjma.icu:8082/Project/index.html";
+				   window.location.href = "/Project/index.html";
 			   }else { // 0用户不存在
 				   alert('登录失败,用户名或密码错误');
 				   createCode();
