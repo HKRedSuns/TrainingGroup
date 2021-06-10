@@ -44,29 +44,41 @@
 
 图片
 
+![](ART\Introduce_img\01.png)
+
 功能2：用户登录
 
 图片
+
+![](ART\Introduce_img\02.png)
 
 功能3:忘记密码
 
 图片
 
+![](ART\Introduce_img\03.png)
+
 功能4：预览文章
 
 图片
+
+![](ART\Introduce_img\06.png)
 
 功能5：写文章
 
 图片
 
+![](ART\Introduce_img\04.png)
+
 功能6:浏览文章
 
 图片
 
+![](ART\Introduce_img\05.png)
+
 功能7:个人主页
 
-图片
+图片![](ART\Introduce_img\07.png)
 
 ## 设计思路
 
@@ -119,8 +131,6 @@
 1、注册视图
 
   采用ajax前后交替，后端邮箱验证判断，发送到用户邮箱位置。
-
-  
 
  2、home_site视图
 
